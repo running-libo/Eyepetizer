@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import com.example.mvvmframe.utils.ActivityManager;
 
 /**
  * create by libo
@@ -23,6 +24,8 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         initViewModel();
         initDataBinding();
         init();
+
+        ActivityManager.getInstance().addActivity(this);  //创建Activity入栈管理
     }
 
     protected abstract int getLayoutId();
@@ -41,6 +44,13 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     protected abstract void init();
 
     protected abstract VM getViewModel();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        ActivityManager.getInstance().removeActivity(this);  //销毁Activity移出栈
+    }
 
     @Override
     public void showToast() {
