@@ -4,14 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import com.example.mvvmframe.bean.DataResponse;
+import com.example.mvvmframe.network.ApiCallBack;
 import com.example.mvvmframe.network.ApiManager;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import rx.Subscriber;
+import com.google.gson.Gson;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,20 +20,11 @@ public class MainActivity extends AppCompatActivity {
         ApiManager.getApiService().getData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<DataResponse>() {
+                .subscribe(new ApiCallBack<DataResponse>() {
                     @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i("minfo", "错误");
-                    }
-
-                    @Override
-                    public void onNext(DataResponse dataResponse) {
-                        Log.i("minfo", dataResponse.toString());
+                    public void onSuccess(DataResponse dataResponse) {
+                        String json = new Gson().toJson(dataResponse.getItemList());
+                        Log.i("minfo", json);
                     }
                 });
 

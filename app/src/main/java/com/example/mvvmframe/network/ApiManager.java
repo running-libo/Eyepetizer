@@ -11,6 +11,8 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.mvvmframe.network.Api.SERVER_ADDRESS;
+
 /**
  * create by libo
  * create on 2018/11/13
@@ -51,7 +53,7 @@ public class ApiManager {
 
     private void initRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ApiService.SERVER_ADDRESS)
+                .baseUrl(SERVER_ADDRESS)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(mOkHttpClient)
