@@ -1,9 +1,9 @@
 package com.example.mvvmframe.base;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
 /**
  * create by libo
@@ -11,6 +11,10 @@ import androidx.lifecycle.AndroidViewModel;
  * description viewModel基类
  */
 public class BaseViewModel extends AndroidViewModel {
+    /** 请求成功通知 */
+    protected MutableLiveData<Boolean> loadSuccess = new MutableLiveData<>();
+    /** 请求失败通知 */
+    protected MutableLiveData<Boolean> loadFail = new MutableLiveData<>();
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
