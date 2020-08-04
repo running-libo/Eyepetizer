@@ -1,13 +1,12 @@
 package com.example.mvvmframe.base;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.mvvmframe.BR;
-import com.example.mvvmframe.utils.ActivityManager;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -16,23 +15,18 @@ import java.lang.reflect.Type;
  * create on 2020/8/4
  * description
  */
-public abstract class BaseMvvmActivity<V extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity implements IBaseView {
+public abstract class BaseMvvmFragment<V extends ViewDataBinding, VM extends BaseViewModel> extends BaseLazyloadFragment implements IBaseView {
 
     protected VM viewModel;
     protected V binding;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initDataBinding();
         initViewModel();
-        init();
-
-        ActivityManager.getInstance().addActivity(this);  //创建Activity入栈管理
+        initDataBinding();
     }
-
-    protected abstract int getLayoutId();
 
     private void initViewModel() {
         viewModel = (VM) getViewModel();
@@ -41,10 +35,8 @@ public abstract class BaseMvvmActivity<V extends ViewDataBinding, VM extends Bas
     }
 
     private void initDataBinding() {
-        binding = DataBindingUtil.setContentView(this, getLayoutId());
+        binding = DataBindingUtil.setContentView(getActivity(), getLayoutId());
     }
-
-    protected abstract void init();
 
     protected BaseViewModel getViewModel() {
         return ViewModelProviders.of(this).get(getGenericType());
@@ -67,13 +59,6 @@ public abstract class BaseMvvmActivity<V extends ViewDataBinding, VM extends Bas
         }
 
         return entitiClass;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        ActivityManager.getInstance().removeActivity(this);  //销毁Activity移出栈
     }
 
     @Override

@@ -20,4 +20,11 @@ public class BaseViewModel extends AndroidViewModel {
         super(application);
     }
 
+    public MutableLiveData<Boolean> getLoadSuccess() {
+        return loadSuccess;
+    }
+
+    public MutableLiveData<Boolean> getLoadFail() {
+        return loadFail;
+    }
 }

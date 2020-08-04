@@ -20,5 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@mipmap/pic"
             android:scaleType="centerCrop"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             app:itemBinding="@{viewModel.itemBinding}"
             app:items="@{viewModel.items}"
+            app:spanCount="2"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.example.mvvmframe.home.view;
 
 import androidx.lifecycle.Observer;
-
 import com.example.mvvmframe.R;
 import com.example.mvvmframe.base.BaseMvvmActivity;
 import com.example.mvvmframe.databinding.ActivityMainBinding;
@@ -17,9 +16,9 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, HomeView
     @Override
     protected void init() {
         viewModel.loadData();
-        viewModel.getSuccess().observe(this, new Observer<String>() {
+        viewModel.getLoadSuccess().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(String s) {
+            public void onChanged(Boolean aBoolean) {
 
             }
         });

@@ -1,19 +1,15 @@
 package com.example.mvvmframe.home.view.viewmodel;
 
 import android.app.Application;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
-import androidx.lifecycle.MutableLiveData;
 import com.example.mvvmframe.BR;
 import com.example.mvvmframe.R;
 import com.example.mvvmframe.base.BaseViewModel;
 import com.example.mvvmframe.bean.DataResponse;
 import com.example.mvvmframe.network.ApiCallBack;
 import com.example.mvvmframe.network.ApiManager;
-import com.google.gson.Gson;
-import java.util.ArrayList;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -24,7 +20,6 @@ import rx.schedulers.Schedulers;
  * description
  */
 public class HomeViewModel extends BaseViewModel {
-    private MutableLiveData<String> success = new MutableLiveData<>();
     public ItemBinding<String> itemBinding = ItemBinding.of(BR.item, R.layout.itemview);
     public ObservableList<String> items = new ObservableArrayList<>();
 
@@ -46,11 +41,10 @@ public class HomeViewModel extends BaseViewModel {
                         for (int i=0;i<dataResponse.getItemList().size();i++) {
                             items.add("");
                         }
+
+                        getLoadSuccess().postValue(true);
                     }
                 });
     }
 
-    public MutableLiveData<String> getSuccess() {
-        return success;
-    }
 }
