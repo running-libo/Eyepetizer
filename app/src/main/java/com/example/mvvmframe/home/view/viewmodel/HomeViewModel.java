@@ -20,8 +20,8 @@ import rx.schedulers.Schedulers;
  * description
  */
 public class HomeViewModel extends BaseViewModel {
-    public ItemBinding<String> itemBinding = ItemBinding.of(BR.item, R.layout.itemview);
-    public ObservableList<String> items = new ObservableArrayList<>();
+    public ItemBinding<DataResponse.ItemListBean> itemBinding = ItemBinding.of(BR.item, R.layout.itemview);
+    public ObservableList<DataResponse.ItemListBean> items = new ObservableArrayList<>();
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
@@ -34,14 +34,8 @@ public class HomeViewModel extends BaseViewModel {
                 .subscribe(new ApiCallBack<DataResponse>() {
                     @Override
                     public void onSuccess(DataResponse dataResponse) {
-//                        String json = new Gson().toJson(dataResponse.getItemList());
-//                        Log.i("minfo", json);
-//                        success.setValue(json);
 
-                        for (int i=0;i<dataResponse.getItemList().size();i++) {
-                            items.add("");
-                        }
-
+                        items.addAll(dataResponse.getItemList());
                         getLoadSuccess().postValue(true);
                     }
                 });

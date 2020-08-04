@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProviders;
-
-import com.example.base.BR;
 import com.example.base.network.utils.ActivityManager;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

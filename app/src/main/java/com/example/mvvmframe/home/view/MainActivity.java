@@ -1,6 +1,8 @@
 package com.example.mvvmframe.home.view;
 
 import androidx.lifecycle.Observer;
+
+import com.example.base.network.utils.ItemDecortionGridLayout;
 import com.example.mvvmframe.BR;
 import com.example.mvvmframe.R;
 import com.example.base.network.base.BaseMvvmActivity;
@@ -23,6 +25,8 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, HomeView
 
             }
         });
+
+        binding.recyclerview.addItemDecoration(new ItemDecortionGridLayout(getApplicationContext(), 14));
     }
 
     @Override
