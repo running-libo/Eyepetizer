@@ -1,6 +1,6 @@
 package com.example.mvvmframe.network;
 
-import com.example.mvvmframe.bean.BaseModel;
+import com.example.mvvmframe.base.BaseModel;
 import com.example.mvvmframe.utils.LogUtils;
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;

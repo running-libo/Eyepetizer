@@ -1,4 +1,4 @@
-package com.example.mvvmframe.bean;
+package com.example.mvvmframe.base;
 
 import com.example.mvvmframe.config.AppConfig;
 import java.io.Serializable;

@@ -1,6 +1,8 @@
 package com.example.mvvmframe.bean;
 
 
+import com.example.mvvmframe.base.BaseModel;
+
 import java.util.List;
 
 /**
