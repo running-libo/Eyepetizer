@@ -1,3 +1,11 @@
-include ':base'
+include ':module-notice'
+include ':module-community'
+include ':module-user'
+include ':module-login'
+include ':module-home'
+include ':module-entrance'
+include ':library-res'
+include ':library-network'
+include ':library-base'
 include ':app'
 rootProject.name = "MvvmFrame"
