@@ -1,4 +1,4 @@
-package com.example.base.network.net
+package com.example.network.interceptor.service
 
 import com.example.base.network.bean.DataResponse
 import retrofit2.http.GET
@@ -10,6 +10,6 @@ import rx.Observable
  * description Retrofit调用接口方法
  */
 interface ApiService {
-    @GET(Api.URL)
+    @GET(com.example.network.interceptor.service.Api.URL)
     fun getData(): Observable<DataResponse>
 }

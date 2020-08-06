@@ -1,4 +1,4 @@
-package com.example.base.network.net
+package com.example.network.interceptor.service
 
 import com.example.base.network.config.AppConfig
 import com.example.base.network.config.DirConfig
@@ -26,8 +26,8 @@ object ApiManager {
                 .readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS) //写入缓存超时10s
                 .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS) //读取缓存超时10s
                 .retryOnConnectionFailure(true) //失败重连
-                .addInterceptor(HeaderInterceptor()) //添加header
-                .addInterceptor(NetCacheInterceptor()) //添加网络缓存
+                .addInterceptor(com.example.network.interceptor.interceptor.HeaderInterceptor()) //添加header
+                .addInterceptor(com.example.network.interceptor.interceptor.NetCacheInterceptor()) //添加网络缓存
         addLogIntercepter(builder) //日志拦截器
         setCacheFile(builder) //网络缓存
         mOkHttpClient = builder.build()
@@ -35,7 +35,7 @@ object ApiManager {
 
     private fun initRetrofit() {
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl(Api.Companion.SERVER_ADDRESS)
+                .baseUrl(com.example.network.interceptor.service.Api.Companion.SERVER_ADDRESS)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(mOkHttpClient)
@@ -61,7 +61,7 @@ object ApiManager {
      */
     private fun addLogIntercepter(builder: OkHttpClient.Builder) {
         if (AppConfig.isDebug) {
-            builder.addInterceptor(LoggingInterceptor())
+            builder.addInterceptor(com.example.network.interceptor.interceptor.LoggingInterceptor())
         }
     }
 

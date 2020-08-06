@@ -1,4 +1,4 @@
-package com.example.mvvmframe.home.view.viewmodel
+package com.example.module_home
 
 import android.app.Application
 import androidx.databinding.ObservableArrayList
@@ -6,10 +6,7 @@ import androidx.databinding.ObservableList
 import com.example.base.network.base.BaseViewModel
 import com.example.base.network.bean.DataResponse
 import com.example.base.network.bean.DataResponse.ItemListBean
-import com.example.base.network.net.ApiCallBack
-import com.example.base.network.net.ApiManager
-import com.example.mvvmframe.BR
-import com.example.mvvmframe.R
+import com.example.network.interceptor.service.ApiManager
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -29,7 +26,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         ApiManager.mApiService.getData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(object : ApiCallBack<DataResponse>() {
+                .subscribe(object : com.example.network.interceptor.service.ApiCallBack<DataResponse>() {
                     override fun onSuccess(dataResponse: DataResponse) {
                         dataResponse.itemList?.let { items.addAll(it) }
                         loadSuccess.postValue(true)

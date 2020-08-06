@@ -1,4 +1,4 @@
-package com.example.base.network.net
+package com.example.network.interceptor.interceptor
 
 import com.example.base.network.bean.UserInfoCache
 import okhttp3.Interceptor

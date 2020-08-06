@@ -1,4 +1,4 @@
-package com.example.base.network.net
+package com.example.network.interceptor.service
 
 import com.example.base.network.base.BaseModel
 import com.example.base.network.utils.LogUtils
