@@ -1,4 +1,4 @@
-package com.example.base.network.base
+package com.example.base.network.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

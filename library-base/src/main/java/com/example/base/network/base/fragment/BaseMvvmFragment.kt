@@ -1,11 +1,11 @@
-package com.example.base.network.base
+package com.example.base.network.base.fragment
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
-import com.example.base.network.utils.ActivityManager
+import com.example.base.network.base.view.IBaseView
+import com.example.base.network.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -13,19 +13,14 @@ import java.lang.reflect.ParameterizedType
  * create on 2020/8/4
  * description
  */
-abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), IBaseView {
+abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment(), IBaseView {
     protected var viewModel: VM? = null
     protected var binding: V? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initDataBinding()
         initViewModel()
-        init()
-        ActivityManager.addActivity(this) //创建Activity入栈管理
+        initDataBinding()
     }
-
-    protected abstract fun getLayoutId(): Int
 
     private fun initViewModel() {
         viewModel = createViewModel()
@@ -34,10 +29,8 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
     }
 
     private fun initDataBinding() {
-        binding = DataBindingUtil.setContentView(this, getLayoutId())
+        binding = DataBindingUtil.setContentView(activity!!, layoutId)
     }
-
-    protected abstract fun init()
 
     protected fun createViewModel(): VM {
         return ViewModelProviders.of(this).get(genericType!!)
@@ -46,7 +39,7 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
     /**
      * 获取参数Variable
      */
-    protected abstract fun getBindingVariable(): Int
+    abstract protected fun getBindingVariable(): Int
 
     /**
      * 获取当前类泛型viewmodel的Class类型
@@ -66,14 +59,7 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
             return entitiClass
         }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        ActivityManager.removeActivity(this) //销毁Activity移出栈
-    }
-
     override fun showToast() {}
-
     override fun showLoading() {}
-
     override fun showEmpty() {}
 }

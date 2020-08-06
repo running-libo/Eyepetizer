@@ -1,9 +1,13 @@
-package com.example.base.network.base
+package com.example.base.network.base.activity
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
+import com.example.base.network.base.view.IBaseView
+import com.example.base.network.base.viewmodel.BaseViewModel
+import com.example.base.network.utils.ActivityManager
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -11,14 +15,19 @@ import java.lang.reflect.ParameterizedType
  * create on 2020/8/4
  * description
  */
-abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment(), IBaseView {
+abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), IBaseView {
     protected var viewModel: VM? = null
     protected var binding: V? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViewModel()
         initDataBinding()
+        initViewModel()
+        init()
+        ActivityManager.addActivity(this) //创建Activity入栈管理
     }
+
+    protected abstract fun getLayoutId(): Int
 
     private fun initViewModel() {
         viewModel = createViewModel()
@@ -27,8 +36,10 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     }
 
     private fun initDataBinding() {
-        binding = DataBindingUtil.setContentView(activity!!, layoutId)
+        binding = DataBindingUtil.setContentView(this, getLayoutId())
     }
+
+    protected abstract fun init()
 
     protected fun createViewModel(): VM {
         return ViewModelProviders.of(this).get(genericType!!)
@@ -37,7 +48,7 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     /**
      * 获取参数Variable
      */
-    abstract protected fun getBindingVariable(): Int
+    protected abstract fun getBindingVariable(): Int
 
     /**
      * 获取当前类泛型viewmodel的Class类型
@@ -57,7 +68,14 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
             return entitiClass
         }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityManager.removeActivity(this) //销毁Activity移出栈
+    }
+
     override fun showToast() {}
+
     override fun showLoading() {}
+
     override fun showEmpty() {}
 }

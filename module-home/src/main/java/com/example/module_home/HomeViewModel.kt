@@ -3,7 +3,7 @@ package com.example.module_home
 import android.app.Application
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
-import com.example.base.network.base.BaseViewModel
+import com.example.base.network.base.viewmodel.BaseViewModel
 import com.example.base.network.bean.DataResponse
 import com.example.base.network.bean.DataResponse.ItemListBean
 import com.example.network.interceptor.service.ApiManager
@@ -17,9 +17,7 @@ import rx.schedulers.Schedulers
  * description
  */
 class HomeViewModel(application: Application) : BaseViewModel(application) {
-    @JvmField
     var itemBinding = ItemBinding.of<ItemListBean>(BR.item, R.layout.itemview)
-    @JvmField
     var items: ObservableList<ItemListBean> = ObservableArrayList()
 
     fun loadData() {

@@ -1,4 +1,4 @@
-package com.example.base.network.base
+package com.example.base.network.base.response
 
 import com.example.base.network.config.AppConfig
 import java.io.Serializable
@@ -8,7 +8,7 @@ import java.io.Serializable
  * create on 2018/11/13
  * description  请求数据实体类基类
  */
-open class BaseModel<T> : Serializable {
+open class BaseResponse<T> : Serializable {
     /** 自定义错误码  */
     var code: String? = null
 
