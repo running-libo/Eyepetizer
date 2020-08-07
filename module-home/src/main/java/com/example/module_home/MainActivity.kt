@@ -5,6 +5,7 @@ import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.module_home.databinding.ActivityMainBinding
 
 class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
+
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
@@ -13,10 +14,5 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
         viewModel!!.loadData()
         viewModel!!.loadSuccess.observe(this, Observer { })
     }
-
-    override fun getBindingVariable(): Int {
-        return BR.viewModel
-    }
-
 
 }

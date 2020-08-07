@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
+import com.example.base.BR
 import com.example.base.network.base.view.IBaseView
 import com.example.base.network.base.viewmodel.BaseViewModel
 import com.example.base.network.utils.ActivityManager
@@ -16,13 +17,14 @@ import java.lang.reflect.ParameterizedType
  * description
  */
 abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), IBaseView {
-    protected var viewModel: VM? = null
-    protected var binding: V? = null
+    lateinit var viewModel: VM
+    lateinit var binding: V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initDataBinding()
         initViewModel()
+        binding.lifecycleOwner = this
         init()
         ActivityManager.addActivity(this) //创建Activity入栈管理
     }
@@ -35,38 +37,39 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
         binding!!.lifecycleOwner = this
     }
 
+    /**
+     * 创建dataBingding
+     */
     private fun initDataBinding() {
         binding = DataBindingUtil.setContentView(this, getLayoutId())
     }
 
     protected abstract fun init()
 
+    /**
+     * 创建viewModel
+     */
     protected fun createViewModel(): VM {
-        return ViewModelProviders.of(this).get(genericType!!)
+        return ViewModelProviders.of(this).get(genericType())
     }
 
     /**
      * 获取参数Variable
      */
-    protected abstract fun getBindingVariable(): Int
+    private fun getBindingVariable() = BR.viewModel
 
     /**
      * 获取当前类泛型viewmodel的Class类型
      * @return
      */
-    private val genericType: Class<VM>?
-        private get() {
-            var entitiClass: Class<VM>? = null
-            val genericSuperclass = javaClass.genericSuperclass
-            if (genericSuperclass is ParameterizedType) {
-                //是否为泛型类型，是就获取泛型对应位置类型
-                val actualTypeArguments = genericSuperclass.actualTypeArguments
-                if (actualTypeArguments != null && actualTypeArguments.size > 0) {
-                    entitiClass = actualTypeArguments[1] as Class<VM>
-                }
-            }
-            return entitiClass
+    fun genericType(): Class<VM> {
+        var entitiClass: Class<VM>? = null
+        val genericSuperclass = javaClass.genericSuperclass
+        if (genericSuperclass is ParameterizedType) {
+            entitiClass = genericSuperclass.actualTypeArguments[1] as Class<VM>
         }
+        return entitiClass!!
+    }
 
     override fun onDestroy() {
         super.onDestroy()
