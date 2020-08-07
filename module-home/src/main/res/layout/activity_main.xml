@@ -18,12 +18,17 @@
             android:id="@+id/containerlayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorAccent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottombar"/>
+            app:layout_constraintBottom_toTopOf="@id/view_home_navigation"/>
 
         <View
-            android:id="@+id/bottombar"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/deepgray_line"
+            app:layout_constraintBottom_toTopOf="@id/view_home_navigation"/>
+
+        <com.example.module_home.widget.HomeNavigationBarView
+            android:id="@+id/view_home_navigation"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -6,4 +6,5 @@
     <color name="white">#fff</color>
     <color name="black">#000</color>
     <color name="color_bg_theme">#1d1e1f</color>
+    <color name="deepgray_line">#adadad</color>
 </resources>
