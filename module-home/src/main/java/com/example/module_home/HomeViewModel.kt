@@ -31,7 +31,10 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                 .subscribeOn(Schedulers.io())
                 .subscribe(object : ApiCallBack<DataResponse>() {
                     override fun onSuccess(dataResponse: DataResponse) {
-                        dataResponse.itemList?.let { items.addAll(it) }
+
+                        dataResponse.itemList?.let {
+                            items.addAll(it)
+                        }
                         baseLiveData.loadSuccess.postValue(1)
                     }
                 })
