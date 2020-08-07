@@ -21,6 +21,12 @@ open abstract class BaseActivity : AppCompatActivity() , IBaseView {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
         init()
     }
 
