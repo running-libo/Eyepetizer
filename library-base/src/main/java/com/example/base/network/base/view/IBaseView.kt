@@ -6,7 +6,11 @@ package com.example.base.network.base.view
  * description 设定页面主要方法
  */
 interface IBaseView {
+    fun init()
+
     fun showToast()
+
     fun showLoading()
+
     fun showEmpty()
 }

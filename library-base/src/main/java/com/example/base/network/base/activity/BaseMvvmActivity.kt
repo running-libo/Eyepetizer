@@ -2,11 +2,9 @@ package com.example.base.network.base.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.base.BR
-import com.example.base.network.base.view.IBaseView
 import com.example.base.network.base.viewmodel.BaseViewModel
 import com.example.base.network.utils.ActivityManager
 import java.lang.reflect.ParameterizedType
@@ -16,7 +14,7 @@ import java.lang.reflect.ParameterizedType
  * create on 2020/8/4
  * description
  */
-abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity(), IBaseView {
+abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
     lateinit var viewModel: VM
     lateinit var binding: V
 
@@ -68,9 +66,4 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
         ActivityManager.removeActivity(this) //销毁Activity移出栈
     }
 
-    override fun showToast() {}
-
-    override fun showLoading() {}
-
-    override fun showEmpty() {}
 }

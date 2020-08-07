@@ -3,8 +3,7 @@
     package="com.example.module_entrance">
 
     <application>
-        <activity android:name=".SplashActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

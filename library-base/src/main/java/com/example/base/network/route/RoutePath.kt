@@ -7,4 +7,12 @@ package com.example.base.network.route
  */
 object RoutePath {
 
+    /**
+     * 首页
+     */
+    object Home {
+        private const val MAIN = "/home"
+
+        const val HOME_ACTIVITY = "${MAIN}/homeActivity"
+    }
 }

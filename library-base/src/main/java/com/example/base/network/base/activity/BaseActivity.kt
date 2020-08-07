@@ -1,9 +1,12 @@
 package com.example.base.network.base.activity
 
+import android.content.pm.ActivityInfo
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.example.base.network.base.view.IBaseView
 import com.gyf.immersionbar.ImmersionBar
 
 /**
@@ -11,7 +14,15 @@ import com.gyf.immersionbar.ImmersionBar
  * create on 2020/8/7
  * description BaseActivity
  */
-open class BaseActivity : AppCompatActivity() {
+open abstract class BaseActivity : AppCompatActivity() , IBaseView {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        //统一设置activity竖屏
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        super.onCreate(savedInstanceState)
+
+        init()
+    }
 
     /**
      * 设置activity全屏
@@ -24,4 +35,12 @@ open class BaseActivity : AppCompatActivity() {
             }
         })
     }
+
+    override fun init() {}
+
+    override fun showToast() {}
+
+    override fun showLoading() {}
+
+    override fun showEmpty() {}
 }
