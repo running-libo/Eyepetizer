@@ -4,10 +4,10 @@ import android.app.Application
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
 import com.example.base.network.base.viewmodel.BaseViewModel
-import com.example.base.network.bean.DataResponse
-import com.example.base.network.bean.DataResponse.ItemListBean
+import com.example.module_home.net.DataResponse
+import com.example.module_home.net.DataResponse.ItemListBean
+import com.example.module_home.net.IHomeService
 import com.example.network.interceptor.service.ApiCallBack
-import com.example.network.interceptor.service.ApiManager
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -22,21 +22,22 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     var items: ObservableList<ItemListBean> = ObservableArrayList()
 
     init {
-        loadData()
+//        loadData()
     }
 
     fun loadData() {
-        ApiManager.mApiService.getData()
+        IHomeService.invoke().getData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(object : ApiCallBack<DataResponse>() {
                     override fun onSuccess(dataResponse: DataResponse) {
 
-                        dataResponse.itemList?.let {
-                            items.addAll(it)
-                        }
-                        baseLiveData.loadSuccess.postValue(1)
+//                        dataResponse.itemList?.let {
+////                            items.addAll(it)
+//                        }
+//                        baseLiveData.loadSuccess.postValue(1)
                     }
                 })
+
     }
 }

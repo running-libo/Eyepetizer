@@ -20,5 +20,6 @@
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
 
 </resources>

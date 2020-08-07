@@ -2,6 +2,7 @@ package com.example.network.interceptor.service
 
 import com.example.base.network.config.AppConfig
 import com.example.base.network.config.DirConfig
+import com.example.network.interceptor.service.Api.Companion.SERVER_ADDRESS
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -16,11 +17,10 @@ import java.util.concurrent.TimeUnit
  * description 单例的Retrofit和Okhttp管理类
  */
 object ApiManager {
-    private var mOkHttpClient: OkHttpClient? = null
-    lateinit var mApiService: ApiService
+
     private val TIMEOUT = 10
 
-    private fun initOkhttp() {
+    private val mOkHttpClient: OkHttpClient by lazy {
         val builder = OkHttpClient.Builder()
                 .connectTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS) //连接超时设置
                 .readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS) //写入缓存超时10s
@@ -30,17 +30,16 @@ object ApiManager {
                 .addInterceptor(com.example.network.interceptor.interceptor.NetCacheInterceptor()) //添加网络缓存
         addLogIntercepter(builder) //日志拦截器
         setCacheFile(builder) //网络缓存
-        mOkHttpClient = builder.build()
+        builder.build()
     }
 
-    private fun initRetrofit() {
-        val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl(com.example.network.interceptor.service.Api.Companion.SERVER_ADDRESS)
+    val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+                .baseUrl(SERVER_ADDRESS)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(mOkHttpClient)
                 .build()
-        mApiService = retrofit.create(ApiService::class.java)
     }
 
     /**
@@ -65,8 +64,4 @@ object ApiManager {
         }
     }
 
-    init {
-        initOkhttp()
-        initRetrofit()
-    }
 }

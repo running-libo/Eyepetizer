@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.base.network.bean.DataResponse.ItemListBean" />
+            type="com.example.module_home.net.DataResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:imageUrl="@{item.data.imageUrl}"
             android:scaleType="centerCrop"/>
 
         <TextView
@@ -33,7 +32,6 @@
             app:layout_constraintTop_toBottomOf="@id/iv_cover"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:text="@{item.data.title}"
             tools:text="如果完全按照父母对你规划发展，你现在的生活会是什么样？"/>
 
         <TextView
@@ -45,7 +43,6 @@
             app:layout_constraintTop_toBottomOf="@id/tv_title"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="6dp"
-            android:text='@{item.data.viewCount + "人浏览"}'
             tools:text="4923人浏览"/>
 
         <TextView
@@ -54,7 +51,6 @@
             android:layout_height="wrap_content"
             android:textSize="11sp"
             tools:text="492人参与"
-            android:text='@{item.data.joinCount + "人参与"}'
             android:layout_marginLeft="12dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="12dp"
