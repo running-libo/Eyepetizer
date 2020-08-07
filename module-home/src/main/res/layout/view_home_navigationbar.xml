@@ -5,94 +5,104 @@
     android:layout_height="@dimen/dp_42"
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingTop="3dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/iv_home"
+        android:id="@+id/ivHome"
         android:layout_width="23dp"
         android:layout_height="23dp"
         android:background="@drawable/selecor_btn_home"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/iv_community"
+        app:layout_constraintRight_toLeftOf="@id/ivCommunity"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="4dp"/>
 
     <TextView
+        android:id="@+id/tvHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/homepage"
         android:textSize="@dimen/font_8sp"
-        app:layout_constraintLeft_toLeftOf="@id/iv_home"
-        app:layout_constraintRight_toRightOf="@id/iv_home"
-        app:layout_constraintTop_toBottomOf="@id/iv_home"
-        android:layout_marginTop="2dp"/>
+        app:layout_constraintLeft_toLeftOf="@id/ivHome"
+        app:layout_constraintRight_toRightOf="@id/ivHome"
+        app:layout_constraintTop_toBottomOf="@id/ivHome"
+        android:layout_marginTop="3dp"
+        android:textColor="@drawable/selector_tv_hometab"/>
 
     <ImageView
-        android:id="@+id/iv_community"
+        android:id="@+id/ivCommunity"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:background="@drawable/selecor_btn_community"
-        app:layout_constraintLeft_toRightOf="@id/iv_home"
-        app:layout_constraintRight_toLeftOf="@id/iv_release"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintLeft_toRightOf="@id/ivHome"
+        app:layout_constraintRight_toLeftOf="@id/ivRelease"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"/>
 
     <TextView
+        android:id="@+id/tvCommunity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/community"
         android:textSize="@dimen/font_8sp"
-        app:layout_constraintLeft_toLeftOf="@id/iv_community"
-        app:layout_constraintRight_toRightOf="@id/iv_community"
-        app:layout_constraintTop_toBottomOf="@id/iv_community"
-        android:layout_marginTop="2dp"/>
+        app:layout_constraintLeft_toLeftOf="@id/ivCommunity"
+        app:layout_constraintRight_toRightOf="@id/ivCommunity"
+        app:layout_constraintTop_toBottomOf="@id/ivCommunity"
+        android:layout_marginTop="3dp"
+        android:textColor="@drawable/selector_tv_hometab"/>
 
     <ImageView
-        android:id="@+id/iv_release"
+        android:id="@+id/ivRelease"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@mipmap/btn_release_normal"
-        app:layout_constraintLeft_toRightOf="@id/iv_community"
-        app:layout_constraintRight_toLeftOf="@id/iv_notification"
+        app:layout_constraintLeft_toRightOf="@id/ivCommunity"
+        app:layout_constraintRight_toLeftOf="@id/ivNotification"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
-        android:id="@+id/iv_notification"
+        android:id="@+id/ivNotification"
         android:layout_width="23dp"
         android:layout_height="23dp"
         android:background="@drawable/selecor_btn_notification"
-        app:layout_constraintLeft_toRightOf="@id/iv_release"
-        app:layout_constraintRight_toLeftOf="@id/iv_mine"
+        app:layout_constraintLeft_toRightOf="@id/ivRelease"
+        app:layout_constraintRight_toLeftOf="@id/ivMine"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="2dp"/>
+        android:layout_marginTop="4dp"/>
 
     <TextView
+        android:id="@+id/tvNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/notification"
         android:textSize="@dimen/font_8sp"
-        app:layout_constraintLeft_toLeftOf="@id/iv_notification"
-        app:layout_constraintRight_toRightOf="@id/iv_notification"
-        app:layout_constraintTop_toBottomOf="@id/iv_notification"
-        android:layout_marginTop="2dp"/>
+        app:layout_constraintLeft_toLeftOf="@id/ivNotification"
+        app:layout_constraintRight_toRightOf="@id/ivNotification"
+        app:layout_constraintTop_toBottomOf="@id/ivNotification"
+        android:layout_marginTop="3dp"
+        android:textColor="@drawable/selector_tv_hometab"/>
 
     <ImageView
-        android:id="@+id/iv_mine"
+        android:id="@+id/ivMine"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:background="@drawable/selecor_btn_mine"
-        app:layout_constraintLeft_toRightOf="@id/iv_notification"
+        app:layout_constraintLeft_toRightOf="@id/ivNotification"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"/>
 
     <TextView
+        android:id="@+id/tvMine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mine"
         android:textSize="@dimen/font_8sp"
-        app:layout_constraintLeft_toLeftOf="@id/iv_mine"
-        app:layout_constraintRight_toRightOf="@id/iv_mine"
-        app:layout_constraintTop_toBottomOf="@id/iv_mine"
-        android:layout_marginTop="2dp"/>
+        app:layout_constraintLeft_toLeftOf="@id/ivMine"
+        app:layout_constraintRight_toRightOf="@id/ivMine"
+        app:layout_constraintTop_toBottomOf="@id/ivMine"
+        android:layout_marginTop="3dp"
+        android:textColor="@drawable/selector_tv_hometab"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

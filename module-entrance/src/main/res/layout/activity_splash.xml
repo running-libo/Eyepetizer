@@ -13,7 +13,7 @@
         tools:context=".SplashActivity">
 
         <ImageView
-            android:id="@+id/iv_splash_bg"
+            android:id="@+id/ivSplashBg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@mipmap/bg_splash"
@@ -35,13 +35,13 @@
             android:textColor="@color/white"
             android:alpha="0.8"
             android:text="@string/splash_recomend_en"
-            app:layout_constraintBottom_toTopOf="@id/tv_recommend"
-            app:layout_constraintLeft_toLeftOf="@id/tv_recommend"
-            app:layout_constraintRight_toRightOf="@id/tv_recommend"
+            app:layout_constraintBottom_toTopOf="@id/tvRecommend"
+            app:layout_constraintLeft_toLeftOf="@id/tvRecommend"
+            app:layout_constraintRight_toRightOf="@id/tvRecommend"
             android:layout_marginBottom="18dp"/>
 
         <TextView
-            android:id="@+id/tv_recommend"
+            android:id="@+id/tvRecommend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/splash_recomend"

@@ -19,16 +19,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/view_home_navigation"/>
+            app:layout_constraintBottom_toTopOf="@id/viewHomeNavigation"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/deepgray_line"
-            app:layout_constraintBottom_toTopOf="@id/view_home_navigation"/>
+            app:layout_constraintBottom_toTopOf="@id/viewHomeNavigation"/>
 
         <com.example.module_home.widget.HomeNavigationBarView
-            android:id="@+id/view_home_navigation"
+            android:id="@+id/viewHomeNavigation"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             app:layout_constraintBottom_toBottomOf="parent"

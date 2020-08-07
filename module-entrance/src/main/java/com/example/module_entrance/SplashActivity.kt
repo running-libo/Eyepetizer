@@ -6,6 +6,7 @@ import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.AnimUtils
 import com.example.module_entrance.databinding.ActivitySplashBinding
+import kotlinx.android.synthetic.main.activity_splash.*
 
 /**
  * create by libo
@@ -30,7 +31,7 @@ class SplashActivity : BaseMvvmActivity<ActivitySplashBinding, SplashViewModel>(
      * 进入主页倒计时
      */
     fun countDown() {
-        handler.postDelayed(Runnable {
+        handler.postDelayed({
             ARouter.getInstance().build(RoutePath.Home.HOME_ACTIVITY).navigation()
             finish()
         }, animDuration)
@@ -40,6 +41,6 @@ class SplashActivity : BaseMvvmActivity<ActivitySplashBinding, SplashViewModel>(
      * 背景图放大动画
      */
     fun scaleAnim() {
-        AnimUtils.startScaleAnim(binding.ivSplashBg, animDuration, 1.0f, 1.08f)
+        AnimUtils.startScaleAnim(ivSplashBg, animDuration, 1.0f, 1.05f)
     }
 }
