@@ -10,8 +10,7 @@ import com.example.module_entrance.databinding.ActivitySplashBinding
  */
 class SplashActivity : BaseMvvmActivity<ActivitySplashBinding, SplashViewModel>() {
 
-    override fun init() {
-
+    init {
+        fullScreen()
     }
-
 }

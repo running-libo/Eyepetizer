@@ -6,7 +6,7 @@ import com.example.module_home.databinding.ActivityMainBinding
 
 class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
 
-    override fun init() {
+    init {
         viewModel.baseLiveData.loadSuccess.observe(this, Observer {
 
         })

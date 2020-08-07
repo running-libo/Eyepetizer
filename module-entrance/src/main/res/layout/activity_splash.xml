@@ -18,5 +18,38 @@
             android:background="@mipmap/bg_splash"
             android:scaleType="centerCrop"/>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_account_login_header"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:alpha="0.6"
+            android:layout_marginTop="220dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:alpha="0.8"
+            android:text="@string/splash_recomend_en"
+            app:layout_constraintBottom_toTopOf="@id/tv_recommend"
+            app:layout_constraintLeft_toLeftOf="@id/tv_recommend"
+            app:layout_constraintRight_toRightOf="@id/tv_recommend"
+            android:layout_marginBottom="18dp"/>
+
+        <TextView
+            android:id="@+id/tv_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_recomend"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:alpha="0.8"
+            android:layout_marginBottom="50dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

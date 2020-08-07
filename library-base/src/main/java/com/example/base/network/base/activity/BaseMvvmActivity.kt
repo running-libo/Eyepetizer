@@ -16,7 +16,7 @@ import java.lang.reflect.ParameterizedType
  * create on 2020/8/4
  * description
  */
-abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), IBaseView {
+abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity(), IBaseView {
     lateinit var viewModel: VM
     lateinit var binding: V
 
@@ -26,7 +26,6 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
         viewModel = createViewModel()
         binding!!.setVariable(getBindingVariable(), viewModel)
         binding.lifecycleOwner = this
-        init()
         ActivityManager.addActivity(this) //创建Activity入栈管理
     }
 
@@ -39,8 +38,6 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
         binding = method.invoke(null, layoutInflater) as V
         setContentView(binding.root)
     }
-
-    protected abstract fun init()
 
     /**
      * 创建viewModel
