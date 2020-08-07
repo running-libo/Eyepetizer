@@ -43,7 +43,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation project(":library-network")
+    implementation project(":module-entrance")
     implementation project(":module-home")
+    implementation project(":module-login")
+    implementation project(":module-user")
 }
 repositories {
     mavenCentral()

@@ -6,13 +6,10 @@ import com.example.module_home.databinding.ActivityMainBinding
 
 class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
 
-    override fun getLayoutId(): Int {
-        return R.layout.activity_main
-    }
-
     override fun init() {
-        viewModel!!.loadData()
-        viewModel!!.loadSuccess.observe(this, Observer { })
+        viewModel.baseLiveData.loadSuccess.observe(this, Observer {
+
+        })
     }
 
 }

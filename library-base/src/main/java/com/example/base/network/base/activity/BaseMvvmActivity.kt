@@ -1,8 +1,8 @@
 package com.example.base.network.base.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.base.BR
@@ -23,25 +23,21 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initDataBinding()
-        initViewModel()
+        viewModel = createViewModel()
+        binding!!.setVariable(getBindingVariable(), viewModel)
         binding.lifecycleOwner = this
         init()
         ActivityManager.addActivity(this) //创建Activity入栈管理
     }
 
-    protected abstract fun getLayoutId(): Int
-
-    private fun initViewModel() {
-        viewModel = createViewModel()
-        binding!!.setVariable(getBindingVariable(), viewModel)
-        binding!!.lifecycleOwner = this
-    }
-
     /**
-     * 创建dataBingding
+     * 创建dataBingding，并自动设置布局
      */
     private fun initDataBinding() {
-        binding = DataBindingUtil.setContentView(this, getLayoutId())
+        var dbClass = genericTypeBinding()
+        var method = dbClass.getMethod("inflate", LayoutInflater::class.java)
+        binding = method.invoke(null, layoutInflater) as V
+        setContentView(binding.root)
     }
 
     protected abstract fun init()
@@ -50,7 +46,7 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
      * 创建viewModel
      */
     protected fun createViewModel(): VM {
-        return ViewModelProviders.of(this).get(genericType())
+        return ViewModelProviders.of(this).get(genericTypeViewModel())
     }
 
     /**
@@ -62,13 +58,12 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCo
      * 获取当前类泛型viewmodel的Class类型
      * @return
      */
-    fun genericType(): Class<VM> {
-        var entitiClass: Class<VM>? = null
-        val genericSuperclass = javaClass.genericSuperclass
-        if (genericSuperclass is ParameterizedType) {
-            entitiClass = genericSuperclass.actualTypeArguments[1] as Class<VM>
-        }
-        return entitiClass!!
+    fun genericTypeViewModel(): Class<VM> {
+        return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
+    }
+
+    fun genericTypeBinding(): Class<V> {
+        return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<V>
     }
 
     override fun onDestroy() {

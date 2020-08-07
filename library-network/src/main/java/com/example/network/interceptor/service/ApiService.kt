@@ -10,6 +10,6 @@ import rx.Observable
  * description Retrofit调用接口方法
  */
 interface ApiService {
-    @GET(com.example.network.interceptor.service.Api.URL)
+    @GET(Api.URL)
     fun getData(): Observable<DataResponse>
 }

@@ -53,14 +53,14 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-viewmodel:2.0.0'
     api 'androidx.lifecycle:lifecycle-livedata:2.0.0'
 
-    //itembinding
+    //Itembinding
     api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:3.2.0'
     api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:3.2.0'
 
-    //glide图片加载
+    //Glide
     api 'com.github.bumptech.glide:glide:4.8.0'
 
-    //kotlin
+    //Kotlin
     api "androidx.core:core-ktx:+"
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -68,6 +68,10 @@ dependencies {
     //ARouter
     api 'com.alibaba:arouter-api:1.2.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.2'
+
+    //Immersionbar  statusbar style
+    api 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
+    api 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta05'
 
 }
 repositories {
