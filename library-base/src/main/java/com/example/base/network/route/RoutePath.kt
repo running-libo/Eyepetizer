@@ -1,5 +1,6 @@
 package com.example.base.network.route
 
+
 /**
  * create by libo
  * create on 2020/8/7
@@ -8,7 +9,7 @@ package com.example.base.network.route
 object RoutePath {
 
     /**
-     * 首页
+     * 首页模块
      */
     object Home {
         private const val MAIN = "/home"
@@ -17,12 +18,37 @@ object RoutePath {
     }
 
     /**
-     * 我的
+     * 社区模块
+     */
+    object Community {
+        private const val MAIN = "/communication"
+
+        const val COMMUNICATION_FRAGMENT = "${MAIN}/communication"
+    }
+
+    /**
+     * 通知模块
+     */
+    object Notification {
+        private const val MAIN = "/notification"
+
+        const val NOTIFICATION_FRAGMENT = "${MAIN}/notificationFragment"
+    }
+
+    /**
+     * 我的模块
      */
     object Mine{
-        private const val MINE = "/mine"
+        private const val MAIN = "/mine"
 
-        const val MINE_FRAGMENT = "${MINE}/mineFragment"
+        const val MINE_FRAGMENT = "${MAIN}/mineFragment"
+    }
+
+    /**
+     * 登录模块
+     */
+    object Login {
+
     }
 
 

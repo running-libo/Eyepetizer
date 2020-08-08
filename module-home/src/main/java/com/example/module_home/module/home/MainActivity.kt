@@ -19,12 +19,17 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
     private val EXIT_TIME = 2000
     /** 上次点击返回键时间  */
     private var lastTime: Long = 0
+
     val homeFragment: HomeFragment by lazy {
         HomeFragment()
+    }
+    val communityFragment by lazy {
+        ARouter.getInstance().build(RoutePath.Community.COMMUNICATION_FRAGMENT).navigation() as Fragment
     }
     val mineFragment by lazy {
         ARouter.getInstance().build(RoutePath.Mine.MINE_FRAGMENT).navigation() as Fragment
     }
+
 
     /**
      * 双击返回退出App
@@ -61,6 +66,12 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                         show(homeFragment)
                     }
                 1 ->
+                    if (!communityFragment!!.isAdded) {
+                        add(R.id.containerlayout, communityFragment)
+                    } else {
+                        show(communityFragment)
+                    }
+                2 ->
                     if (!mineFragment!!.isAdded) {
                         add(R.id.containerlayout, mineFragment)
                     } else {
@@ -74,6 +85,9 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
         transation.run {
             if (homeFragment != null) {
                 transation.hide(homeFragment)
+            }
+            if (communityFragment != null) {
+                transation.hide(communityFragment)
             }
             if (mineFragment != null) {
                 transation.hide(mineFragment)
