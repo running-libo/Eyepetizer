@@ -6,6 +6,7 @@
     <dimen name="font_9sp">9sp</dimen>
     <dimen name="font_10sp">10sp</dimen>
     <dimen name="font_12sp">12sp</dimen>
+    <dimen name="font_13sp">13sp</dimen>
     <dimen name="font_14sp">14sp</dimen>
     <dimen name="font_16sp">16sp</dimen>
     <dimen name="font_18sp">18sp</dimen>
@@ -13,6 +14,7 @@
     <dimen name="font_24sp">24sp</dimen>
 
     <!--        大小通用尺寸        -->
+    <dimen name="dp_0.5">0.5dp</dimen>
     <dimen name="dp_5">5dp</dimen>
     <dimen name="dp_8">8dp</dimen>
     <dimen name="dp_10">10dp</dimen>

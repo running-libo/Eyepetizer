@@ -38,7 +38,7 @@ object RoutePath {
     /**
      * 我的模块
      */
-    object Mine{
+    object Mine {
         private const val MAIN = "/mine"
 
         const val MINE_FRAGMENT = "${MAIN}/mineFragment"
@@ -48,7 +48,9 @@ object RoutePath {
      * 登录模块
      */
     object Login {
+        private const val MAIN = "/login"
 
+        const val LOGIN_ACTIVITY = "${MAIN}/loginActivity"
     }
 
 

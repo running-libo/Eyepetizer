@@ -30,7 +30,7 @@
         <com.example.module_home.widget.HomeNavigationBarView
             android:id="@+id/viewHomeNavigation"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_48"
+            android:layout_height="@dimen/dp_42"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/containerlayout"/>
 

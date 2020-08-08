@@ -8,4 +8,7 @@
     <string name="community">社区</string>
     <string name="notification">通知</string>
     <string name="mine">我的</string>
+    <string name="find">发现</string>
+    <string name="recommend">推荐</string>
+    <string name="daily">日报</string>
 </resources>

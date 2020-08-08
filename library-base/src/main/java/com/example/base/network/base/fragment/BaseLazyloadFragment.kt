@@ -20,7 +20,6 @@ abstract class BaseLazyloadFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = LayoutInflater.from(context).inflate(setLayoutId(), container, false)
         initLoadMoreViews()
-        initView()
         isInitView = true
         isCanLoadData
 
@@ -30,6 +29,7 @@ abstract class BaseLazyloadFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        initView()
         initData()
     }
 

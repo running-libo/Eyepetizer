@@ -20,16 +20,13 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
     /** 上次点击返回键时间  */
     private var lastTime: Long = 0
 
-    val homeFragment: HomeFragment by lazy {
-        HomeFragment()
-    }
-    val communityFragment by lazy {
-        ARouter.getInstance().build(RoutePath.Community.COMMUNICATION_FRAGMENT).navigation() as Fragment
-    }
-    val mineFragment by lazy {
-        ARouter.getInstance().build(RoutePath.Mine.MINE_FRAGMENT).navigation() as Fragment
-    }
+    var homeFragment: HomeFragment? = null
 
+    var communityFragment: Fragment? = null
+
+    var notificationFragment: Fragment? = null
+
+    var mineFragment: Fragment? = null
 
     /**
      * 双击返回退出App
@@ -46,10 +43,11 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
     override fun init() {
         viewHomeNavigation.setSelectListener(object: OnSelectListener {
             override fun onSelected(pos: Int) {
-                ToastUtil.show("当前位置${pos}")
                 switchTab(pos)
             }
         })
+
+        viewHomeNavigation.setDefaultPage()
     }
 
     /**
@@ -59,38 +57,62 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
         supportFragmentManager.beginTransaction().apply {
             hideAllFragments(this)
             when(pos) {
-                0 ->
-                    if (!homeFragment!!.isAdded) {
-                        add(R.id.containerlayout, homeFragment)
+                0 -> {
+                    if (homeFragment == null) {
+                        homeFragment = HomeFragment()
+                        add(R.id.containerlayout, homeFragment!!)
                     } else {
-                        show(homeFragment)
+                        show(homeFragment!!)
                     }
-                1 ->
-                    if (!communityFragment!!.isAdded) {
-                        add(R.id.containerlayout, communityFragment)
+                }
+
+                1 -> {
+//                    if (communityFragment == null) {
+//                        communityFragment = ARouter.getInstance().build(RoutePath.Community.COMMUNICATION_FRAGMENT).navigation() as Fragment
+//                        add(R.id.containerlayout, communityFragment!!)
+//                    } else {
+//                        show(communityFragment!!)
+//                    }
+                }
+
+                2 -> {
+//                    if (notificationFragment == null) {
+//                        notificationFragment = ARouter.getInstance().build(RoutePath.Notification.NOTIFICATION_FRAGMENT).navigation() as Fragment
+//                        add(R.id.containerlayout, notificationFragment!!)
+//                    } else {
+//                        show(notificationFragment!!)
+//                    }
+                }
+
+                3 -> {
+                    if (mineFragment == null) {
+                        mineFragment = ARouter.getInstance().build(RoutePath.Mine.MINE_FRAGMENT).navigation() as Fragment
+                        add(R.id.containerlayout, mineFragment!!)
                     } else {
-                        show(communityFragment)
+                        show(mineFragment!!)
                     }
-                2 ->
-                    if (!mineFragment!!.isAdded) {
-                        add(R.id.containerlayout, mineFragment)
-                    } else {
-                        show(mineFragment)
-                    }
+                }
+
             }
         }.commitAllowingStateLoss()
     }
 
+    /**
+     * 隐藏各个fragment
+     */
     fun hideAllFragments(transation: FragmentTransaction) {
         transation.run {
             if (homeFragment != null) {
-                transation.hide(homeFragment)
+                transation.hide(homeFragment!!)
             }
             if (communityFragment != null) {
-                transation.hide(communityFragment)
+                transation.hide(communityFragment!!)
+            }
+            if (notificationFragment != null) {
+                transation.hide(notificationFragment!!)
             }
             if (mineFragment != null) {
-                transation.hide(mineFragment)
+                transation.hide(mineFragment!!)
             }
         }
     }

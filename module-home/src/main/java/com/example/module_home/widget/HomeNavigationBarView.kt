@@ -58,6 +58,13 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
     }
 
     /**
+     * 设置首页为默认选中
+     */
+    fun setDefaultPage() {
+        ivHome.performClick()
+    }
+
+    /**
      * 设置多个view点击事件
      */
     fun setOnClickListener(vararg v: View?, block: View.() -> Unit) {
