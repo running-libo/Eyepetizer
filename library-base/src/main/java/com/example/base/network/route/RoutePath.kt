@@ -15,4 +15,15 @@ object RoutePath {
 
         const val HOME_ACTIVITY = "${MAIN}/homeActivity"
     }
+
+    /**
+     * 我的
+     */
+    object Mine{
+        private const val MINE = "/mine"
+
+        const val MINE_FRAGMENT = "${MINE}/mineFragment"
+    }
+
+
 }

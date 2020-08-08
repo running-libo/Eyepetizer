@@ -1,13 +1,15 @@
 package com.example.module_home.module.home
 
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.ToastUtil
 import com.example.module_home.R
 import com.example.module_home.databinding.ActivityMainBinding
-import com.example.module_home.module.home.HomeViewModel
 import com.example.module_home.widget.HomeNavigationBarView.OnSelectListener
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,6 +19,12 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
     private val EXIT_TIME = 2000
     /** 上次点击返回键时间  */
     private var lastTime: Long = 0
+    val homeFragment: HomeFragment by lazy {
+        HomeFragment()
+    }
+    val mineFragment by lazy {
+        ARouter.getInstance().build(RoutePath.Mine.MINE_FRAGMENT).navigation() as Fragment
+    }
 
     /**
      * 双击返回退出App
@@ -34,8 +42,43 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
         viewHomeNavigation.setSelectListener(object: OnSelectListener {
             override fun onSelected(pos: Int) {
                 ToastUtil.show("当前位置${pos}")
+                switchTab(pos)
             }
         })
+    }
+
+    /**
+     * 切换fragment
+     */
+    fun switchTab(pos: Int) {
+        supportFragmentManager.beginTransaction().apply {
+            hideAllFragments(this)
+            when(pos) {
+                0 ->
+                    if (!homeFragment!!.isAdded) {
+                        add(R.id.containerlayout, homeFragment)
+                    } else {
+                        show(homeFragment)
+                    }
+                1 ->
+                    if (!mineFragment!!.isAdded) {
+                        add(R.id.containerlayout, mineFragment)
+                    } else {
+                        show(mineFragment)
+                    }
+            }
+        }.commitAllowingStateLoss()
+    }
+
+    fun hideAllFragments(transation: FragmentTransaction) {
+        transation.run {
+            if (homeFragment != null) {
+                transation.hide(homeFragment)
+            }
+            if (mineFragment != null) {
+                transation.hide(mineFragment)
+            }
+        }
     }
 
 }
