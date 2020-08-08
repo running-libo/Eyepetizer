@@ -1,7 +1,9 @@
 package com.example.base.network.base.fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.base.network.base.view.IBaseView
@@ -16,6 +18,7 @@ import java.lang.reflect.ParameterizedType
 abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment(), IBaseView {
     protected var viewModel: VM? = null
     protected var binding: V? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
@@ -28,12 +31,17 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
         binding!!.lifecycleOwner = this
     }
 
+    /**
+     * 创建dataBingding，并自动设置布局
+     */
     private fun initDataBinding() {
-        binding = DataBindingUtil.setContentView(activity!!, layoutId)
+        var dbClass = genericTypeBinding()
+        var method = dbClass.getMethod("inflate", LayoutInflater::class.java)
+        binding = method.invoke(null, layoutInflater) as V
     }
 
     protected fun createViewModel(): VM {
-        return ViewModelProviders.of(this).get(genericType!!)
+        return ViewModelProviders.of(this).get(genericTypeViewModel())
     }
 
     /**
@@ -45,21 +53,18 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
      * 获取当前类泛型viewmodel的Class类型
      * @return
      */
-    private val genericType: Class<VM>?
-        private get() {
-            var entitiClass: Class<VM>? = null
-            val genericSuperclass = javaClass.genericSuperclass
-            if (genericSuperclass is ParameterizedType) {
-                //是否为泛型类型，是就获取泛型对应位置类型
-                val actualTypeArguments = genericSuperclass.actualTypeArguments
-                if (actualTypeArguments != null && actualTypeArguments.size > 0) {
-                    entitiClass = actualTypeArguments[1] as Class<VM>
-                }
-            }
-            return entitiClass
-        }
+    fun genericTypeViewModel(): Class<VM> {
+        return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
+    }
+
+    fun genericTypeBinding(): Class<V> {
+        return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<V>
+    }
 
     override fun showToast() {}
+
     override fun showLoading() {}
+
     override fun showEmpty() {}
+
 }

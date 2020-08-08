@@ -1,4 +1,4 @@
-package com.example.module_home.module
+package com.example.module_home.module.home
 
 import android.app.Application
 import androidx.databinding.ObservableArrayList

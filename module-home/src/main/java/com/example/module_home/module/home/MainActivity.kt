@@ -1,4 +1,4 @@
-package com.example.module_home.module
+package com.example.module_home.module.home
 
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -7,6 +7,9 @@ import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.ToastUtil
 import com.example.module_home.R
 import com.example.module_home.databinding.ActivityMainBinding
+import com.example.module_home.module.home.HomeViewModel
+import com.example.module_home.widget.HomeNavigationBarView.OnSelectListener
+import kotlinx.android.synthetic.main.activity_main.*
 
 @Route(path = RoutePath.Home.HOME_ACTIVITY)
 class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
@@ -25,6 +28,14 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun init() {
+        viewHomeNavigation.setSelectListener(object: OnSelectListener {
+            override fun onSelected(pos: Int) {
+                ToastUtil.show("当前位置${pos}")
+            }
+        })
     }
 
 }
