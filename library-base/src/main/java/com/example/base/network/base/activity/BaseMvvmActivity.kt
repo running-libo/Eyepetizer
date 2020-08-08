@@ -6,7 +6,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.base.BR
 import com.example.base.network.base.viewmodel.BaseViewModel
-import com.example.base.network.utils.ActivityManager
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -24,7 +23,6 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
         viewModel = createViewModel()
         binding!!.setVariable(getBindingVariable(), viewModel)
         binding.lifecycleOwner = this
-        ActivityManager.addActivity(this) //创建Activity入栈管理
     }
 
     /**
@@ -49,6 +47,10 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
      */
     private fun getBindingVariable() = BR.viewModel
 
+    override fun setLayoutId(): Int {
+        return 0
+    }
+
     /**
      * 获取当前类泛型viewmodel的Class类型
      * @return
@@ -59,11 +61,6 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
 
     fun genericTypeBinding(): Class<V> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<V>
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        ActivityManager.removeActivity(this) //销毁Activity移出栈
     }
 
 }

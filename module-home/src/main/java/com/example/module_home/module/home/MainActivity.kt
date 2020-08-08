@@ -50,6 +50,8 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
         viewHomeNavigation.setDefaultPage()
     }
 
+    override fun setLayoutId(): Int = R.layout.activity_main
+
     /**
      * 切换fragment
      */

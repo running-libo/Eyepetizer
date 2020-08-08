@@ -2,10 +2,9 @@ package com.example.base.network.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
+import com.example.base.BR
 import com.example.base.network.base.view.IBaseView
 import com.example.base.network.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
@@ -21,8 +20,8 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViewModel()
         initDataBinding()
+        initViewModel()
     }
 
     private fun initViewModel() {
@@ -47,7 +46,7 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     /**
      * 获取参数Variable
      */
-    abstract protected fun getBindingVariable(): Int
+    protected fun getBindingVariable() = BR.viewModel
 
     /**
      * 获取当前类泛型viewmodel的Class类型

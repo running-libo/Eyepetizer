@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.example.base.R
 import com.example.base.network.base.view.IBaseView
+import com.example.base.network.utils.ActivityManager
 import com.gyf.immersionbar.ImmersionBar
 
 /**
@@ -21,6 +22,10 @@ open abstract class BaseActivity : AppCompatActivity() , IBaseView {
         //统一设置activity竖屏
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
+
+        setContentView(setLayoutId())
+
+        ActivityManager.addActivity(this) //创建Activity入栈管理
     }
 
     override fun onStart() {
@@ -46,6 +51,8 @@ open abstract class BaseActivity : AppCompatActivity() , IBaseView {
         })
     }
 
+    protected abstract fun setLayoutId(): Int
+
     /**
      * 设置系统状态栏颜色
      */
@@ -63,4 +70,9 @@ open abstract class BaseActivity : AppCompatActivity() , IBaseView {
     override fun showLoading() {}
 
     override fun showEmpty() {}
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityManager.removeActivity(this) //销毁Activity移出栈
+    }
 }

@@ -38,6 +38,8 @@ class SplashActivity : BaseMvvmActivity<ActivitySplashBinding, SplashViewModel>(
         }, animDuration)
     }
 
+    override fun setLayoutId(): Int = R.layout.activity_splash
+
     /**
      * 背景图放大动画
      */

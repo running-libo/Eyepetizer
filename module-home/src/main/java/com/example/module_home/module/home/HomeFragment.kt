@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
 class HomeFragment : BaseLazyloadFragment() {
+
     private val titleStr by lazy {
         arrayOf(getString(R.string.find), getString(R.string.recommend), getString(R.string.daily))
     }
