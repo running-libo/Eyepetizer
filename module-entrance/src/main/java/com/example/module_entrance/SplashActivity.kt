@@ -6,6 +6,7 @@ import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.AnimUtils
 import com.example.module_entrance.databinding.ActivitySplashBinding
+import com.gyf.immersionbar.ImmersionBar
 import kotlinx.android.synthetic.main.activity_splash.*
 
 /**
@@ -17,14 +18,14 @@ class SplashActivity : BaseMvvmActivity<ActivitySplashBinding, SplashViewModel>(
     var handler = Handler()
     val animDuration: Long = 2000
 
-    init {
-        fullScreen()
-    }
-
     override fun init() {
         countDown()
 
         scaleAnim()
+    }
+
+    override fun statusBaySetting() {
+        ImmersionBar.with(this).init()  //设置全屏效果
     }
 
     /**

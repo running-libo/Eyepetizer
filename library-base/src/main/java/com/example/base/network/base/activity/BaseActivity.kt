@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.example.base.R
 import com.example.base.network.base.view.IBaseView
 import com.gyf.immersionbar.ImmersionBar
 
@@ -20,27 +21,40 @@ open abstract class BaseActivity : AppCompatActivity() , IBaseView {
         //统一设置activity竖屏
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onStart() {
         super.onStart()
 
         init()
+        statusBaySetting()
     }
 
     /**
-     * 设置activity全屏
+     * activity系统状态栏封装，并设置默认样式
      */
-    fun fullScreen() {
+    open fun statusBaySetting() {
         lifecycle.addObserver(object: LifecycleObserver {
             @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
             fun onCreate() {
-                ImmersionBar.with(this@BaseActivity).init()
+                ImmersionBar.with(this@BaseActivity)
+                        .statusBarColor(statusBarColor())
+                        .statusBarDarkFont(isDarkFont())
+                        .fitsSystemWindows(true)
+                        .init()
             }
         })
     }
+
+    /**
+     * 设置系统状态栏颜色
+     */
+    open fun statusBarColor(): Int = R.color.colorPrimary
+
+    /**
+     * 设置状态栏颜色，默认黑色
+     */
+    open fun isDarkFont(): Boolean = true
 
     override fun init() {}
 
