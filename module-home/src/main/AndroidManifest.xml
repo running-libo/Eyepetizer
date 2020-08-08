@@ -3,7 +3,7 @@
     package="com.example.module_home">
 
     <application>
-        <activity android:name=".MainActivity">
+        <activity android:name=".module.MainActivity">
 
         </activity>
     </application>

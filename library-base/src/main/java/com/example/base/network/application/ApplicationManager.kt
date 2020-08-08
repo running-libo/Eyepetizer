@@ -1,7 +1,7 @@
 package com.example.base.network.application
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description application管理器
  */

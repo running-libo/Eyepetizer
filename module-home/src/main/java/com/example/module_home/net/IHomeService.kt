@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import rx.Observable
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description
  */

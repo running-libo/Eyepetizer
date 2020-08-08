@@ -9,12 +9,13 @@ import com.example.module_home.R
 import kotlinx.android.synthetic.main.view_home_navigationbar.view.*
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description 首页主菜单view
  */
 class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLayout(context, attrs) {
     var view: View = LayoutInflater.from(context).inflate(R.layout.view_home_navigationbar, this, true)
+    var onSelectListener: OnSelectListener? = null
 
     init {
 
@@ -24,18 +25,22 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
             when(this) {
                 ivHome -> {
                     ivHome.isSelected = true
+                    onSelectListener!!.onSelected(0)
                 }
 
                 ivCommunity -> {
                     ivCommunity.isSelected = true
+                    onSelectListener!!.onSelected(1)
                 }
 
                 ivNotification -> {
                     ivNotification.isSelected = true
+                    onSelectListener!!.onSelected(2)
                 }
 
                 ivMine -> {
                     ivMine.isSelected = true
+                    onSelectListener!!.onSelected(3)
                 }
 
             }
@@ -58,5 +63,13 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
     fun setOnClickListener(vararg v: View?, block: View.() -> Unit) {
         val listener = OnClickListener { it.block() }
         v.forEach { it?.setOnClickListener(listener) }
+    }
+
+    interface OnSelectListener {
+        fun onSelected(pos: Int)
+    }
+
+    fun setSelectListener(onSelectListener: OnSelectListener) {
+        this.onSelectListener = onSelectListener
     }
 }

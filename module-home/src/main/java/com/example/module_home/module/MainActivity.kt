@@ -1,9 +1,11 @@
-package com.example.module_home
+package com.example.module_home.module
 
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
+import com.example.base.network.utils.ToastUtil
+import com.example.module_home.R
 import com.example.module_home.databinding.ActivityMainBinding
 
 @Route(path = RoutePath.Home.HOME_ACTIVITY)

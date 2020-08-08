@@ -7,7 +7,7 @@ import android.view.animation.DecelerateInterpolator
 import android.view.animation.TranslateAnimation
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description
  */

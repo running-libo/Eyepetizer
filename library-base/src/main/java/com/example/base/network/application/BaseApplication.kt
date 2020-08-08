@@ -11,9 +11,14 @@ import com.example.base.BuildConfig
  */
 class BaseApplication : Application() {
 
+    companion object {
+        var instance: Application? = null
+    }
+
     override fun onCreate() {
         super.onCreate()
 
+        instance = this
         initARouter()
     }
 

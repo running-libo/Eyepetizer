@@ -3,7 +3,7 @@ package com.example.base.network.base.livedata
 import androidx.lifecycle.MutableLiveData
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description 项目事件通知基类
  */

@@ -10,7 +10,7 @@ import com.example.base.network.base.view.IBaseView
 import com.gyf.immersionbar.ImmersionBar
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description BaseActivity
  */

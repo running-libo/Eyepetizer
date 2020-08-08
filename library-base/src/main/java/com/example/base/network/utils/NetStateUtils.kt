@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 
 /**
- * create by apple
+ * create by libo
  * create on 2020/8/7
  * description
  */

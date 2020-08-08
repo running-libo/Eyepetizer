@@ -1,9 +1,11 @@
-package com.example.module_home
+package com.example.module_home.module
 
 import android.app.Application
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
 import com.example.base.network.base.viewmodel.BaseViewModel
+import com.example.module_home.BR
+import com.example.module_home.R
 import com.example.module_home.net.DataResponse
 import com.example.module_home.net.DataResponse.ItemListBean
 import com.example.module_home.net.IHomeService

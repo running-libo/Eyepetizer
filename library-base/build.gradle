@@ -36,6 +36,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    implementation project (':library-res')
+
     //Rxjava
     api 'io.reactivex:rxjava:1.1.0'
     api 'io.reactivex:rxandroid:1.1.0'
