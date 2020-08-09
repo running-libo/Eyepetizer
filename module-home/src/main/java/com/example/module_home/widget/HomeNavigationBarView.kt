@@ -19,7 +19,7 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
 
     init {
 
-        setOnClickListener(ivHome, ivCommunity, ivNotification, ivMine) {
+        setOnClickListener(ivHome, ivCommunity, ivRelease, ivNotification, ivMine) {
             clearBtnState()
 
             when(this) {
@@ -33,14 +33,19 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
                     onSelectListener!!.onSelected(1)
                 }
 
+                ivRelease -> {
+                    ivRelease.isSelected = true
+                    onSelectListener!!.onSelected(2)
+                }
+
                 ivNotification -> {
                     ivNotification.isSelected = true
-                    onSelectListener!!.onSelected(2)
+                    onSelectListener!!.onSelected(3)
                 }
 
                 ivMine -> {
                     ivMine.isSelected = true
-                    onSelectListener!!.onSelected(3)
+                    onSelectListener!!.onSelected(4)
                 }
 
             }
@@ -53,6 +58,7 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
     private fun clearBtnState() {
         ivHome.isSelected = false
         ivCommunity.isSelected = false
+        ivRelease.isSelected = false
         ivNotification.isSelected = false
         ivMine.isSelected = false
     }

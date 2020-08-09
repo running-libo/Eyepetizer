@@ -7,7 +7,6 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
-import com.example.base.network.utils.ToastUtil
 import com.example.module_home.R
 import com.example.module_home.databinding.ActivityMainBinding
 import com.example.module_home.widget.HomeNavigationBarView.OnSelectListener
@@ -78,6 +77,10 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                 }
 
                 2 -> {
+                    ARouter.getInstance().build(RoutePath.Login.LOGIN_ACTIVITY).navigation()
+                }
+
+                3 -> {
 //                    if (notificationFragment == null) {
 //                        notificationFragment = ARouter.getInstance().build(RoutePath.Notification.NOTIFICATION_FRAGMENT).navigation() as Fragment
 //                        add(R.id.containerlayout, notificationFragment!!)
@@ -86,7 +89,7 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
 //                    }
                 }
 
-                3 -> {
+                4 -> {
                     if (mineFragment == null) {
                         mineFragment = ARouter.getInstance().build(RoutePath.Mine.MINE_FRAGMENT).navigation() as Fragment
                         add(R.id.containerlayout, mineFragment!!)

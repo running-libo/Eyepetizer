@@ -109,42 +109,48 @@
                 android:id="@+id/tvMyFocus"
                 style="@style/style_mine_text"
                 android:text="@string/my_Focus"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tvViewRecord"
                 style="@style/style_mine_text"
                 android:text="@string/view_record"
-                app:layout_constraintTop_toBottomOf="@id/tvMyFocus"/>
+                app:layout_constraintTop_toBottomOf="@id/tvMyFocus"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tvNoticeToggle"
                 style="@style/style_mine_text"
                 android:text="@string/notice_toggle"
-                app:layout_constraintTop_toBottomOf="@id/tvViewRecord"/>
+                app:layout_constraintTop_toBottomOf="@id/tvViewRecord"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tvMyTag"
                 style="@style/style_mine_text"
                 android:text="@string/my_tag"
-                app:layout_constraintTop_toBottomOf="@id/tvNoticeToggle"/>
+                app:layout_constraintTop_toBottomOf="@id/tvNoticeToggle"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tvFeedBack"
                 style="@style/style_mine_text"
                 android:text="@string/feedback"
-                app:layout_constraintTop_toBottomOf="@id/tvMyTag"/>
+                app:layout_constraintTop_toBottomOf="@id/tvMyTag"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tvContribute"
                 style="@style/style_mine_text"
                 android:text="@string/contribute"
-                app:layout_constraintTop_toBottomOf="@id/tvFeedBack"/>
+                app:layout_constraintTop_toBottomOf="@id/tvFeedBack"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tvVersion"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@id/tvContribute"
                 android:text="Version 6.3.5"
