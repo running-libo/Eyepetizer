@@ -26,8 +26,8 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
 
     private fun initViewModel() {
         viewModel = createViewModel()
-        binding.lifecycleOwner = this
         binding.setVariable(getBindingVariable(), viewModel)
+        binding.lifecycleOwner = this
     }
 
     /**
@@ -46,7 +46,7 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     /**
      * 获取参数Variable
      */
-    protected fun getBindingVariable() = BR.viewModel
+    fun getBindingVariable() = BR.viewModel
 
     /**
      * 获取当前类泛型viewmodel的Class类型

@@ -20,9 +20,7 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initDataBinding()
-        viewModel = createViewModel()
-        binding!!.setVariable(getBindingVariable(), viewModel)
-        binding.lifecycleOwner = this
+        initViewModel()
     }
 
     /**
@@ -33,6 +31,12 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
         var method = dbClass.getMethod("inflate", LayoutInflater::class.java)
         binding = method.invoke(null, layoutInflater) as V
         setContentView(binding.root)
+    }
+
+    private fun initViewModel() {
+        viewModel = createViewModel()
+        binding!!.setVariable(getBindingVariable(), viewModel)
+        binding.lifecycleOwner = this
     }
 
     /**
@@ -46,10 +50,6 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
      * 获取参数Variable
      */
     private fun getBindingVariable() = BR.viewModel
-
-    override fun setLayoutId(): Int {
-        return 0
-    }
 
     /**
      * 获取当前类泛型viewmodel的Class类型
