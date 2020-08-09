@@ -19,9 +19,9 @@
             android:background="@mipmap/login_bg"/>
 
         <ImageView
-            android:id="@+id/iv_close"
-            android:layout_width="@dimen/dp_30"
-            android:layout_height="@dimen/dp_30"
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/dp_27"
+            android:layout_height="@dimen/dp_27"
             android:src="@drawable/ic_close_white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,9 +33,10 @@
             android:text="@string/get_psd"
             android:textSize="@dimen/font_13sp"
             android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_close"
-            app:layout_constraintBottom_toBottomOf="@id/iv_close"
+            app:layout_constraintTop_toTopOf="@id/ivClose"
+            app:layout_constraintBottom_toBottomOf="@id/ivClose"
             android:layout_marginRight="@dimen/dp_12"/>
 
         <ImageView
@@ -96,7 +97,7 @@
             android:layout_marginLeft="@dimen/dp_60"
             android:layout_marginRight="@dimen/dp_60"
             android:background="@null"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
             android:hint="@string/input_psd"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
@@ -153,8 +154,48 @@
             app:layout_constraintHorizontal_bias="0.7"
             android:textStyle="bold"
             android:layout_marginTop="@dimen/dp_20"/>
+        
+        <ImageView
+            android:id="@+id/viewWechat"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:background="@drawable/shape_white_circle"
+            android:layout_marginBottom="@dimen/dp_50"
+            android:padding="@dimen/dp_5"
+            android:src="@mipmap/ic_action_share_wechat_grey"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="@id/viewBottomLine"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/viewWebo"/>
+
+        <ImageView
+            android:id="@+id/viewWebo"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:background="@drawable/shape_white_circle"
+            android:layout_marginBottom="@dimen/dp_50"
+            android:padding="@dimen/dp_5"
+            android:src="@mipmap/ic_action_share_weibo_grey"
+            android:layout_marginLeft="@dimen/dp_40"
+            app:layout_constraintBottom_toBottomOf="@id/viewBottomLine"
+            app:layout_constraintLeft_toRightOf="@id/viewWechat"
+            app:layout_constraintRight_toLeftOf="@id/viewQq"/>
+
+        <ImageView
+            android:id="@+id/viewQq"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:background="@drawable/shape_white_circle"
+            android:layout_marginBottom="@dimen/dp_50"
+            android:padding="@dimen/dp_5"
+            android:src="@mipmap/ic_action_share_qq_grey"
+            android:layout_marginLeft="@dimen/dp_40"
+            app:layout_constraintBottom_toBottomOf="@id/viewBottomLine"
+            app:layout_constraintLeft_toRightOf="@id/viewWebo"
+            app:layout_constraintRight_toRightOf="parent"/>
 
         <View
+            android:id="@+id/viewBottomLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0.5"
             android:background="@color/light_white"
