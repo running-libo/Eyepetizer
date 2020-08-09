@@ -10,4 +10,5 @@ import com.example.base.network.base.viewmodel.BaseViewModel
  */
 class LoginViewModel(application: Application) : BaseViewModel(application) {
 
+
 }

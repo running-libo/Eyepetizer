@@ -10,4 +10,7 @@ class LoginActivity : BaseMvvmActivity<ActivityLoginBinding, LoginViewModel>() {
 
     override fun setLayoutId(): Int = R.layout.activity_login
 
+    override fun statusBarColor(): Int = R.color.black
+
+    override fun isDarkFont(): Boolean = false
 }

@@ -20,4 +20,13 @@
     <string name="my_tag">我的徽章</string>
     <string name="feedback">意见反馈</string>
     <string name="contribute">我要投稿</string>
+    <string name="get_psd">找回密码</string>
+    <string name="login_tips">登录后即可关注作者、 \n 发表评论、同步收藏视频和播放记录</string>
+    <string name="input_phone">请输入手机号/邮箱地址</string>
+    <string name="input_psd">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="user_register">用户注册</string>
+    <string name="auth_login">作者登录</string>
+    <string name="login_protocal_tip">登录或注册即同意开眼</string>
+    <string name="user_service_protocal">用户服务协议</string>
 </resources>
