@@ -4,7 +4,11 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.base.network.base.viewmodel.BaseViewModel" />
+            type="com.example.base.network.base.viewmodel.BaseItemViewModel" />
+
+        <variable
+            name="item"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

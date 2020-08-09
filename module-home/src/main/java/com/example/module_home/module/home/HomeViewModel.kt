@@ -3,7 +3,7 @@ package com.example.module_home.module.home
 import android.app.Application
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
-import com.example.base.network.base.viewmodel.BaseViewModel
+import com.example.base.network.base.viewmodel.BaseItemViewModel
 import com.example.module_home.BR
 import com.example.module_home.R
 import com.example.module_home.net.DataResponse
@@ -19,13 +19,7 @@ import rx.schedulers.Schedulers
  * create on 2020/8/4
  * description
  */
-class HomeViewModel(application: Application) : BaseViewModel(application) {
-    var itemBinding = ItemBinding.of<ItemListBean>(BR.item, R.layout.itemview)
-    var items: ObservableList<ItemListBean> = ObservableArrayList()
-
-    init {
-//        loadData()
-    }
+class HomeViewModel(application: Application) : BaseItemViewModel<String>(application) {
 
     fun loadData() {
         IHomeService.invoke().getData()
@@ -40,6 +34,12 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
 //                        baseLiveData.loadSuccess.postValue(1)
                     }
                 })
+
+    }
+
+    override fun getItemLayoutId(): Int = R.layout.itemview
+
+    override fun requestData() {
 
     }
 }

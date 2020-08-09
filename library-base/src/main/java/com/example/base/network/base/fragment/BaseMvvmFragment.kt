@@ -15,8 +15,8 @@ import java.lang.reflect.ParameterizedType
  * description
  */
 abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment(), IBaseView {
-    protected var viewModel: VM? = null
-    protected var binding: V? = null
+    lateinit var viewModel: VM
+    lateinit var binding: V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +26,8 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
 
     private fun initViewModel() {
         viewModel = createViewModel()
-        binding!!.setVariable(getBindingVariable(), viewModel)
-        binding!!.lifecycleOwner = this
+        binding.lifecycleOwner = this
+        binding.setVariable(getBindingVariable(), viewModel)
     }
 
     /**
