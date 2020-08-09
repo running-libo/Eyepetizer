@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="style_mine_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:textSize">@dimen/font_14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

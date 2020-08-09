@@ -5,13 +5,154 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".MineFragment">
 
-    <TextView
+    <ImageView
+        android:id="@+id/ivMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我的"
-        android:textSize="@dimen/font_20sp"
+        android:background="@mipmap/ic_menu_more"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivHeader"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:background="@mipmap/icon_user"/>
+
+    <TextView
+        android:id="@+id/tvNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_16sp"
+        android:text="每天进步一点点"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/ivHeader"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_20"/>
+
+    <TextView
+        android:id="@+id/tvLookHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_12sp"
+        android:text="@string/look_homepage"
+        app:layout_constraintTop_toBottomOf="@id/tvNickname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:drawableRight="@mipmap/goto_icon"
+        android:drawablePadding="-3dp"
+        android:gravity="center_vertical"/>
+
+    <View
+        android:id="@+id/viewShortLine"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="25dp"
+        android:background="@color/lightgray_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLookHomepage"
+        android:layout_marginTop="@dimen/dp_30"/>
+
+    <TextView
+        android:id="@+id/tvCollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/collection"
+        android:drawablePadding="@dimen/dp_5"
+        android:drawableLeft="@drawable/ic_favorite_border_black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/viewShortLine"
+        app:layout_constraintTop_toTopOf="@id/viewShortLine"
+        app:layout_constraintBottom_toBottomOf="@id/viewShortLine"/>
+
+    <TextView
+        android:id="@+id/tvCache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cache"
+        android:drawablePadding="@dimen/dp_5"
+        android:drawableLeft="@drawable/ic_cache_black"
+        app:layout_constraintLeft_toRightOf="@id/viewShortLine"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewShortLine"
+        app:layout_constraintBottom_toBottomOf="@id/viewShortLine"/>
+
+    <View
+        android:id="@+id/viewLongLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/lightgray_line"
+        app:layout_constraintTop_toBottomOf="@id/viewShortLine"
+        android:layout_marginTop="@dimen/dp_16"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/viewLongLine"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/dp_20">
+
+            <TextView
+                android:id="@+id/tvMyFocus"
+                style="@style/style_mine_text"
+                android:text="@string/my_Focus"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvViewRecord"
+                style="@style/style_mine_text"
+                android:text="@string/view_record"
+                app:layout_constraintTop_toBottomOf="@id/tvMyFocus"/>
+
+            <TextView
+                android:id="@+id/tvNoticeToggle"
+                style="@style/style_mine_text"
+                android:text="@string/notice_toggle"
+                app:layout_constraintTop_toBottomOf="@id/tvViewRecord"/>
+
+            <TextView
+                android:id="@+id/tvMyTag"
+                style="@style/style_mine_text"
+                android:text="@string/my_tag"
+                app:layout_constraintTop_toBottomOf="@id/tvNoticeToggle"/>
+
+            <TextView
+                android:id="@+id/tvFeedBack"
+                style="@style/style_mine_text"
+                android:text="@string/feedback"
+                app:layout_constraintTop_toBottomOf="@id/tvMyTag"/>
+
+            <TextView
+                android:id="@+id/tvContribute"
+                style="@style/style_mine_text"
+                android:text="@string/contribute"
+                app:layout_constraintTop_toBottomOf="@id/tvFeedBack"/>
+
+            <TextView
+                android:id="@+id/tvVersion"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tvContribute"
+                android:text="Version 6.3.5"
+                android:textColor="@color/text_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="@dimen/font_12sp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

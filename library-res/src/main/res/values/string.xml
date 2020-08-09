@@ -11,4 +11,13 @@
     <string name="find">发现</string>
     <string name="recommend">推荐</string>
     <string name="daily">日报</string>
+    <string name="look_homepage">查看个人主页</string>
+    <string name="collection">收藏</string>
+    <string name="cache">缓存</string>
+    <string name="my_Focus">我的关注</string>
+    <string name="view_record">观看记录</string>
+    <string name="notice_toggle">通知开关</string>
+    <string name="my_tag">我的徽章</string>
+    <string name="feedback">意见反馈</string>
+    <string name="contribute">我要投稿</string>
 </resources>
