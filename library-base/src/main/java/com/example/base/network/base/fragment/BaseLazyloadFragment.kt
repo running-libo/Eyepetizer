@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.base.network.base.view.IBaseView
 
 /**
  * create by libo
@@ -67,4 +68,10 @@ abstract class BaseLazyloadFragment : Fragment() {
     protected fun loadData() {}
 
     abstract fun getContentView(inflater: LayoutInflater, container: ViewGroup?): View
+
+//    override fun showToast() {}
+//
+//    override fun showLoading() {}
+//
+//    override fun showEmpty() {}
 }

@@ -1,7 +1,6 @@
 package com.example.module_entrance
 
 import android.app.Application
-import com.example.base.network.base.viewmodel.BaseItemViewModel
 import com.example.base.network.base.viewmodel.BaseViewModel
 
 /**

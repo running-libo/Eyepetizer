@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.base.network.base.viewmodel.BaseItemViewModel" />
+            type="com.example.base.network.base.viewmodel.BasePageViewModel" />
 
         <variable
             name="item"

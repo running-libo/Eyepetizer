@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.base.BR
-import com.example.base.network.base.view.IBaseView
 import com.example.base.network.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -16,7 +15,7 @@ import java.lang.reflect.ParameterizedType
  * create on 2020/8/4
  * description
  */
-abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment(), IBaseView {
+abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment() {
     lateinit var viewModel: VM
     lateinit var binding: V
 
@@ -65,11 +64,5 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     fun genericTypeBinding(): Class<V> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<V>
     }
-
-    override fun showToast() {}
-
-    override fun showLoading() {}
-
-    override fun showEmpty() {}
 
 }

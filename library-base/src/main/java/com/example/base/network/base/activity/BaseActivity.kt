@@ -16,7 +16,7 @@ import com.gyf.immersionbar.ImmersionBar
  * create on 2020/8/7
  * description BaseActivity
  */
-open abstract class BaseActivity : AppCompatActivity() , IBaseView {
+open abstract class BaseActivity : AppCompatActivity(), IBaseView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //统一设置activity竖屏
@@ -62,8 +62,6 @@ open abstract class BaseActivity : AppCompatActivity() , IBaseView {
      * 设置状态栏颜色，默认黑色
      */
     open fun isDarkFont(): Boolean = true
-
-    override fun init() {}
 
     override fun showToast() {}
 
