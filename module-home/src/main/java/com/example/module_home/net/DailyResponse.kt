@@ -33,18 +33,22 @@ data class DailyResponse(var itemList: ArrayList<DailyItemBean>) : BaseResponse(
     )
 
     data class Header(
-            var actionUrl: String,
-            var followType: String,
-            var icon: String,
-            var iconType: String,
-            var id: Int,
-            var issuerName: String,
-            var labelList: Any,
-            var showHateVideo: Boolean,
-            var tagId: Int,
-            var tagName: Any,
-            var time: Long,
-            var topShow: Boolean
+            val actionUrl: String,
+            val cover: Any,
+            val description: String,
+            val font: Any,
+            val icon: String,
+            val iconType: String,
+            val id: Int,
+            val label: Any,
+            val labelList: Any,
+            val rightText: Any,
+            val showHateVideo: Boolean,
+            val subTitle: Any,
+            val subTitleFont: Any,
+            val textAlign: String,
+            val time: Long,
+            val title: String
     )
 
     data class DataX(
@@ -65,6 +69,7 @@ data class DailyResponse(var itemList: ArrayList<DailyItemBean>) : BaseResponse(
             var library: String,
             var longitude: Int,
             var owner: Owner,
+            var duration: Int,
             var privateMessageActionUrl: Any,
             var reallyCollected: Boolean,
             var recentOnceReply: RecentOnceReply,
@@ -92,10 +97,10 @@ data class DailyResponse(var itemList: ArrayList<DailyItemBean>) : BaseResponse(
     )
 
     data class Cover(
-            var blurred: Any,
+            var blurred: String,
             var detail: String,
             var feed: String,
-            var homepage: Any,
+            var homepage: String,
             var sharing: Any
     )
 

@@ -11,6 +11,8 @@
         <variable
             name="viewModel"
             type="com.example.module_home.module.home.DailyViewModel" />
+
+        <import type="com.example.base.network.utils.TimeUtils"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +22,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardCover"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -33,20 +35,27 @@
                 android:id="@+id/ivCover"
                 android:layout_width="match_parent"
                 android:layout_height="183dp"
-                android:background="@mipmap/default_cover" />
+                android:scaleType="centerCrop"
+                imgUrl="@{item.data.content.data.cover.feed}"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/daily_label"
-                android:layout_margin="@dimen/dp_16"/>
+                android:layout_margin="@dimen/dp_12"/>
 
             <TextView
                 android:id="@+id/tvDuration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="03:27"
+                tools:text="03:27"
+                android:paddingLeft="@dimen/dp_3"
+                android:paddingRight="@dimen/dp_3"
+                android:paddingTop="@dimen/dp_1"
+                android:paddingBottom="@dimen/dp_1"
+                android:background="@drawable/shape_black_roundsmall"
+                android:text="@{TimeUtils.INSTANCE.duration2Time(item.data.content.data.duration)}"
                 android:textSize="@dimen/font_13sp"
                 android:layout_gravity="right|bottom"
                 android:layout_margin="@dimen/dp_5"/>
@@ -59,11 +68,12 @@
             android:background="@mipmap/icon_user"
             app:layout_constraintTop_toBottomOf="@id/cardCover"
             app:layout_constraintLeft_toLeftOf="parent"
+            imgUrl="@{item.data.content.data.owner.avatar}"
             android:layout_marginTop="@dimen/dp_10" />
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/text_black"
             android:singleLine="true"
@@ -71,21 +81,28 @@
             android:textSize="@dimen/font_14sp"
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginTop="@dimen/dp_1"
-            android:text="日本工作短片[过劳死]"
+            tools:text="日本工作短片[过劳死]日本工作短片[过劳死]日本工作短片[过劳死]"
+            android:text="@{item.data.content.data.description}"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
-            app:layout_constraintTop_toTopOf="@id/ivAvator" />
+            app:layout_constraintTop_toTopOf="@id/ivAvator"
+            app:layout_constraintRight_toLeftOf="@id/ivMoreAction"
+            android:layout_marginRight="@dimen/dp_10"/>
 
         <TextView
             android:id="@+id/tvContent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="NOWNESS现在"
+            tools:text="NOWNESS现在NOWNESS现在NOWNESS现在NOWNESS现在NOWNESS现在"
+            android:text="@{item.data.header.description}"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
             app:layout_constraintBottom_toBottomOf="@id/ivAvator"
             android:textSize="@dimen/font_12sp"
             android:textColor="@color/text_gray"
+            android:singleLine="true"
             android:layout_marginLeft="@dimen/dp_12"
-            android:layout_marginBottom="@dimen/dp_1" />
+            android:layout_marginBottom="@dimen/dp_1"
+            app:layout_constraintRight_toLeftOf="@id/ivMoreAction"
+            android:layout_marginRight="@dimen/dp_10"/>
 
         <ImageView
             android:id="@+id/ivMoreAction"
