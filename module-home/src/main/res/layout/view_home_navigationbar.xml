@@ -28,7 +28,7 @@
         app:layout_constraintRight_toRightOf="@id/ivHome"
         app:layout_constraintTop_toBottomOf="@id/ivHome"
         android:layout_marginTop="2dp"
-        android:textColor="@drawable/selector_tv_hometab"/>
+        android:textColor="@color/selector_tv_hometab"/>
 
     <ImageView
         android:id="@+id/ivCommunity"
@@ -50,7 +50,7 @@
         app:layout_constraintRight_toRightOf="@id/ivCommunity"
         app:layout_constraintTop_toBottomOf="@id/ivCommunity"
         android:layout_marginTop="2dp"
-        android:textColor="@drawable/selector_tv_hometab"/>
+        android:textColor="@color/selector_tv_hometab"/>
 
     <ImageView
         android:id="@+id/ivRelease"
@@ -82,7 +82,7 @@
         app:layout_constraintRight_toRightOf="@id/ivNotification"
         app:layout_constraintTop_toBottomOf="@id/ivNotification"
         android:layout_marginTop="2dp"
-        android:textColor="@drawable/selector_tv_hometab"/>
+        android:textColor="@color/selector_tv_hometab"/>
 
     <ImageView
         android:id="@+id/ivMine"
@@ -104,5 +104,5 @@
         app:layout_constraintRight_toRightOf="@id/ivMine"
         app:layout_constraintTop_toBottomOf="@id/ivMine"
         android:layout_marginTop="2dp"
-        android:textColor="@drawable/selector_tv_hometab"/>
+        android:textColor="@color/selector_tv_hometab"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,8 +45,10 @@ dependencies {
     implementation project(":library-network")
     implementation project(":module-entrance")
     implementation project(":module-home")
-    implementation project(":module-login")
+    implementation project(":module-community")
+    implementation project(":module-notice")
     implementation project(":module-user")
+    implementation project(":module-login")
 }
 repositories {
     mavenCentral()

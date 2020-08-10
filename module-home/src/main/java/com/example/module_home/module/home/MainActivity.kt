@@ -68,12 +68,12 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                 }
 
                 1 -> {
-//                    if (communityFragment == null) {
-//                        communityFragment = ARouter.getInstance().build(RoutePath.Community.COMMUNICATION_FRAGMENT).navigation() as Fragment
-//                        add(R.id.containerlayout, communityFragment!!)
-//                    } else {
-//                        show(communityFragment!!)
-//                    }
+                    if (communityFragment == null) {
+                        communityFragment = ARouter.getInstance().build(RoutePath.Community.COMMUNICATION_FRAGMENT).navigation() as Fragment
+                        add(R.id.containerlayout, communityFragment!!)
+                    } else {
+                        show(communityFragment!!)
+                    }
                 }
 
                 2 -> {
@@ -81,12 +81,12 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                 }
 
                 3 -> {
-//                    if (notificationFragment == null) {
-//                        notificationFragment = ARouter.getInstance().build(RoutePath.Notification.NOTIFICATION_FRAGMENT).navigation() as Fragment
-//                        add(R.id.containerlayout, notificationFragment!!)
-//                    } else {
-//                        show(notificationFragment!!)
-//                    }
+                    if (notificationFragment == null) {
+                        notificationFragment = ARouter.getInstance().build(RoutePath.Notification.NOTIFICATION_FRAGMENT).navigation() as Fragment
+                        add(R.id.containerlayout, notificationFragment!!)
+                    } else {
+                        show(notificationFragment!!)
+                    }
                 }
 
                 4 -> {
