@@ -1,6 +1,5 @@
 package com.example.base.network.base.response
 
-import com.example.base.network.config.AppConfig
 import java.io.Serializable
 
 /**
@@ -8,18 +7,13 @@ import java.io.Serializable
  * create on 2018/11/13
  * description  请求数据实体类基类
  */
-open class BaseResponse<T> : Serializable {
-    /** 自定义错误码  */
-    var code: String? = null
+open class BaseResponse : Serializable {
 
-    /** 自定义业务状态码  */
-    var bizcode: String? = null
+    var count: Int = 0
 
-    /** 消息提示  */
-    var msg: String? = null
+    var total: Int = 0
 
-    /** 泛型实体类  */
-    var data: T? = null
-    val isOk: Boolean
-        get() = bizcode == AppConfig.BIZCODE_OK
+    var nextPageUrl: String? = null
+
+    var adExist: Boolean? = false
 }

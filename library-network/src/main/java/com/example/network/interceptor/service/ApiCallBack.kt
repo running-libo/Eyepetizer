@@ -11,7 +11,7 @@ import rx.Subscriber
  * create on 2018/11/13
  * description 自定义请求数据回调和过滤
  */
-abstract class ApiCallBack<M : BaseResponse<*>?> : Subscriber<M>() {
+abstract class ApiCallBack<M : BaseResponse?> : Subscriber<M>() {
     override fun onCompleted() {}
     override fun onError(e: Throwable) {
         e.printStackTrace()

@@ -3,7 +3,7 @@ package com.example.module_home.module.home
 import android.app.Application
 import com.example.base.network.base.viewmodel.BaseItemViewModel
 import com.example.module_home.R
-import com.example.module_home.net.DataResponse
+import com.example.module_home.net.DailyResponse
 import com.example.module_home.net.IHomeService
 import com.example.network.interceptor.service.ApiCallBack
 import rx.android.schedulers.AndroidSchedulers
@@ -14,7 +14,7 @@ import rx.schedulers.Schedulers
  * create on 2020/8/9
  * description
  */
-class DailyViewModel(application: Application) : BaseItemViewModel<DataResponse.ItemListBean>(application) {
+class DailyViewModel(application: Application) : BaseItemViewModel<DailyResponse.DailyItemBean>(application) {
 
     override fun getItemLayoutId(): Int = R.layout.item_daily
 
@@ -23,15 +23,18 @@ class DailyViewModel(application: Application) : BaseItemViewModel<DataResponse.
     }
 
     override fun requestData() {
-        IHomeService.invoke().getData()
+
+        IHomeService.instance.getDailyData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(object : ApiCallBack<DataResponse>() {
-                    override fun onSuccess(dataResponse: DataResponse) {
+                .subscribe(object: ApiCallBack<DailyResponse>() {
+                    override fun onSuccess(response: DailyResponse) {
 
-                        dataResponse.itemList?.let { items.addAll(it) }
-                        baseLiveData.loadSuccess.postValue(1)
+                        response.itemList.let {
+                            items.addAll(response.itemList)
+                        }
                     }
+
                 })
     }
 }

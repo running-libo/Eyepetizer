@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.example.module_home.R
 import kotlinx.android.synthetic.main.view_home_navigationbar.view.*
 
@@ -17,28 +16,22 @@ import kotlinx.android.synthetic.main.view_home_navigationbar.view.*
 class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLayout(context, attrs) {
     var view: View = LayoutInflater.from(context).inflate(R.layout.view_home_navigationbar, this, true)
     var onSelectListener: OnSelectListener? = null
-    lateinit var tvHomeTab: TextView
-    lateinit var tvCommunityTab: TextView
-    lateinit var tvNotificationTab: TextView
-    lateinit var tvMineTab: TextView
 
     init {
-
-        initView()
 
         setOnClickListener(ivHome, ivCommunity, ivRelease, ivNotification, ivMine) {
             clearBtnState()
 
-            when(this) {
+            when (it) {
                 ivHome -> {
                     ivHome.isSelected = true
-                    tvHomeTab.isSelected = true
+                    tvHome.isSelected = true
                     onSelectListener!!.onSelected(0)
                 }
 
                 ivCommunity -> {
                     ivCommunity.isSelected = true
-                    tvCommunityTab.isSelected = true
+                    tvCommunity.isSelected = true
                     onSelectListener!!.onSelected(1)
                 }
 
@@ -49,13 +42,13 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
 
                 ivNotification -> {
                     ivNotification.isSelected = true
-                    tvNotificationTab.isSelected =true
+                    tvNotification.isSelected = true
                     onSelectListener!!.onSelected(3)
                 }
 
                 ivMine -> {
                     ivMine.isSelected = true
-                    tvMineTab.isSelected = true
+                    tvMine.isSelected = true
                     onSelectListener!!.onSelected(4)
                 }
 
@@ -63,26 +56,19 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
         }
     }
 
-    fun initView() {
-        tvHomeTab = view.findViewById(R.id.tvHome)
-        tvCommunityTab = view.findViewById(R.id.tvCommunity)
-        tvNotificationTab = view.findViewById(R.id.tvNotification)
-        tvMineTab = view.findViewById(R.id.tvMine)
-    }
-
     /**
      * 恢复各个按钮点中状态
      */
     private fun clearBtnState() {
         ivHome.isSelected = false
-        tvHomeTab.isSelected = false
+        tvHome.isSelected = false
         ivCommunity.isSelected = false
-        tvCommunityTab.isSelected = false
+        tvCommunity.isSelected = false
         ivRelease.isSelected = false
         ivNotification.isSelected = false
-        tvNotificationTab.isSelected = false
+        tvNotification.isSelected = false
         ivMine.isSelected = false
-        tvMineTab.isSelected = false
+        tvMine.isSelected = false
     }
 
     /**
@@ -95,9 +81,8 @@ class HomeNavigationBarView(context: Context?, attrs: AttributeSet?) : LinearLay
     /**
      * 设置多个view点击事件
      */
-    fun setOnClickListener(vararg v: View?, block: View.() -> Unit) {
-        val listener = OnClickListener { it.block() }
-        v.forEach { it?.setOnClickListener(listener) }
+    fun setOnClickListener(vararg v: View?, block: (View) -> Unit) {
+        v.forEach { it?.setOnClickListener(block) }
     }
 
     interface OnSelectListener {

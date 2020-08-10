@@ -12,13 +12,17 @@ import rx.Observable
  */
 interface IHomeService {
 
-    @GET(Api.URL)
-    fun getData(): Observable<DataResponse>
-
     companion object {
         val instance = ApiManager.retrofit.create(IHomeService::class.java)
+
         fun invoke(): IHomeService {
             return instance
         }
     }
+
+    /**
+     * 首页-日报
+     */
+    @GET(Api.DAILY)
+    fun getDailyData(): Observable<DailyResponse>
 }

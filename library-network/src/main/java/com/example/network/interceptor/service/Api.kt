@@ -19,6 +19,9 @@ interface Api {
         /** 服务器域名  */
         val SERVER_ADDRESS = if (AppConfig.isDebug) SERVER_ADDRESS_DEBUG else SERVER_ADDRESS_RELEASE
 
-        const val URL = "v7/topic/list"
+        /**
+         * 首页-日报
+         */
+        const val DAILY = "v5/index/tab/feed"
     }
 }
