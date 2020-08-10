@@ -76,11 +76,15 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
     api 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta05'
 
-    //刷新加载
+    //refresh/loadmore view
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
 
+    //tablayout
     api 'com.androidkun:XTabLayout:1.1.5'
+
+    //cardview
+    api 'androidx.cardview:cardview:1.0.0'
 
 }
 repositories {

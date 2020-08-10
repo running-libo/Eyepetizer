@@ -18,24 +18,48 @@
         android:layout_height="wrap_content"
         tools:ignore="MissingDefaultResource">
 
-        <ImageView
-            android:id="@+id/ivCover"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:background="@mipmap/default_cover"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardCover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="@dimen/dp_12"/>
+            android:layout_marginTop="@dimen/dp_12"
+            app:cardCornerRadius="@dimen/dp_5"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/ivCover"
+                android:layout_width="match_parent"
+                android:layout_height="183dp"
+                android:background="@mipmap/default_cover" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/daily_label"
+                android:layout_margin="@dimen/dp_16"/>
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="03:27"
+                android:textSize="@dimen/font_13sp"
+                android:layout_gravity="right|bottom"
+                android:layout_margin="@dimen/dp_5"/>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/ivAvator"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
             android:background="@mipmap/icon_user"
-            app:layout_constraintTop_toBottomOf="@id/ivCover"
+            app:layout_constraintTop_toBottomOf="@id/cardCover"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="@dimen/dp_12" />
+            android:layout_marginTop="@dimen/dp_10" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -74,9 +98,9 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_1"
+            android:layout_height="@dimen/dp_0.5"
             android:background="@color/lightgray_line"
             app:layout_constraintTop_toBottomOf="@id/ivAvator"
-            android:layout_marginTop="@dimen/dp_12" />
+            android:layout_marginTop="@dimen/dp_10" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
