@@ -16,7 +16,7 @@ import rx.schedulers.Schedulers
  */
 class DailyViewModel(application: Application) : BaseItemViewModel<DataResponse.ItemListBean>(application) {
 
-    override fun getItemLayoutId(): Int = R.layout.itemview
+    override fun getItemLayoutId(): Int = R.layout.item_daily
 
     init {
         refresh()
@@ -28,10 +28,6 @@ class DailyViewModel(application: Application) : BaseItemViewModel<DataResponse.
                 .subscribeOn(Schedulers.io())
                 .subscribe(object : ApiCallBack<DataResponse>() {
                     override fun onSuccess(dataResponse: DataResponse) {
-
-//                        dataResponse.itemList?.let {
-//                            items.addAll(it.)
-//                        }
 
                         dataResponse.itemList?.let { items.addAll(it) }
                         baseLiveData.loadSuccess.postValue(1)

@@ -1,5 +1,8 @@
 package com.example.module_home.module.home
 
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.base.network.base.fragment.BaseLazyloadFragment
 import com.example.base.network.widget.FmPagerAdapter
@@ -17,10 +20,12 @@ class HomeFragment : BaseLazyloadFragment() {
     var recommendFragment: DailyFragment? = null
     var dailyFragment: DailyFragment? = null
 
-    override fun setLayoutId(): Int = R.layout.fragment_home
-
     override fun initView() {
         setTabLayout()
+    }
+
+    override fun getContentView(inflater: LayoutInflater, container: ViewGroup?): View {
+        return LayoutInflater.from(context).inflate(R.layout.fragment_home, container, false)
     }
 
     /**

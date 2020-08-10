@@ -2,6 +2,8 @@ package com.example.base.network.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.example.base.BR
@@ -37,6 +39,10 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
         var dbClass = genericTypeBinding()
         var method = dbClass.getMethod("inflate", LayoutInflater::class.java)
         binding = method.invoke(null, layoutInflater) as V
+    }
+
+    override fun getContentView(inflater: LayoutInflater, container: ViewGroup?): View {
+        return binding.root
     }
 
     protected fun createViewModel(): VM {

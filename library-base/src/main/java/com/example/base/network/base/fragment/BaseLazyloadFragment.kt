@@ -18,13 +18,12 @@ abstract class BaseLazyloadFragment : Fragment() {
     private var isInitView = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = LayoutInflater.from(context).inflate(setLayoutId(), container, false)
         initLoadMoreViews()
         isInitView = true
         isCanLoadData
 
         isVisible()
-        return rootView
+        return getContentView(layoutInflater, container)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -32,8 +31,6 @@ abstract class BaseLazyloadFragment : Fragment() {
         initView()
         initData()
     }
-
-    protected abstract fun setLayoutId(): Int
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
@@ -68,4 +65,6 @@ abstract class BaseLazyloadFragment : Fragment() {
      * 懒加载方法
      */
     protected fun loadData() {}
+
+    abstract fun getContentView(inflater: LayoutInflater, container: ViewGroup?): View
 }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.module_home.net.DataResponse.ItemListBean" />
+
+        <variable
+            name="viewModel"
+            type="com.example.module_home.module.home.DailyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingDefaultResource">
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:background="@mipmap/default_cover"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_12"/>
+
+        <ImageView
+            android:id="@+id/ivAvator"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:background="@mipmap/icon_user"
+            app:layout_constraintTop_toBottomOf="@id/ivCover"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/dp_12" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/font_14sp"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_1"
+            android:text="日本工作短片[过劳死]"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            app:layout_constraintTop_toTopOf="@id/ivAvator" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NOWNESS现在"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+            android:textSize="@dimen/font_12sp"
+            android:textColor="@color/text_gray"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_1" />
+
+        <ImageView
+            android:id="@+id/ivMoreAction"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/card_more_action_icon"
+            app:layout_constraintTop_toTopOf="@id/ivAvator"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/lightgray_line"
+            app:layout_constraintTop_toBottomOf="@id/ivAvator"
+            android:layout_marginTop="@dimen/dp_12" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
