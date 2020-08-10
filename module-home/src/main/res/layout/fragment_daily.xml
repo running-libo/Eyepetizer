@@ -15,17 +15,22 @@
         tools:context=".module.home.DailyFragment"
         tools:ignore="MissingDefaultResource">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:overScrollMode="never"
-            android:layout_marginLeft="@dimen/dp_14"
-            android:layout_marginRight="@dimen/dp_14"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            itemBinding="@{viewModel.itemBinding}"
-            items="@{viewModel.items}"/>
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:overScrollMode="never"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginRight="@dimen/dp_14"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                itemBinding="@{viewModel.itemBinding}"
+                items="@{viewModel.items}"/>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
