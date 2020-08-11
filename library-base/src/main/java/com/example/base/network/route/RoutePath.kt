@@ -53,5 +53,14 @@ object RoutePath {
         const val LOGIN_ACTIVITY = "${MAIN}/loginActivity"
     }
 
+    /**
+     * 播放详情页
+     */
+    object Play {
+        private const val MAIN = "/play"
+
+        const val PLAY_DETAIL_ACTIVITY = "${MAIN}/playDetailActivity"
+    }
+
 
 }

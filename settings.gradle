@@ -1,3 +1,4 @@
+include ':module-play'
 include ':module-notice'
 include ':module-community'
 include ':module-user'
