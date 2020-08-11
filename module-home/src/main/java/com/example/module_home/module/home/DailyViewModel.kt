@@ -1,7 +1,12 @@
 package com.example.module_home.module.home
 
 import android.app.Application
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.viewmodel.BasePageViewModel
+import com.example.base.network.route.RoutePath
+import com.example.base.network.utils.OnItemClickListener
+import com.example.base.network.utils.ToastUtil
+import com.example.module_home.BR
 import com.example.module_home.R
 import com.example.module_home.net.DailyResponse
 import com.example.module_home.net.IHomeService
@@ -19,6 +24,7 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
     override fun getItemLayoutId(): Int = R.layout.item_daily
 
     init {
+        itemBinding.bindExtra(BR.itemClick, onItemClick())
         refresh()
     }
 
@@ -36,5 +42,14 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
                     }
 
                 })
+    }
+
+    fun onItemClick(): OnItemClickListener {
+        return object: OnItemClickListener {
+            override fun onItemClick() {
+                ARouter.getInstance().build(RoutePath.Play.PLAY_DETAIL_ACTIVITY).navigation()
+            }
+
+        }
     }
 }

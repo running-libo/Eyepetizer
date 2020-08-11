@@ -49,6 +49,7 @@ dependencies {
     implementation project(":module-notice")
     implementation project(":module-user")
     implementation project(":module-login")
+    implementation project(":module-play")
 }
 repositories {
     mavenCentral()

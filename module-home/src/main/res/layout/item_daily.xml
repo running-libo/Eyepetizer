@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="itemClick"
+            type="com.example.base.network.utils.OnItemClickListener" />
+        <variable
             name="item"
             type="com.example.module_home.net.DailyResponse.DailyItemBean" />
 
@@ -18,7 +21,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingDefaultResource">
+        tools:ignore="MissingDefaultResource"
+        android:onClick="@{()->itemClick.onItemClick()}">
 
         <com.example.base.network.widget.CircleImageView
             android:id="@+id/ivCover"
