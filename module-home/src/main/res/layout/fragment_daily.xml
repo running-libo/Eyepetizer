@@ -33,5 +33,9 @@
                 items="@{viewModel.items}"/>
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
+        <include layout="@layout/view_empty"
+            android:visibility="gone"
+            android:id="@+id/viewEmpty"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

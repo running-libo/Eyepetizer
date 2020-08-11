@@ -56,7 +56,23 @@ open abstract class BasePageViewModel<T>(application: Application) : BaseViewMod
         items.addAll(datas)
 
         if (items.size == 0) {
-            // TODO: 2020/8/11   空数据，显示空布局
+            baseLiveData.switchToEmpty.value = 1
+        } else {
+            //请求到数据且当前为空布局，需切换到列表状态
+            if (baseLiveData.switchToEmpty.value == 1) {
+                baseLiveData.switchToList.value = 1
+            }
+        }
+    }
+
+    /**
+     * 请求数据失败处理
+     */
+    fun handleFail() {
+        baseLiveData.loadFail.value = 1
+
+        if (items.size == 0) {
+            baseLiveData.switchToEmpty.value = 1
         }
     }
 

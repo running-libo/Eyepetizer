@@ -20,4 +20,11 @@ class BaseLiveData {
 
     /** 加载更多 */
     val loadMore by lazy { MutableLiveData<Int>() }
+
+    /** 切换到空布局 */
+    val switchToEmpty by lazy { MutableLiveData<Int>() }
+
+    /** 切换到列表布局 */
+    val switchToList by lazy { MutableLiveData<Int>() }
+
 }

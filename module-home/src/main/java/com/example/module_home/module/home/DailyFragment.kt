@@ -1,5 +1,6 @@
 package com.example.module_home.module.home
 
+import android.view.View
 import androidx.lifecycle.Observer
 import com.example.base.network.base.fragment.BaseMvvmFragment
 import com.example.module_home.databinding.FragmentDailyBinding
@@ -8,6 +9,7 @@ import kotlinx.android.synthetic.main.fragment_daily.*
 class DailyFragment : BaseMvvmFragment<FragmentDailyBinding, DailyViewModel>() {
 
     override fun initView() {
+
         smartRefreshLayout.setOnRefreshListener {
             viewModel.refresh()
         }
@@ -27,6 +29,14 @@ class DailyFragment : BaseMvvmFragment<FragmentDailyBinding, DailyViewModel>() {
         viewModel.baseLiveData.loadFail.observe(this, Observer {
             smartRefreshLayout.finishRefresh()
             smartRefreshLayout.finishLoadMore()
+        })
+
+        viewModel.baseLiveData.switchToEmpty.observe(this, Observer {
+            viewEmpty.visibility = View.VISIBLE
+        })
+
+        viewModel.baseLiveData.switchToList.observe(this, Observer {
+            viewEmpty.visibility = View.GONE
         })
     }
 

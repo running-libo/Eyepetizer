@@ -28,12 +28,11 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
                 .subscribeOn(Schedulers.io())
                 .subscribe(object: ApiCallBack<DailyResponse>() {
                     override fun onSuccess(response: DailyResponse) {
-
                         handleItemData(page, response.itemList)
                     }
 
                     override fun onFail(msg: String) {
-                        baseLiveData.loadFail.value = 1
+                        handleFail()
                     }
 
                 })
