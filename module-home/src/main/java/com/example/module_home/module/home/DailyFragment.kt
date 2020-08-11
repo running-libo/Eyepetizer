@@ -23,7 +23,11 @@ class DailyFragment : BaseMvvmFragment<FragmentDailyBinding, DailyViewModel>() {
         viewModel.baseLiveData.loadMore.observe(this, Observer {
             smartRefreshLayout.finishLoadMore()
         })
-    }
 
+        viewModel.baseLiveData.loadFail.observe(this, Observer {
+            smartRefreshLayout.finishRefresh()
+            smartRefreshLayout.finishLoadMore()
+        })
+    }
 
 }

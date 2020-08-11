@@ -32,6 +32,10 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
                         handleItemData(page, response.itemList)
                     }
 
+                    override fun onFail(msg: String) {
+                        baseLiveData.loadFail.value = 1
+                    }
+
                 })
     }
 }
