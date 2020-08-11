@@ -1,6 +1,7 @@
 package com.example.module_home.module.home
 
 import android.app.Application
+import android.text.TextUtils
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.viewmodel.BasePageViewModel
 import com.example.base.network.route.RoutePath
@@ -44,12 +45,20 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
                 })
     }
 
-    fun onItemClick(): OnItemClickListener {
-        return object: OnItemClickListener {
-            override fun onItemClick() {
-                ARouter.getInstance().build(RoutePath.Play.PLAY_DETAIL_ACTIVITY).navigation()
+    fun onItemClick(): OnItemClickListener<DailyResponse.DailyItemBean> {
+        return object: OnItemClickListener<DailyResponse.DailyItemBean> {
+            override fun onItemClick(bean: DailyResponse.DailyItemBean) {
+
+                if (bean.data.content != null && bean.data.content.data.playUrl != null) {
+                    ARouter.getInstance().build(RoutePath.Play.PLAY_DETAIL_ACTIVITY)
+                            .withInt("videoId", bean.data.content.data.id)
+                            .withString("title", bean.data.content.data.title)
+                            .withString("playUrl", bean.data.content.data.playUrl)
+                            .navigation()
+                }
             }
 
         }
     }
+
 }

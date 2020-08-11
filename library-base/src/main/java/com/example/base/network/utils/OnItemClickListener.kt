@@ -5,7 +5,7 @@ package com.example.base.network.utils
  * create on 2020/8/11
  * description
  */
-interface OnItemClickListener {
+interface OnItemClickListener<T> {
 
-    fun onItemClick()
+    fun onItemClick(m: T)
 }

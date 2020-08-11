@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.playactivity">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application>
-        <activity android:name=".PlayDetailActivity"></activity>
+        <activity android:name=".PlayDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
     </application>
 
 </manifest>

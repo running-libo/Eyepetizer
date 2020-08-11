@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingDefaultResource"
-        android:onClick="@{()->itemClick.onItemClick()}">
+        android:onClick="@{()->itemClick.onItemClick(item)}">
 
         <com.example.base.network.widget.CircleImageView
             android:id="@+id/ivCover"

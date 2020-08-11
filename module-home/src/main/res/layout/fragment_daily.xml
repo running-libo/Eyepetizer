@@ -28,6 +28,7 @@
                 android:overScrollMode="never"
                 android:layout_marginLeft="@dimen/dp_14"
                 android:layout_marginRight="@dimen/dp_14"
+                tools:listitem="@layout/item_daily"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 itemBinding="@{viewModel.itemBinding}"
                 items="@{viewModel.items}"/>

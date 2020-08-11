@@ -86,6 +86,9 @@ dependencies {
     //cardview
     api 'androidx.cardview:cardview:1.0.0'
 
+    //videoplayer
+    api 'com.shuyu:GSYVideoPlayer:7.1.5'
+
 }
 repositories {
     mavenCentral()

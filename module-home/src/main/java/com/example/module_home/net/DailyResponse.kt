@@ -69,6 +69,7 @@ data class DailyResponse(var itemList: ArrayList<DailyItemBean>) : BaseResponse(
             var library: String,
             var longitude: Int,
             var owner: Owner,
+            var playUrl: String,
             var duration: Int,
             var privateMessageActionUrl: Any,
             var reallyCollected: Boolean,
