@@ -31,4 +31,5 @@
     <string name="login_protocal_tip">登录或注册即同意开眼</string>
     <string name="user_service_protocal">用户服务协议</string>
     <string name="click_publish_comment">点击发表你的评论</string>
+    <string name="reply">回复</string>
 </resources>

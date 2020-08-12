@@ -5,7 +5,6 @@ import com.example.base.network.base.viewmodel.BasePageViewModel
 import com.example.network.interceptor.service.ApiCallBack
 import com.example.playactivity.R
 import com.example.playactivity.net.IPlayService
-import com.example.playactivity.net.PlayDetailResponse
 import com.example.playactivity.net.RelateVideoResponse
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -18,10 +17,6 @@ import rx.schedulers.Schedulers
 class RelateVideoViewModel(application: Application) : BasePageViewModel<RelateVideoResponse.RelateVideoItemBean>(application) {
 
     override fun getItemLayoutId(): Int = R.layout.item_relate
-
-    init {
-        getRelateVideos(206945)
-    }
 
     fun getRelateVideos(videoId: Int) {
 

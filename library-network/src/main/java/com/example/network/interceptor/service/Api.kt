@@ -8,6 +8,7 @@ import com.example.base.network.config.AppConfig
  * description
  */
 interface Api {
+
     companion object {
         /** *******************************************  IP配置  ********************************************  */
         /** 正式服务器地址  */
@@ -33,5 +34,10 @@ interface Api {
          * 相关视频列表
          */
         const val RELATE_VIDEO = "v4/video/related"
+
+        /**
+         * 评论列表
+         */
+        const val COMMENT_LIST = "v2/replies/video"
     }
 }

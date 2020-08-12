@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="item"
+            type="com.example.playactivity.net.CommentResponse.CommentData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,37 +22,99 @@
             app:es_shape_type="round"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/icon_user"
+            tools:src="@mipmap/icon_user"
+            imgUrl="@{item.data.user.avatar}"
             android:layout_marginTop="@dimen/dp_13" />
 
         <TextView
             android:id="@+id/tvNickName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="123456789"
+            tools:text="123456789"
+            android:text="@{item.data.user.nickname}"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_14sp"
+            android:textSize="@dimen/font_13sp"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tvSumb"
+            android:layout_marginRight="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_13"
             android:layout_marginLeft="@dimen/dp_13" />
 
         <TextView
             android:id="@+id/tvContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="内容"
+            android:textColor="@color/half_white"
+            android:textSize="@dimen/font_12sp"
+            android:text="@{item.data.message}"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@id/tvNickName"
+            app:layout_constraintLeft_toLeftOf="@id/tvNickName"
+            app:layout_constraintRight_toRightOf="@id/ivSumb"/>
+
+        <TextView
+            android:id="@+id/tvReplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sdgsdgsdgdsgdsg"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvNickName"
-            app:layout_constraintLeft_toRightOf="@id/ivAvator"
-            android:layout_marginLeft="@dimen/dp_13" />
+            android:text="@string/reply"
+            android:textColor="@color/half_white"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintTop_toBottomOf="@id/tvContent"
+            app:layout_constraintLeft_toLeftOf="@id/tvNickName"
+            android:layout_marginTop="@dimen/dp_12"/>
+
+        <TextView
+            android:id="@+id/tvReplyTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/half_white"
+            android:textSize="@dimen/font_12sp"
+            tools:text="2020/08/09"
+            android:text='@{item.data.createTime + ""}'
+            app:layout_constraintLeft_toRightOf="@id/tvReplay"
+            app:layout_constraintBottom_toBottomOf="@id/tvReplay"
+            android:layout_marginLeft="@dimen/dp_20"/>
+
+        <ImageView
+            android:id="@+id/ivSumb"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:background="@mipmap/ic_action_sumb"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/dp_13"/>
+
+        <TextView
+            android:id="@+id/tvSumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="13"
+            android:text='@{item.data.sequence + ""}'
+            android:textColor="@color/half_white"
+            android:textSize="@dimen/font_13sp"
+            app:layout_constraintRight_toLeftOf="@id/ivSumb"
+            app:layout_constraintTop_toTopOf="@id/ivSumb"
+            app:layout_constraintBottom_toBottomOf="@id/ivSumb"
+            android:layout_marginBottom="@dimen/dp_3"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp_27"
+            android:layout_height="@dimen/dp_27"
+            android:background="@mipmap/ic_action_reply_more"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="@dimen/dp_8"/>
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="@dimen/dp_0.5"
             android:background="@color/light_white"
-            app:layout_constraintTop_toBottomOf="@id/tvContent"
-            android:layout_marginTop="@dimen/dp_12" />
+            app:layout_constraintTop_toBottomOf="@id/tvReplay"
+            android:layout_marginTop="@dimen/dp_12"
+            app:layout_constraintLeft_toLeftOf="@id/tvReplay"
+            app:layout_constraintRight_toRightOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -2,7 +2,6 @@ package com.example.playactivity.net
 
 import com.example.network.interceptor.service.Api
 import com.example.network.interceptor.service.ApiManager
-import com.google.android.exoplayer2.C
 import retrofit2.http.*
 import rx.Observable
 
@@ -32,4 +31,10 @@ interface IPlayService {
      */
     @GET(Api.RELATE_VIDEO)
     fun getRelateVideos(@Query("id") videoId: Int): Observable<RelateVideoResponse>
+
+    /**
+     * 评论列表
+     */
+    @GET(Api.COMMENT_LIST)
+    fun getCommentList(@Query("videoId") videoId: Int): Observable<CommentResponse>
 }

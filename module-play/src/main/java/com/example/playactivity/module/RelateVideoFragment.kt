@@ -6,7 +6,7 @@ import com.example.playactivity.databinding.FragmentRelateVideoBinding
 class RelateVideoFragment : BaseMvvmFragment<FragmentRelateVideoBinding, RelateVideoViewModel>() {
 
     override fun initView() {
-
+        viewModel.getRelateVideos(arguments!!.get("videoId") as Int)
     }
 
 }

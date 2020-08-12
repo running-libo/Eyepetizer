@@ -7,9 +7,7 @@ import com.example.playactivity.databinding.FragmentCommentBinding
 class CommentFragment : BaseMvvmFragment<FragmentCommentBinding, CommentViewModel>() {
 
     override fun initView() {
-
+        viewModel.getComments(arguments!!.get("videoId") as Int)
     }
-
-
 
 }

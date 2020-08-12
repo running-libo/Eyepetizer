@@ -2,6 +2,7 @@ package com.example.playactivity.module
 
 import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
+import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -21,6 +22,8 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
     @Autowired
     @JvmField
     var videoId: Int = 0
+    lateinit var relateVideoFragment: RelateVideoFragment
+    lateinit var commentFragment: CommentFragment
 
     override fun setLayoutId(): Int = R.layout.activity_play_detail
 
@@ -32,8 +35,7 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
             initPlayer(viewModel.detailData.value!!.playUrl)
         })
 
-        supportFragmentManager.beginTransaction().add(R.id.flRelate, RelateVideoFragment()).commit()
-        supportFragmentManager.beginTransaction().add(R.id.flComment, CommentFragment()).commit()
+        setRelateAndCommentFragment()
     }
 
     override fun statusBarColor(): Int = R.color.black
@@ -55,6 +57,18 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
         videoPlayer.backButton.setOnClickListener { onBackPressed() }
         //开始播放
         videoPlayer.startPlayLogic()
+    }
+
+    fun setRelateAndCommentFragment() {
+        var bundle = Bundle()
+        bundle.putInt("videoId", videoId)
+
+        relateVideoFragment = RelateVideoFragment()
+        relateVideoFragment.arguments = bundle
+        commentFragment = CommentFragment()
+        commentFragment.arguments = bundle
+        supportFragmentManager.beginTransaction().add(R.id.flRelate, relateVideoFragment).commit()
+        supportFragmentManager.beginTransaction().add(R.id.flComment, commentFragment).commit()
     }
 
     override fun onPause() {
