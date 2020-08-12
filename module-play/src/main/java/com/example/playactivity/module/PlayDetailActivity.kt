@@ -32,6 +32,8 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
             initPlayer(viewModel.detailData.value!!.playUrl)
         })
 
+        supportFragmentManager.beginTransaction().add(R.id.flRelate, RelateVideoFragment()).commit()
+
     }
 
     override fun statusBarColor(): Int = R.color.black
