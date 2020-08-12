@@ -52,8 +52,6 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
                 if (bean.data.content != null && bean.data.content.data.playUrl != null) {
                     ARouter.getInstance().build(RoutePath.Play.PLAY_DETAIL_ACTIVITY)
                             .withInt("videoId", bean.data.content.data.id)
-                            .withString("title", bean.data.content.data.title)
-                            .withString("playUrl", bean.data.content.data.playUrl)
                             .navigation()
                 }
             }

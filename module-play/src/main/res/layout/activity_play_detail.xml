@@ -4,14 +4,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.playactivity.module.PlayDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PlayDetailActivity"
-        android:background="@mipmap/login_bg">
+        tools:context=".module.PlayDetailActivity">
+
+        <ImageView
+            android:id="@+id/ivPlayDetailBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/login_bg"
+            android:scaleType="center"
+            imgUrl="@{viewModel.detailData.cover.blurred}"
+            android:foreground="@color/half_black"/>
 
         <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
             android:id="@+id/videoPlayer"
@@ -29,9 +39,199 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/dp_13"
+                android:paddingTop="@dimen/dp_16"
+                android:paddingRight="13dp"
+                android:paddingBottom="@dimen/dp_16"
+                android:background="@color/half_black">
 
-                <include layout="@layout/layout_play_header"/>
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="印度，一个色彩的天堂"
+                    android:text="@{viewModel.detailData.title}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="#旅行 / 开眼精选"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    tools:text="这里是内容"
+                    android:text="@{viewModel.detailData.description}"
+                    android:textColor="@color/half_white"
+                    android:textSize="@dimen/font_13sp"
+                    app:layout_constraintTop_toBottomOf="@id/tvTag" />
+
+                <LinearLayout
+                    android:id="@+id/llAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    app:layout_constraintTop_toBottomOf="@id/tvContent">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/ic_action_like" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_8"
+                            tools:text="0"
+                            android:text='@{viewModel.detailData.consumption.collectionCount+""}'
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/ic_action_share" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_8"
+                            tools:text="0"
+                            android:text='@{viewModel.detailData.consumption.shareCount+""}'
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/ic_action_download" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_8"
+                            android:text="@string/cache"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/ic_action_collect" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_8"
+                            android:text="@string/collection"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.example.base.network.widget.CircleImageView
+                    android:id="@+id/ivAvator"
+                    imgUrl="@{viewModel.detailData.author.icon}"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_marginTop="@dimen/dp_15"
+                    app:es_shape_type="round"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/llAction" />
+
+                <TextView
+                    android:id="@+id/tvNickName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_1"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{viewModel.detailData.author.name}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_14sp"
+                    app:layout_constraintLeft_toRightOf="@id/ivAvator"
+                    app:layout_constraintRight_toLeftOf="@id/tvFocus"
+                    app:layout_constraintTop_toTopOf="@id/ivAvator"
+                    tools:text="开眼旅行精选" />
+
+                <TextView
+                    android:id="@+id/tvSign"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_1"
+                    android:singleLine="true"
+                    android:text="@{viewModel.detailData.author.description}"
+                    android:textColor="@color/half_white"
+                    android:textSize="@dimen/font_12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+                    app:layout_constraintLeft_toRightOf="@id/ivAvator"
+                    app:layout_constraintRight_toLeftOf="@id/tvFocus"
+                    tools:text="发现世界的奇妙和广阔" />
+
+                <TextView
+                    android:id="@+id/tvFocus"
+                    android:layout_width="45dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/shape_white_roundsmall_border"
+                    android:gravity="center"
+                    android:text="@string/plus_focus"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ivAvator" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0.5"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:background="@color/light_white"
+                    app:layout_constraintTop_toBottomOf="@id/ivAvator" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

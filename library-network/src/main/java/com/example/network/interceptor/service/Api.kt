@@ -23,5 +23,10 @@ interface Api {
          * 首页-日报
          */
         const val DAILY = "v5/index/tab/feed"
+
+        /**
+         * 视频播放详情
+         */
+        const val PLAY_DETAIL = "v2/video/{id}"
     }
 }

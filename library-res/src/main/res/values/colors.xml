@@ -11,6 +11,7 @@
     <color name="color_403b47">#403b47</color>
 
     <color name="sim_black">#1d1e1f</color>
+    <color name="half_black">#7000</color>
     <color name="lightgray_line">#ededed</color>
     <color name="deepgray_line">#adadad</color>
 

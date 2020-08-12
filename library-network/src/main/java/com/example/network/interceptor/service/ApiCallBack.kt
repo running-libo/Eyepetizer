@@ -1,6 +1,5 @@
 package com.example.network.interceptor.service
 
-import com.example.base.network.base.response.BaseResponse
 import com.example.base.network.utils.LogUtils
 import org.jetbrains.annotations.NotNull
 import retrofit2.adapter.rxjava.HttpException
@@ -11,7 +10,7 @@ import rx.Subscriber
  * create on 2018/11/13
  * description 自定义请求数据回调和过滤
  */
-abstract class ApiCallBack<M : BaseResponse?> : Subscriber<M>() {
+abstract class ApiCallBack<M : Any?> : Subscriber<M>() {
 
     override fun onCompleted() {}
 

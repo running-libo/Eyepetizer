@@ -1,40 +1,50 @@
-package com.example.playactivity
+package com.example.playactivity.module
 
 import android.content.pm.ActivityInfo
 import android.view.View
+import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
+import com.example.base.network.utils.ToastUtil
+import com.example.playactivity.R
 import com.example.playactivity.databinding.ActivityPlayDetailBinding
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils
 import kotlinx.android.synthetic.main.activity_play_detail.*
 
-
 @Route(path = RoutePath.Play.PLAY_DETAIL_ACTIVITY)
 class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetailViewModel>() {
     var orientationUtils: OrientationUtils? = null
+//    @Autowired
+//    lateinit var playUrl: String
+//    @Autowired
+//    lateinit var title: String
     @Autowired
-    lateinit var playUrl: String
-    @Autowired
-    lateinit var title: String
+    @JvmField
+    var videoId: Int = 0
 
     override fun setLayoutId(): Int = R.layout.activity_play_detail
 
     override fun init() {
         ARouter.getInstance().inject(this)
 
-        initPlayer()
+        viewModel.getPlayDetailData(videoId)
+        viewModel.detailData.observe(this, Observer {
+            ToastUtil.show("请求成功")
+            initPlayer(viewModel.detailData.value!!.playUrl)
+        })
+
     }
 
     override fun statusBarColor(): Int = R.color.black
 
     override fun isDarkFont(): Boolean = false
 
-    fun initPlayer() {
-        videoPlayer.setUp(playUrl, true, title)
+    fun initPlayer(playUrl: String) {
+        videoPlayer.setUp(playUrl, true, "")
 
         //增加title
         videoPlayer.getTitleTextView().setVisibility(View.VISIBLE)
