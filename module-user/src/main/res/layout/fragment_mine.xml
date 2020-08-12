@@ -108,7 +108,7 @@
             <TextView
                 android:id="@+id/tvMyFocus"
                 style="@style/style_mine_text"
-                android:text="@string/my_Focus"
+                android:text="@string/my_focus"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 

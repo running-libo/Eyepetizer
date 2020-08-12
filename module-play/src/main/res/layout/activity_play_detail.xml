@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PlayDetailActivity">
+        tools:context=".PlayDetailActivity"
+        android:background="@mipmap/login_bg">
 
         <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
             android:id="@+id/videoPlayer"
@@ -26,6 +27,13 @@
             app:layout_constraintTop_toBottomOf="@id/videoPlayer"
             app:layout_constraintBottom_toBottomOf="parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include layout="@layout/layout_play_header"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

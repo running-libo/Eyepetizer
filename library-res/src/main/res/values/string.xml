@@ -14,7 +14,8 @@
     <string name="look_homepage">查看个人主页</string>
     <string name="collection">收藏</string>
     <string name="cache">缓存</string>
-    <string name="my_Focus">我的关注</string>
+    <string name="plus_focus">+关注</string>
+    <string name="my_focus">我的关注</string>
     <string name="view_record">观看记录</string>
     <string name="notice_toggle">通知开关</string>
     <string name="my_tag">我的徽章</string>
