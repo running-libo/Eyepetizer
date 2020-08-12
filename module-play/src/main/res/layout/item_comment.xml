@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="@color/text_gray">
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivAvator"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_13"
+            app:es_shape_type="round"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/icon_user"
+            android:layout_marginTop="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123456789"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14sp"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_13"
+            android:layout_marginLeft="@dimen/dp_13" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sdgsdgsdgdsgdsg"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvNickName"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            android:layout_marginLeft="@dimen/dp_13" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/light_white"
+            app:layout_constraintTop_toBottomOf="@id/tvContent"
+            android:layout_marginTop="@dimen/dp_12" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
