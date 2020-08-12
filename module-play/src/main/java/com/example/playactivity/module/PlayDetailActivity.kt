@@ -18,10 +18,6 @@ import kotlinx.android.synthetic.main.activity_play_detail.*
 @Route(path = RoutePath.Play.PLAY_DETAIL_ACTIVITY)
 class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetailViewModel>() {
     var orientationUtils: OrientationUtils? = null
-//    @Autowired
-//    lateinit var playUrl: String
-//    @Autowired
-//    lateinit var title: String
     @Autowired
     @JvmField
     var videoId: Int = 0
@@ -33,7 +29,6 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
 
         viewModel.getPlayDetailData(videoId)
         viewModel.detailData.observe(this, Observer {
-            ToastUtil.show("请求成功")
             initPlayer(viewModel.detailData.value!!.playUrl)
         })
 
@@ -72,9 +67,9 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
 
     override fun onDestroy() {
         super.onDestroy()
-        GSYVideoManager.releaseAllVideos();
+        GSYVideoManager.releaseAllVideos()
         if (orientationUtils != null)
-            orientationUtils!!.releaseListener();
+            orientationUtils!!.releaseListener()
     }
 
     override fun onBackPressed() {
