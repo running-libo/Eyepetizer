@@ -25,7 +25,7 @@ open abstract class BasePageViewModel<T>(application: Application) : BaseViewMod
      */
     abstract fun getItemLayoutId(): Int
 
-    abstract fun requestData(page: Int)
+    open fun requestData(page: Int) {}
 
     fun getStartPageNum(): Int = 0
 

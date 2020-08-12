@@ -28,5 +28,10 @@ interface Api {
          * 视频播放详情
          */
         const val PLAY_DETAIL = "v2/video/{id}"
+
+        /**
+         * 相关视频列表
+         */
+        const val RELATE_VIDEO = "v4/video/related"
     }
 }

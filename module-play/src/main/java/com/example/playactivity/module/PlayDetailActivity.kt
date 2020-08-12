@@ -1,6 +1,7 @@
 package com.example.playactivity.module
 
 import android.content.pm.ActivityInfo
+import android.graphics.Bitmap
 import android.view.View
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -8,7 +9,6 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
-import com.example.base.network.utils.ToastUtil
 import com.example.playactivity.R
 import com.example.playactivity.databinding.ActivityPlayDetailBinding
 import com.shuyu.gsyvideoplayer.GSYVideoManager
@@ -33,7 +33,6 @@ class PlayDetailActivity : BaseMvvmActivity<ActivityPlayDetailBinding, PlayDetai
         })
 
         supportFragmentManager.beginTransaction().add(R.id.flRelate, RelateVideoFragment()).commit()
-
     }
 
     override fun statusBarColor(): Int = R.color.black

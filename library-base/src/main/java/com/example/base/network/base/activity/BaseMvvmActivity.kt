@@ -21,6 +21,8 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
         super.onCreate(savedInstanceState)
         initDataBinding()
         initViewModel()
+
+        init()
     }
 
     /**

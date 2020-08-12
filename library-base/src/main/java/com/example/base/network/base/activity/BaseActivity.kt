@@ -26,12 +26,7 @@ open abstract class BaseActivity : AppCompatActivity(), IBaseView {
         setContentView(setLayoutId())
 
         ActivityManager.addActivity(this) //创建Activity入栈管理
-    }
 
-    override fun onStart() {
-        super.onStart()
-
-        init()
         statusBaySetting()
     }
 
