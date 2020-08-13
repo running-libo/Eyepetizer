@@ -37,7 +37,7 @@ class RelateVideoViewModel(application: Application) : BasePageViewModel<RelateV
                 return R.layout.item_relate
         }
 
-        return return R.layout.item_title
+        return return R.layout.item_empty
     }
 
     fun onItemClick(): OnItemClickListener<RelateVideoResponse.RelateVideoItemBean> {

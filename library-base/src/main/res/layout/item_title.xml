@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.example.base.network.bean.DailyResponse.DailyItemBean" />
+            type="com.example.base.network.bean.CommonItemBean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

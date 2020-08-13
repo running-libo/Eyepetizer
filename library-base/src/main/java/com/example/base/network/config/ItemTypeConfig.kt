@@ -41,4 +41,5 @@ object ItemTypeConfig {
      * 评论item类型
      */
     val ITEM_TYPE_COMMENT = "reply"
+
 }

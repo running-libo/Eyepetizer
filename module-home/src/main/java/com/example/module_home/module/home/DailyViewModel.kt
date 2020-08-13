@@ -8,7 +8,8 @@ import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.OnItemClickListener
 import com.example.module_home.BR
 import com.example.module_home.R
-import com.example.base.network.bean.DailyResponse
+import com.example.base.network.bean.CommomItemResponse
+import com.example.base.network.bean.CommonItemBean
 import com.example.module_home.net.IHomeService
 import com.example.network.interceptor.service.ApiCallBack
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -16,15 +17,14 @@ import me.tatarka.bindingcollectionadapter2.OnItemBind
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-
 /**
  * create by apple
  * create on 2020/8/9
  * description
  */
-class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse.DailyItemBean>(application) {
+class DailyViewModel(application: Application) : BasePageViewModel<CommonItemBean>(application) {
 
-    val onItemBind: OnItemBind<DailyResponse.DailyItemBean> = OnItemBind { itemBinding, position, item ->
+    val onItemBind: OnItemBind<CommonItemBean> = OnItemBind { itemBinding, position, item ->
         itemBinding.set(BR.item, getItemType(item))
                 .bindExtra(BR.viewModel, this)
                 .bindExtra(BR.itemClick, onItemClick())
@@ -39,7 +39,7 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
     /**
      * 根据实体类类型设置当前item布局类型
      */
-    fun getItemType(item: DailyResponse.DailyItemBean): Int {
+    fun getItemType(item: CommonItemBean): Int {
 
         when(item.type) {
             ItemTypeConfig.ITEM_TYPE_TEXTCARD ->
@@ -59,8 +59,8 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
         IHomeService.instance.getDailyData(page)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(object: ApiCallBack<DailyResponse>() {
-                    override fun onSuccess(response: DailyResponse) {
+                .subscribe(object: ApiCallBack<CommomItemResponse>() {
+                    override fun onSuccess(response: CommomItemResponse) {
                         handleItemData(page, response.itemList)
                     }
 
@@ -71,9 +71,9 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
                 })
     }
 
-    fun onItemClick(): OnItemClickListener<DailyResponse.DailyItemBean> {
-        return object: OnItemClickListener<DailyResponse.DailyItemBean> {
-            override fun onItemClick(bean: DailyResponse.DailyItemBean) {
+    fun onItemClick(): OnItemClickListener<CommonItemBean> {
+        return object: OnItemClickListener<CommonItemBean> {
+            override fun onItemClick(bean: CommonItemBean) {
 
                 if (bean.data.content != null && bean.data.content.data.playUrl != null) {
                     ARouter.getInstance().build(RoutePath.Play.PLAY_DETAIL_ACTIVITY)

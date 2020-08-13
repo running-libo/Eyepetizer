@@ -1,6 +1,6 @@
 package com.example.module_home.net
 
-import com.example.base.network.bean.DailyResponse
+import com.example.base.network.bean.CommomItemResponse
 import com.example.network.interceptor.service.Api
 import com.example.network.interceptor.service.ApiManager
 import retrofit2.http.GET
@@ -26,5 +26,5 @@ interface IHomeService {
      * 首页-日报
      */
     @GET(Api.DAILY)
-    fun getDailyData(@Query("num") num: Int): Observable<DailyResponse>
+    fun getDailyData(@Query("num") num: Int): Observable<CommomItemResponse>
 }

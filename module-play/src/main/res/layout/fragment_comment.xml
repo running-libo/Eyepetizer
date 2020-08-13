@@ -22,7 +22,7 @@
             tools:listitem="@layout/item_comment"
             app:layout_constraintTop_toTopOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            itemBinding="@{viewModel.itemBinding}"
+            itemBinding="@{viewModel.multiItemBinding}"
             items="@{viewModel.items}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
