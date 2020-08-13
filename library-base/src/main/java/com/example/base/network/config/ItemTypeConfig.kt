@@ -41,5 +41,7 @@ object ItemTypeConfig {
      * 评论item类型
      */
     val ITEM_TYPE_COMMENT = "reply"
+    
+    val ITEM_TYPE_SQUARECARD = "squareCardCollection"
 
 }

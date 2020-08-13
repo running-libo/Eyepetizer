@@ -24,7 +24,6 @@ class RelateVideoViewModel(application: Application) : BasePageViewModel<RelateV
     val onItemBind: OnItemBind<RelateVideoResponse.RelateVideoItemBean> = OnItemBind { itemBinding, position, item ->
         itemBinding.set(BR.item, getItemType(item))
                 .bindExtra(BR.viewModel, this)
-                .bindExtra(BR.itemClick, onItemClick())
     }
 
     var multiItemBinding = ItemBinding.of(onItemBind)

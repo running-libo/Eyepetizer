@@ -45,9 +45,11 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
                 return R.layout.item_big_card
             ItemTypeConfig.ITEM_TYPE_AUTOPLAY_FOLLOWCARD ->
                 return R.layout.item_big_card
+            ItemTypeConfig.ITEM_TYPE_SQUARECARD ->
+                return R.layout.item_header
         }
 
-        return return R.layout.item_title
+        return return R.layout.item_empty
     }
 
     init {

@@ -51,7 +51,7 @@ class DailyViewModel(application: Application) : BasePageViewModel<CommonItemBea
                 return R.layout.item_big_card
         }
 
-        return return R.layout.item_title
+        return return R.layout.item_empty
     }
 
     override fun requestData(page: Int) {
