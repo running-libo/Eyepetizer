@@ -44,4 +44,8 @@ object ItemTypeConfig {
     
     val ITEM_TYPE_SQUARECARD = "squareCardCollection"
 
+    /**
+     * 广告类型
+     */
+    val ITEM_TYPE_VIDEOAD = "autoPlayVideoAd"
 }

@@ -32,4 +32,6 @@
     <string name="user_service_protocal">用户服务协议</string>
     <string name="click_publish_comment">点击发表你的评论</string>
     <string name="reply">回复</string>
+    <string name="addvertise">广告</string>
+    <string name="wifi_preload">WIFI预载</string>
 </resources>

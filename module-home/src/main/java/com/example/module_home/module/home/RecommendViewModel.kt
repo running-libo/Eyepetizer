@@ -47,6 +47,8 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
                 return R.layout.item_big_card
             ItemTypeConfig.ITEM_TYPE_SQUARECARD ->
                 return R.layout.item_header
+            ItemTypeConfig.ITEM_TYPE_VIDEOAD ->
+                return R.layout.item_videoad
         }
 
         return return R.layout.item_empty

@@ -18,7 +18,8 @@ data class Data(
         var content: Content,
         var dataType: String,
         var header: Header,
-        var text: String
+        var text: String,
+        var detail: Detail
 )
 
 data class Content(
