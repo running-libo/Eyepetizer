@@ -17,7 +17,7 @@ class HomeFragment : BaseLazyloadFragment() {
     }
     private val fragments = ArrayList<Fragment>()
     var findFragment: DailyFragment? = null
-    var recommendFragment: DailyFragment? = null
+    var recommendFragment: RecommendFragment? = null
     var dailyFragment: DailyFragment? = null
 
     override fun initView() {
@@ -36,7 +36,7 @@ class HomeFragment : BaseLazyloadFragment() {
             tablayout.addTab(tablayout.newTab().setText(titleStr[i]))
         }
         findFragment = DailyFragment()
-        recommendFragment = DailyFragment()
+        recommendFragment = RecommendFragment()
         dailyFragment = DailyFragment()
 
         fragments.add(findFragment!!)

@@ -27,4 +27,10 @@ interface IHomeService {
      */
     @GET(Api.DAILY)
     fun getDailyData(@Query("num") num: Int): Observable<CommomItemResponse>
+
+    /**
+     * 首页-推荐
+     */
+    @GET(Api.RECOMMEND)
+    fun getRecommend(@Query("page") page: Int): Observable<CommomItemResponse>
 }

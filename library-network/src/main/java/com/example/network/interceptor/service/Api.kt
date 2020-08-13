@@ -26,6 +26,11 @@ interface Api {
         const val DAILY = "v5/index/tab/feed"
 
         /**
+         * 首页-推荐
+         */
+        const val RECOMMEND = "v5/index/tab/allRec"
+
+        /**
          * 视频播放详情
          */
         const val PLAY_DETAIL = "v2/video/{id}"

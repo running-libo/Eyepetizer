@@ -12,10 +12,6 @@
             name="item"
             type="com.example.base.network.bean.CommonItemBean" />
 
-        <variable
-            name="viewModel"
-            type="com.example.module_home.module.home.DailyViewModel" />
-
         <import type="com.example.base.network.utils.TimeUtils"/>
 
         <import type="android.view.View"/>
