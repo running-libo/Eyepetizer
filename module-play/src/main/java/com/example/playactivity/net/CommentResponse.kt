@@ -23,6 +23,7 @@ data class CommentResponse(var itemList: List<CommentData>) : BaseResponse() {
             val createTime: Long,
             val dataType: String,
             val hot: Boolean,
+            val text: String,
             val id: Long,
             val imageUrl: String,
             val likeCount: Int,

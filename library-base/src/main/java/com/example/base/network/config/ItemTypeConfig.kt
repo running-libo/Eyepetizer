@@ -8,12 +8,12 @@ package com.example.base.network.config
 object ItemTypeConfig {
 
     /**
-     * 标题类型
+     * 视频标题类型
      */
     val ITEM_TYPE_TEXTCARD = "textCard"
 
     /**
-     * 视频item类型
+     * 视频大item类型
      */
     val ITEM_TYPE_FOLLOWCARD = "followCard"
 
@@ -26,4 +26,19 @@ object ItemTypeConfig {
      * 图片item类型
      */
     val ITEM_TYPE_PICTURE_FOLLOWCARD = "pictureFollowCard"
+
+    /**
+     * 视频小item类型
+     */
+    val ITEM_TYPE_VIDEO_SAMLLCARD = "videoSmallCard"
+
+    /**
+     * 评论标题item类型
+     */
+    val ITEM_TYPE_COMMENT_TITLE = "leftAlignTextHeader"
+
+    /**
+     * 评论item类型
+     */
+    val ITEM_TYPE_COMMENT = "reply"
 }

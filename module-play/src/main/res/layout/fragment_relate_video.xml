@@ -16,6 +16,6 @@
         android:overScrollMode="never"
         tools:listitem="@layout/item_relate"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        itemBinding="@{viewModel.itemBinding}"
+        itemBinding="@{viewModel.multiItemBinding}"
         items="@{viewModel.items}"/>
 </layout>
