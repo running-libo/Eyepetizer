@@ -23,7 +23,7 @@ open abstract class BasePageViewModel<T>(application: Application) : BaseViewMod
     /**
      * 获取item的布局ID
      */
-    abstract fun getItemLayoutId(): Int
+    open fun getItemLayoutId(): Int = 0
 
     open fun requestData(page: Int) {}
 

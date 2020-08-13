@@ -1,19 +1,21 @@
 package com.example.module_home.module.home
 
 import android.app.Application
-import android.text.TextUtils
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.viewmodel.BasePageViewModel
+import com.example.base.network.config.ItemTypeConfig
 import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.OnItemClickListener
-import com.example.base.network.utils.ToastUtil
 import com.example.module_home.BR
 import com.example.module_home.R
 import com.example.module_home.net.DailyResponse
 import com.example.module_home.net.IHomeService
 import com.example.network.interceptor.service.ApiCallBack
+import me.tatarka.bindingcollectionadapter2.ItemBinding
+import me.tatarka.bindingcollectionadapter2.OnItemBind
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+
 
 /**
  * create by apple
@@ -22,11 +24,30 @@ import rx.schedulers.Schedulers
  */
 class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse.DailyItemBean>(application) {
 
-    override fun getItemLayoutId(): Int = R.layout.item_daily
+    val onItemBind: OnItemBind<DailyResponse.DailyItemBean> = OnItemBind { itemBinding, position, item ->
+        itemBinding.set(BR.item, getItemType(item))
+                .bindExtra(BR.viewModel, this)
+                .bindExtra(BR.itemClick, onItemClick())
+    }
+
+    var multiItemBinding = ItemBinding.of(onItemBind)
 
     init {
-        itemBinding.bindExtra(BR.itemClick, onItemClick())
         refresh()
+    }
+
+    /**
+     * 根据实体类类型设置当前item布局类型
+     */
+    fun getItemType(item: DailyResponse.DailyItemBean): Int {
+        when(item.type) {
+            ItemTypeConfig.ITEM_TYPE_TEXTCARD ->
+                return R.layout.item_title
+            ItemTypeConfig.ITEM_TYPE_FOLLOWCARD ->
+                return R.layout.item_daily
+        }
+
+        return return R.layout.item_title
     }
 
     override fun requestData(page: Int) {

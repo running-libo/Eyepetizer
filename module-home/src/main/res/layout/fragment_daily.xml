@@ -30,7 +30,7 @@
                 android:layout_marginRight="@dimen/dp_14"
                 tools:listitem="@layout/item_daily"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                itemBinding="@{viewModel.itemBinding}"
+                itemBinding="@{viewModel.multiItemBinding}"
                 items="@{viewModel.items}"/>
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

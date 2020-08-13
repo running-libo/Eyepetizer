@@ -57,8 +57,9 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-livedata:2.0.0'
 
     //Itembinding
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:3.2.0'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:3.2.0'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0'
 
     //Glide
     api 'com.github.bumptech.glide:glide:4.8.0'
