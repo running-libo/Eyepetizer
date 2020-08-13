@@ -17,4 +17,13 @@ object ItemTypeConfig {
      */
     val ITEM_TYPE_FOLLOWCARD = "followCard"
 
+    /**
+     * 自动播放视频item类
+     */
+    val ITEM_TYPE_AUTOPLAY_FOLLOWCARD = "autoPlayFollowCard"
+
+    /**
+     * 图片item类型
+     */
+    val ITEM_TYPE_PICTURE_FOLLOWCARD = "pictureFollowCard"
 }

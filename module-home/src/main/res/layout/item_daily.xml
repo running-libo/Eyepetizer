@@ -7,15 +7,18 @@
         <variable
             name="itemClick"
             type="com.example.base.network.utils.OnItemClickListener" />
+
         <variable
             name="item"
-            type="com.example.module_home.net.DailyResponse.DailyItemBean" />
+            type="com.example.base.network.bean.DailyResponse.DailyItemBean" />
 
         <variable
             name="viewModel"
             type="com.example.module_home.module.home.DailyViewModel" />
 
         <import type="com.example.base.network.utils.TimeUtils"/>
+
+        <import type="android.view.View"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,6 +56,7 @@
             android:paddingTop="@dimen/dp_1"
             android:paddingBottom="@dimen/dp_1"
             android:background="@drawable/shape_black_roundsmall"
+            android:visibility="@{item.data.content.data.duration==0?View.GONE:View.VISIBLE}"
             android:text="@{TimeUtils.INSTANCE.duration2Time(item.data.content.data.duration)}"
             android:textSize="@dimen/font_13sp"
             android:layout_margin="@dimen/dp_5"

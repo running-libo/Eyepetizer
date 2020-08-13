@@ -1,4 +1,4 @@
-package com.example.module_home.net
+package com.example.base.network.bean
 
 import com.example.base.network.base.response.BaseResponse
 
@@ -21,7 +21,8 @@ data class DailyResponse(var itemList: ArrayList<DailyItemBean>) : BaseResponse(
             var adTrack: Any,
             var content: Content,
             var dataType: String,
-            var header: Header
+            var header: Header,
+            var text: String
     )
 
     data class Content(

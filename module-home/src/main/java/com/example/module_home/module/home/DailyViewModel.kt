@@ -8,7 +8,7 @@ import com.example.base.network.route.RoutePath
 import com.example.base.network.utils.OnItemClickListener
 import com.example.module_home.BR
 import com.example.module_home.R
-import com.example.module_home.net.DailyResponse
+import com.example.base.network.bean.DailyResponse
 import com.example.module_home.net.IHomeService
 import com.example.network.interceptor.service.ApiCallBack
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -40,10 +40,15 @@ class DailyViewModel(application: Application) : BasePageViewModel<DailyResponse
      * 根据实体类类型设置当前item布局类型
      */
     fun getItemType(item: DailyResponse.DailyItemBean): Int {
+
         when(item.type) {
             ItemTypeConfig.ITEM_TYPE_TEXTCARD ->
                 return R.layout.item_title
             ItemTypeConfig.ITEM_TYPE_FOLLOWCARD ->
+                return R.layout.item_daily
+            ItemTypeConfig.ITEM_TYPE_PICTURE_FOLLOWCARD ->
+                return R.layout.item_daily
+            ItemTypeConfig.ITEM_TYPE_AUTOPLAY_FOLLOWCARD ->
                 return R.layout.item_daily
         }
 
