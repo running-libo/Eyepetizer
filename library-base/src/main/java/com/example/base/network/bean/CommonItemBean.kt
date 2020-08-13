@@ -27,7 +27,8 @@ data class Content(
         var `data`: DataX,
         var id: Int,
         var tag: Any,
-        var type: String
+        var type: String,
+        var author: Author
 )
 
 data class Consumption(

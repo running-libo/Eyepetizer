@@ -9,6 +9,7 @@ import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
 import com.example.module_home.R
 import com.example.module_home.databinding.ActivityMainBinding
+import com.example.module_home.viewmodel.HomeViewModel
 import com.example.module_home.widget.HomeNavigationBarView.OnSelectListener
 import kotlinx.android.synthetic.main.activity_main.*
 

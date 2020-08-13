@@ -1,4 +1,4 @@
-package com.example.module_home.module.home
+package com.example.module_home.viewmodel
 
 import android.app.Application
 import com.example.base.network.base.viewmodel.BaseViewModel

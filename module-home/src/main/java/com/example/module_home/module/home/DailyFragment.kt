@@ -4,6 +4,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.example.base.network.base.fragment.BaseMvvmFragment
 import com.example.module_home.databinding.FragmentDailyBinding
+import com.example.module_home.viewmodel.DailyViewModel
 import kotlinx.android.synthetic.main.fragment_daily.*
 
 class DailyFragment : BaseMvvmFragment<FragmentDailyBinding, DailyViewModel>() {

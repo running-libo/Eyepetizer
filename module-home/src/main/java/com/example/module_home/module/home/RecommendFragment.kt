@@ -4,6 +4,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.example.base.network.base.fragment.BaseMvvmFragment
 import com.example.module_home.databinding.FragmentRecommendBinding
+import com.example.module_home.viewmodel.RecommendViewModel
 import kotlinx.android.synthetic.main.fragment_daily.*
 
 /**

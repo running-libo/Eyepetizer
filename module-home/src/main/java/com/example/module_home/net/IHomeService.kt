@@ -33,4 +33,6 @@ interface IHomeService {
      */
     @GET(Api.RECOMMEND)
     fun getRecommend(@Query("page") page: Int): Observable<CommomItemResponse>
+
+    
 }

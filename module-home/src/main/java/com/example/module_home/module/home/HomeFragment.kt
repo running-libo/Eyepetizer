@@ -16,7 +16,7 @@ class HomeFragment : BaseLazyloadFragment() {
         arrayOf(getString(R.string.find), getString(R.string.recommend), getString(R.string.daily))
     }
     private val fragments = ArrayList<Fragment>()
-    var findFragment: DailyFragment? = null
+    var findFragment: RecommendFragment? = null
     var recommendFragment: RecommendFragment? = null
     var dailyFragment: DailyFragment? = null
 
@@ -35,7 +35,7 @@ class HomeFragment : BaseLazyloadFragment() {
         for (i in titleStr.indices) {
             tablayout.addTab(tablayout.newTab().setText(titleStr[i]))
         }
-        findFragment = DailyFragment()
+        findFragment = RecommendFragment()
         recommendFragment = RecommendFragment()
         dailyFragment = DailyFragment()
 
