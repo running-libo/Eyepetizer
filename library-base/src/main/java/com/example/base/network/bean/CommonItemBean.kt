@@ -19,7 +19,11 @@ data class Data(
         var dataType: String,
         var header: Header,
         var text: String,
-        var detail: Detail
+        var detail: Detail,
+        var icon: String,
+        var title: String,
+        var description: String,
+        var image: String
 )
 
 data class Content(

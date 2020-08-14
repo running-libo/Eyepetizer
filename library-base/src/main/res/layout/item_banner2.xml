@@ -17,26 +17,13 @@
             android:id="@+id/ivCover"
             android:layout_width="match_parent"
             android:layout_height="183dp"
-            android:layout_marginTop="@dimen/dp_12"
             android:scaleType="centerCrop"
             app:es_shape_type="rectangle"
             app:ease_radius="@dimen/dp_4"
             tools:background="@color/text_gray"
-            imgUrl="@{item.data.detail.imageUrl}"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvWifi"
-            android:layout_width="55dp"
-            android:layout_height="@dimen/dp_20"
-            android:text="@string/wifi_preload"
-            android:textSize="@dimen/font_10sp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            app:layout_constraintLeft_toLeftOf="@id/ivCover"
-            app:layout_constraintTop_toTopOf="@id/ivCover"
-            android:layout_margin="@dimen/dp_13"
-            android:background="@drawable/shape_white_roundsmall_borderlight"/>
+            imgUrl="@{item.data.image}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_12"/>
 
         <TextView
             android:id="@+id/tvTag"
@@ -58,7 +45,7 @@
             android:background="@mipmap/icon_user"
             app:layout_constraintTop_toBottomOf="@id/ivCover"
             app:layout_constraintLeft_toLeftOf="parent"
-            imgUrl="@{item.data.detail.icon}"
+            imgUrl="@{item.data.header.icon}"
             android:layout_marginTop="@dimen/dp_10"
             app:es_shape_type="round"/>
 
@@ -73,7 +60,7 @@
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginTop="@dimen/dp_1"
             tools:text="日本工作短片[过劳死]日本工作短片[过劳死]日本工作短片[过劳死]"
-            android:text="@{item.data.detail.title}"
+            android:text="@{item.data.header.title}"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
             app:layout_constraintTop_toTopOf="@id/ivAvator"
             app:layout_constraintRight_toRightOf="parent"
@@ -84,7 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="NOWNESS现在NOWNESS现在NOWNESS现在NOWNESS现在NOWNESS现在"
-            android:text="@{item.data.detail.description}"
+            android:text="@{item.data.header.description}"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
             app:layout_constraintBottom_toBottomOf="@id/ivAvator"
             app:layout_constraintRight_toRightOf="parent"

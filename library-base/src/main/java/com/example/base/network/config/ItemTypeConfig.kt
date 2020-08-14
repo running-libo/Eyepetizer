@@ -48,4 +48,14 @@ object ItemTypeConfig {
      * 广告类型
      */
     val ITEM_TYPE_VIDEOAD = "autoPlayVideoAd"
+
+    /**
+     * 主题item类型
+     */
+    val ITEM_TYPE_THEME = "briefCard"
+
+    /**
+     * banner2广告类型
+     */
+    val ITEM_TYPE_BANNER2 = "banner2"
 }

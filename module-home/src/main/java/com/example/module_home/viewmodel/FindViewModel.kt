@@ -41,14 +41,17 @@ class FindViewModel(application: Application) : BasePageViewModel<CommonItemBean
                 return R.layout.item_title
             ItemTypeConfig.ITEM_TYPE_FOLLOWCARD ->
                 return R.layout.item_big_card
-            ItemTypeConfig.ITEM_TYPE_PICTURE_FOLLOWCARD ->
-                return R.layout.item_big_card
             ItemTypeConfig.ITEM_TYPE_AUTOPLAY_FOLLOWCARD ->
                 return R.layout.item_big_card
             ItemTypeConfig.ITEM_TYPE_SQUARECARD ->
                 return R.layout.item_header
             ItemTypeConfig.ITEM_TYPE_VIDEOAD ->
                 return R.layout.item_videoad
+            ItemTypeConfig.ITEM_TYPE_THEME ->
+                return R.layout.item_theme
+            ItemTypeConfig.ITEM_TYPE_BANNER2 ->
+                return R.layout.item_banner2
+
         }
 
         return return R.layout.item_empty
