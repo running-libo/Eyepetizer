@@ -21,6 +21,11 @@ interface Api {
         val SERVER_ADDRESS = if (AppConfig.isDebug) SERVER_ADDRESS_DEBUG else SERVER_ADDRESS_RELEASE
 
         /**
+         * 首页-发现
+         */
+        const val FIND = "v7/index/tab/discovery"
+
+        /**
          * 首页-日报
          */
         const val DAILY = "v5/index/tab/feed"

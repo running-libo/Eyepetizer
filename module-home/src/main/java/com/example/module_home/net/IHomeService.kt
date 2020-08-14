@@ -23,6 +23,12 @@ interface IHomeService {
     }
 
     /**
+     * 首页-发现
+     */
+    @GET(Api.FIND)
+    fun getFindData(): Observable<CommomItemResponse>
+
+    /**
      * 首页-日报
      */
     @GET(Api.DAILY)
@@ -34,5 +40,4 @@ interface IHomeService {
     @GET(Api.RECOMMEND)
     fun getRecommend(@Query("page") page: Int): Observable<CommomItemResponse>
 
-    
 }
