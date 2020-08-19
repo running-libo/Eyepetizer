@@ -1,6 +1,7 @@
 package com.example.module_home.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.MutableLiveData
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.viewmodel.BasePageViewModel
 import com.example.base.network.config.ItemTypeConfig

@@ -1,6 +1,7 @@
 package com.example.module_home.module.home
 
 import android.view.View
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.example.base.network.base.fragment.BaseMvvmFragment
 import com.example.module_home.databinding.FragmentDailyBinding
@@ -10,6 +11,12 @@ import kotlinx.android.synthetic.main.fragment_daily.*
 class DailyFragment : BaseMvvmFragment<FragmentDailyBinding, DailyViewModel>() {
 
     override fun initView() {
+
+        var myLiveData = MutableLiveData<Any>()
+
+        myLiveData.observe(this, Observer {
+
+        })
 
         smartRefreshLayout.setOnRefreshListener {
             viewModel.refresh()
