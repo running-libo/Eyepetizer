@@ -10,4 +10,15 @@ import com.example.base.network.base.viewmodel.BasePageViewModel
  */
 class FocusViewModel(application: Application) : BasePageViewModel<String>(application) {
 
+    init {
+        refresh()
+    }
+
+    override fun requestData(page: Int) {
+        for (i in 0..9) {
+            items.add("")
+        }
+    }
+
+    override fun getItemLayoutId(): Int = R.layout.item_focus
 }

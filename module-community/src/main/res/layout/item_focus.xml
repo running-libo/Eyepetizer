@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_16">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_begin="15dp"
+            android:orientation="vertical"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_end="15dp"
+            android:orientation="vertical"/>
+
+        <ImageView
+            android:id="@+id/ivAvator"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintLeft_toLeftOf="@id/guideLeft"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@mipmap/icon_user"/>
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开眼"
+            android:textSize="@dimen/font_14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            app:layout_constraintTop_toTopOf="@id/ivAvator"
+            android:layout_marginLeft="@dimen/dp_12"/>
+
+        <TextView
+            android:id="@+id/tvPublishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            android:text="2020/08/02 发布："
+            android:textSize="@dimen/font_12sp"
+            android:textColor="@color/text_gray"
+            android:layout_marginLeft="@dimen/dp_12"/>
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="手牵手一步两步三步四步望着天的浪漫"
+            app:layout_constraintTop_toBottomOf="@id/ivAvator"
+            app:layout_constraintLeft_toLeftOf="@id/guideLeft"
+            app:layout_constraintRight_toRightOf="@id/guideRight"
+            android:maxLines="2"
+            android:textSize="@dimen/font_14sp"
+            android:textColor="@color/text_black"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/dp_2"/>
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivVideoCover"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            app:es_shape_type="rectangle"
+            app:ease_radius="@dimen/dp_4"
+            app:layout_constraintLeft_toLeftOf="@id/guideLeft"
+            app:layout_constraintRight_toRightOf="@id/guideRight"
+            app:layout_constraintTop_toBottomOf="@id/tvContent"
+            android:layout_marginTop="@dimen/dp_12"/>
+
+        <ImageView
+            android:id="@+id/ivLike"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@mipmap/ic_like_grey"
+            app:layout_constraintLeft_toLeftOf="@id/guideLeft"
+            app:layout_constraintTop_toBottomOf="@id/ivVideoCover"
+            android:layout_marginTop="@dimen/dp_12"/>
+
+        <TextView
+            android:id="@+id/tvLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="38"
+            app:layout_constraintLeft_toRightOf="@id/ivLike"
+            app:layout_constraintTop_toTopOf="@id/ivLike"
+            app:layout_constraintBottom_toBottomOf="@id/ivLike"
+            android:layout_marginLeft="@dimen/dp_8"/>
+
+        <ImageView
+            android:id="@+id/ivComment"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@mipmap/ic_comment_grey"
+            app:layout_constraintLeft_toRightOf="@id/tvLikeCount"
+            app:layout_constraintTop_toBottomOf="@id/ivVideoCover"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginLeft="@dimen/dp_45"/>
+
+        <TextView
+            android:id="@+id/tvCommentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23"
+            app:layout_constraintLeft_toRightOf="@id/ivComment"
+            app:layout_constraintTop_toTopOf="@id/ivComment"
+            app:layout_constraintBottom_toBottomOf="@id/ivComment"
+            android:layout_marginLeft="@dimen/dp_8"/>
+
+        <ImageView
+            android:id="@+id/ivCollection"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@mipmap/ic_collection_grey"
+            app:layout_constraintLeft_toRightOf="@id/tvCommentCount"
+            app:layout_constraintTop_toBottomOf="@id/ivVideoCover"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginLeft="@dimen/dp_45"/>
+
+        <TextView
+            android:id="@+id/tvCollectionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/collection"
+            app:layout_constraintLeft_toRightOf="@id/ivCollection"
+            app:layout_constraintTop_toTopOf="@id/ivCollection"
+            app:layout_constraintBottom_toBottomOf="@id/ivCollection"
+            android:layout_marginLeft="@dimen/dp_8"/>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/ic_share_grey"
+            app:layout_constraintRight_toRightOf="@id/guideRight"
+            app:layout_constraintBottom_toBottomOf="@id/ivLike"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/lightgray_line"
+            app:layout_constraintTop_toBottomOf="@id/ivLike"
+            android:layout_marginTop="@dimen/dp_15"
+            app:layout_constraintLeft_toLeftOf="@id/guideLeft"
+            app:layout_constraintRight_toRightOf="@id/guideRight"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
