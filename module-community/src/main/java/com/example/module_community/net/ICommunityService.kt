@@ -26,4 +26,10 @@ interface ICommunityService {
      */
     @GET(Api.FOCUS)
     fun getFocusList(): Observable<CommomItemResponse>
+
+    /**
+     * 推荐
+     */
+    @GET(Api.COMMUNITY_RECOMMEND)
+    fun getRecommendData(): Observable<CommomItemResponse>
 }

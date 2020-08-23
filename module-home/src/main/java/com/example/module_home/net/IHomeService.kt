@@ -37,7 +37,7 @@ interface IHomeService {
     /**
      * 首页-推荐
      */
-    @GET(Api.RECOMMEND)
+    @GET(Api.HOME_RECOMMEND)
     fun getRecommend(@Query("page") page: Int): Observable<CommomItemResponse>
 
 }

@@ -33,7 +33,7 @@ interface Api {
         /**
          * 首页-推荐
          */
-        const val RECOMMEND = "v5/index/tab/allRec"
+        const val HOME_RECOMMEND = "v5/index/tab/allRec"
 
         /**
          * 视频播放详情
@@ -56,8 +56,13 @@ interface Api {
         const val PUSH = "v3/messages"
 
         /**
-         * 关注
+         * 社区-关注
          */
         const val FOCUS = "v6/community/tab/follow"
+
+        /**
+         * 社区-推荐
+         */
+        const val COMMUNITY_RECOMMEND = "v7/community/tab/rec"
     }
 }
