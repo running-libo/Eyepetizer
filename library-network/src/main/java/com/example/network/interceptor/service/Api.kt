@@ -54,5 +54,10 @@ interface Api {
          * 推送
          */
         const val PUSH = "v3/messages"
+
+        /**
+         * 关注
+         */
+        const val FOCUS = "v6/community/tab/follow"
     }
 }

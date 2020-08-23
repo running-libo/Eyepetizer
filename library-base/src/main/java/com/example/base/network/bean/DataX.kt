@@ -18,6 +18,7 @@ data class DataX(
         var description: String,
         var height: Int,
         var id: Int,
+        var author: Author,
         var ifMock: Boolean,
         var latitude: Double,
         var library: String,
