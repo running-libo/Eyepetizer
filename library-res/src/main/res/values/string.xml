@@ -34,4 +34,7 @@
     <string name="reply">回复</string>
     <string name="addvertise">广告</string>
     <string name="wifi_preload">WIFI预载</string>
+    <string name="push">推送</string>
+    <string name="interaction">互动</string>
+    <string name="private_letter">私信</string>
 </resources>

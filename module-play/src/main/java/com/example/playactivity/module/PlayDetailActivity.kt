@@ -1,7 +1,6 @@
 package com.example.playactivity.module
 
 import android.content.pm.ActivityInfo
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
