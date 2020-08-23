@@ -37,4 +37,6 @@
     <string name="push">推送</string>
     <string name="interaction">互动</string>
     <string name="private_letter">私信</string>
+    <string name="dont_miss_msg">别错过重要信息</string>
+    <string name="login_can_use">登录后即可查看评论回复、点赞及关注等通知信息</string>
 </resources>

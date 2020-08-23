@@ -32,12 +32,12 @@
 
             <com.androidkun.xtablayout.XTabLayout
                 android:id="@+id/tablayout"
-                android:layout_width="240dp"
+                android:layout_width="200dp"
                 android:layout_height="@dimen/dp_42"
                 app:xTabIndicatorColor="@color/text_black"
                 app:xTabIndicatorWidth="@dimen/dp_10"
                 app:xTabSelectedTextColor="@color/text_black"
-                app:xTabSelectedTextSize="@dimen/font_13sp"
+                app:xTabSelectedTextSize="@dimen/font_14sp"
                 app:xTabTextBold="true"
                 app:xTabTextColor="@color/text_gray"
                 app:xTabTextSize="@dimen/font_13sp"
