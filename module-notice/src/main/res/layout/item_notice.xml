@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="item"
-            type="String" />
+            type="com.example.base.network.bean.PushBean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:paddingTop="12dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="5dp">
 
         <com.example.base.network.widget.CircleImageView
             android:id="@+id/ivAvator"
@@ -27,9 +30,10 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开眼拍了拍你"
+            tools:text="开眼拍了拍你"
             android:textSize="@dimen/font_14sp"
             android:textColor="@color/black"
+            android:text="@{item.title}"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
             android:layout_marginLeft="12dp"
             android:textStyle="bold"
@@ -50,8 +54,9 @@
             android:id="@+id/tvContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="开眼的少年们，明天加油！"
+            tools:text="开眼的少年们，明天加油！"
             android:textSize="@dimen/font_12sp"
+            android:text="@{item.content}"
             app:layout_constraintTop_toBottomOf="@id/tvTime"
             app:layout_constraintLeft_toRightOf="@id/ivAvator"
             app:layout_constraintRight_toLeftOf="@id/ivArrow"
@@ -60,11 +65,13 @@
             android:layout_marginLeft="12dp"/>
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="@dimen/dp_0.5"
             android:background="@color/lightgray_line"
             app:layout_constraintTop_toBottomOf="@id/tvContent"
-            android:layout_marginTop="@dimen/dp_20"/>
+            android:layout_marginTop="@dimen/dp_15"
+            app:layout_constraintLeft_toLeftOf="@id/tvTitle"
+            app:layout_constraintRight_toRightOf="parent"/>
 
         <ImageView
             android:id="@+id/ivArrow"

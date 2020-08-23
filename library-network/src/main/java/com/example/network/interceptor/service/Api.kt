@@ -49,5 +49,10 @@ interface Api {
          * 评论列表
          */
         const val COMMENT_LIST = "v2/replies/video"
+
+        /**
+         * 推送
+         */
+        const val PUSH = "v3/messages"
     }
 }
