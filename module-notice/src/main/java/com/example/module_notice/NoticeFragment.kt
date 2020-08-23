@@ -13,7 +13,7 @@ import java.util.ArrayList
 
 @Route(path = RoutePath.Notification.NOTIFICATION_FRAGMENT)
 class NoticeFragment : BaseLazyloadFragment() {
-    lateinit var pushFragment: InteractionFragment
+    lateinit var pushFragment: PushFragment
     lateinit var interactionFragment: InteractionFragment
     lateinit var privateLetterFragment: InteractionFragment
     private val fragments = ArrayList<Fragment>()
@@ -37,7 +37,7 @@ class NoticeFragment : BaseLazyloadFragment() {
         for (i in titleStr.indices) {
             tablayout.addTab(tablayout.newTab().setText(titleStr[i]))
         }
-        pushFragment = InteractionFragment()
+        pushFragment = PushFragment()
         interactionFragment = InteractionFragment()
         privateLetterFragment = InteractionFragment()
 

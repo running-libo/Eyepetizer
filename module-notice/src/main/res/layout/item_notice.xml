@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivAvator"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@mipmap/ic_app"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:es_shape_type="round"
+            app:ease_radius="19dp"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开眼拍了拍你"
+            android:textSize="@dimen/font_14sp"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            android:layout_marginLeft="12dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/ivAvator"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1周前"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginLeft="12dp"/>
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="开眼的少年们，明天加油！"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            app:layout_constraintRight_toLeftOf="@id/ivArrow"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginLeft="12dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/lightgray_line"
+            app:layout_constraintTop_toBottomOf="@id/tvContent"
+            android:layout_marginTop="@dimen/dp_20"/>
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_right_arrow"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_20"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
