@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.base.network.bean.ItemListItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_2"
+        android:layout_marginRight="@dimen/dp_2">
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:src="@mipmap/default_cover"
+            imgUrl="@{item.data.image}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:es_shape_type="rectangle"
+            app:ease_radius="@dimen/dp_5"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

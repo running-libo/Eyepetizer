@@ -7,6 +7,7 @@ import com.example.base.network.bean.CommomItemResponse
 import com.example.base.network.bean.CommonItemBean
 import com.example.base.network.config.ItemTypeConfig.ITEM_TYPE_COLLECTION
 import com.example.base.network.config.ItemTypeConfig.ITEM_TYPE_FOLLOWCARD_UPPER
+import com.example.base.network.config.ItemTypeConfig.ITEM_TYPE_HORIZONTALSCROLLCARD
 import com.example.module_community.net.ICommunityService
 import com.example.network.interceptor.service.ApiCallBack
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -37,13 +38,23 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
      */
     val onItemBind: OnItemBind<CommonItemBean> = OnItemBind { itemBinding, position, item ->
         when(item.data.dataType) {
+
             ITEM_TYPE_COLLECTION -> {
                 var recommendHeaderViewModel = RecommendHeaderViewModel(application)
                 recommendHeaderViewModel.setDatas(item.data.itemList)
                 itemBinding.set(BR.item, R.layout.item_recommend_scroll).bindExtra(BR.viewModel, recommendHeaderViewModel)
             }
-            ITEM_TYPE_FOLLOWCARD_UPPER ->
+
+            ITEM_TYPE_FOLLOWCARD_UPPER -> {
                 itemBinding.set(BR.item, R.layout.item_recommend).bindExtra(BR.viewModel, this)
+            }
+
+            ITEM_TYPE_HORIZONTALSCROLLCARD -> {
+                var recommendBannerViewModel = RecommendBannerViewModel(application)
+                recommendBannerViewModel.setDatas(item.data.itemList)
+                itemBinding.set(BR.item, R.layout.item_recommend_banner).bindExtra(BR.viewModel, recommendBannerViewModel)
+            }
+
             else ->
                 itemBinding.set(BR.item, R.layout.item_empty)
         }

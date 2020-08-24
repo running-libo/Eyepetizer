@@ -15,6 +15,7 @@ data class ItemListItem(
 
 data class DataItem(
         val actionUrl: String,
+        val image: String,
         val bgPicture: String,
         val dataType: String,
         val subTitle: String,
