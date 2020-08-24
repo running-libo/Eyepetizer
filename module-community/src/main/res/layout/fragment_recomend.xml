@@ -21,6 +21,8 @@
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="2"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
             itemBinding="@{viewModel.itemBinding}"
             items="@{viewModel.items}"/>
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -9,10 +11,87 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/blue"
-        android:layout_margin="20dp">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_3"
+        android:layout_marginRight="@dimen/dp_3"
+        android:layout_marginTop="@dimen/dp_12">
 
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:es_shape_type="rectangle"
+            app:ease_radius="@dimen/dp_5"
+            imgUrl="@{item.data.content.data.cover.feed}"
+            app:layout_constraintTop_toTopOf="parent"/>
 
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="红色楼梯"
+            android:text="@{item.data.content.data.description}"
+            android:textSize="@dimen/font_14sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/ivCover"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textColor="@color/text_gray"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2020.06.15"
+            timestamp="@{item.data.content.data.createTime}"
+            android:textSize="@dimen/font_12sp"
+            android:textColor="@color/text_gray"
+            android:layout_marginTop="@dimen/dp_5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivAvator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:es_shape_type="round"
+            imgUrl="@{item.data.content.data.owner.avatar}"
+            android:layout_marginTop="@dimen/dp_8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            android:background="@mipmap/icon_user"/>
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Amy"
+            android:text="@{item.data.content.data.owner.nickname}"
+            app:layout_constraintLeft_toRightOf="@id/ivAvator"
+            app:layout_constraintRight_toLeftOf="@id/tvLikeCount"
+            app:layout_constraintTop_toTopOf="@id/ivAvator"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_4"/>
+
+        <ImageView
+            android:id="@+id/ivLike"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@mipmap/ic_like_grey"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivAvator"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvator"/>
+
+        <TextView
+            android:id="@+id/tvLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{item.data.content.data.consumption.collectionCount+""}'
+            app:layout_constraintRight_toLeftOf="@id/ivLike"
+            app:layout_constraintTop_toTopOf="@id/ivAvator"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvator"
+            android:layout_marginRight="@dimen/dp_8"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
