@@ -74,7 +74,14 @@ object ItemTypeConfig {
     const val ITEM_TYPE_FOLLOWCARD_UPPER = "FollowCard"
 
     /**
+     * 仅一张图banner
+     */
+    const val ITEM_TYPE_BANNER = "Banner"
+
+    /**
      * 水平滑动banner
      */
     const val ITEM_TYPE_HORIZONTALSCROLLCARD = "HorizontalScrollCard"
+
+    const val ITEM_TYPE_VIDEOBEANFORCLIENT = "VideoBeanForClient"
 }

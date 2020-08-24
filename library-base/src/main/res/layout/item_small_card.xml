@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.base.network.bean.CommonItemBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12">
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivCover"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            tools:src="@mipmap/default_cover"
+            imgUrl="@{item.data.cover.feed}"
+            app:es_shape_type="rectangle"
+            app:ease_radius="@dimen/dp_4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02:08"
+            android:textSize="11sp"
+            android:background="@drawable/shape_black_roundsmall"
+            android:textColor="@color/white"
+            app:layout_constraintRight_toRightOf="@id/ivCover"
+            app:layout_constraintBottom_toBottomOf="@id/ivCover"
+            android:paddingLeft="@dimen/dp_4"
+            android:paddingRight="@dimen/dp_4"
+            android:paddingTop="@dimen/dp_2"
+            android:paddingBottom="@dimen/dp_2"
+            android:layout_margin="@dimen/dp_4"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="生活就是和喜欢的一切在一起"
+            android:text="@{item.data.title}"
+            android:textColor="@color/text_black"
+            android:maxLines="2"
+            android:textSize="@dimen/font_16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/ivCover"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_12"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="广告"
+            android:text="@{item.data.category}"
+            app:layout_constraintLeft_toLeftOf="@id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@id/ivCover"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:textSize="@dimen/font_12sp"
+            android:textColor="@color/text_gray"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/ic_share_grey"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/dp_10"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

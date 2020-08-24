@@ -21,9 +21,11 @@ data class Data(
         var itemList : ArrayList<ItemListItem>,
         var text: String,
         var detail: Detail,
+        var cover: Cover,
         var icon: String,
         var title: String,
         var description: String,
+        var category: String,
         var image: String,
         var rightText: String
 )

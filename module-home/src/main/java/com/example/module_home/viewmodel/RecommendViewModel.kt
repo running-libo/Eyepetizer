@@ -36,10 +36,10 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
      */
     fun getItemType(item: CommonItemBean): Int {
 
-        when(item.type) {
+        when(item.data.dataType) {
             ItemTypeConfig.ITEM_TYPE_TEXTCARD ->
                 return R.layout.item_title
-            ItemTypeConfig.ITEM_TYPE_FOLLOWCARD ->
+            ItemTypeConfig.ITEM_TYPE_FOLLOWCARD_UPPER ->
                 return R.layout.item_big_card
             ItemTypeConfig.ITEM_TYPE_PICTURE_FOLLOWCARD ->
                 return R.layout.item_big_card
@@ -49,6 +49,10 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
                 return R.layout.item_header
             ItemTypeConfig.ITEM_TYPE_VIDEOAD ->
                 return R.layout.item_videoad
+            ItemTypeConfig.ITEM_TYPE_BANNER ->
+                return R.layout.item_only_pic
+            ItemTypeConfig.ITEM_TYPE_VIDEOBEANFORCLIENT ->
+                return R.layout.item_small_card
         }
 
         return return R.layout.item_empty
