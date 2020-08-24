@@ -11,9 +11,6 @@ import kotlinx.android.synthetic.main.fragment_interaction.*
 class InteractionFragment : BaseLazyloadFragment() {
 
     override fun initView() {
-        tvLogin.setOnClickListener {
-            ARouter.getInstance().build(RoutePath.Login.LOGIN_ACTIVITY).navigation()
-        }
     }
 
     override fun getContentView(inflater: LayoutInflater, container: ViewGroup?): View {

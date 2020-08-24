@@ -5,6 +5,10 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.module_community.RecommendViewModel" />
+
+        <variable
             name="item"
             type="com.example.base.network.bean.CommonItemBean" />
     </data>
@@ -22,6 +26,7 @@
             android:layout_height="200dp"
             app:es_shape_type="rectangle"
             app:ease_radius="@dimen/dp_5"
+            widthHeight="@{viewModel.getWidthHeightArray(item.data.content.data.width, item.data.content.data.height)}"
             imgUrl="@{item.data.content.data.cover.feed}"
             app:layout_constraintTop_toTopOf="parent"/>
 

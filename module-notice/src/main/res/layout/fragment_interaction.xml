@@ -1,62 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".InteractionFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/ivTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/no_account_tip"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/dp_70"/>
+    <data>
 
-    <TextView
-        android:id="@+id/tvMissMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dont_miss_msg"
-        app:layout_constraintLeft_toLeftOf="@id/ivTip"
-        app:layout_constraintRight_toRightOf="@id/ivTip"
-        app:layout_constraintTop_toBottomOf="@id/ivTip"
-        android:textSize="@dimen/font_16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/dp_40"/>
+    </data>
 
-    <TextView
-        android:id="@+id/tvLoginUse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_can_use"
-        app:layout_constraintLeft_toLeftOf="@id/ivTip"
-        app:layout_constraintRight_toRightOf="@id/ivTip"
-        app:layout_constraintTop_toBottomOf="@id/tvMissMsg"
-        android:textSize="@dimen/font_12sp"
-        android:textColor="@color/text_gray"
-        android:layout_marginTop="@dimen/dp_10"/>
-
-    <TextView
-        android:id="@+id/tvLogin"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
-        android:gravity="center"
-        android:textSize="@dimen/font_16sp"
-        android:background="@color/blue"
-        android:layout_marginLeft="@dimen/dp_60"
-        android:layout_marginRight="@dimen/dp_60"
-        android:textColor="@color/white"
-        android:text="@string/login"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/dp_60"
-        app:layout_constraintLeft_toLeftOf="@id/ivTip"
-        app:layout_constraintRight_toRightOf="@id/ivTip"
-        app:layout_constraintTop_toBottomOf="@id/tvLoginUse"/>
+        android:layout_height="match_parent"
+        tools:context=".InteractionFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/ivTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/no_account_tip"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_70" />
+
+        <TextView
+            android:id="@+id/tvMissMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dont_miss_msg"
+            app:layout_constraintLeft_toLeftOf="@id/ivTip"
+            app:layout_constraintRight_toRightOf="@id/ivTip"
+            app:layout_constraintTop_toBottomOf="@id/ivTip"
+            android:textSize="@dimen/font_16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvLoginUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_can_use"
+            app:layout_constraintLeft_toLeftOf="@id/ivTip"
+            app:layout_constraintRight_toRightOf="@id/ivTip"
+            app:layout_constraintTop_toBottomOf="@id/tvMissMsg"
+            android:textSize="@dimen/font_12sp"
+            android:textColor="@color/text_gray"
+            android:layout_marginTop="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:gravity="center"
+            android:textSize="@dimen/font_16sp"
+            android:background="@color/blue"
+            android:layout_marginLeft="@dimen/dp_60"
+            android:layout_marginRight="@dimen/dp_60"
+            android:textColor="@color/white"
+            android:text="@string/login"
+            jumpPage='@{"/login/loginActivity"}'
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dp_60"
+            app:layout_constraintLeft_toLeftOf="@id/ivTip"
+            app:layout_constraintRight_toRightOf="@id/ivTip"
+            app:layout_constraintTop_toBottomOf="@id/tvLoginUse" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

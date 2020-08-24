@@ -38,4 +38,8 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
     }
 
     override fun getItemLayoutId(): Int = R.layout.item_recommend
+
+    fun getWidthHeightArray(width: Int, height: Int): Array<Int> {
+        return arrayOf(width, height)
+    }
 }

@@ -9,5 +9,4 @@ class RecomendFragment : BaseMvvmFragment<FragmentRecomendBinding, RecommendView
 
     }
 
-
 }
