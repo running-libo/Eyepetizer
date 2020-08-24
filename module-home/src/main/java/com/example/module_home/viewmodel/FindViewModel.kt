@@ -27,13 +27,16 @@ class FindViewModel(application: Application) : BasePageViewModel<CommonItemBean
             ItemTypeConfig.ITEM_TYPE_TEXTCARD -> {
                 itemBinding.set(BR.item, R.layout.item_title)
             }
-            ItemTypeConfig.ITEM_TYPE_BRIEFCARD -> {
+            ItemTypeConfig.ITEM_TYPE_TAGBRIEFCARD -> {
                 itemBinding.set(BR.item, R.layout.item_theme)
             }
             ItemTypeConfig.ITEM_TYPE_HORIZONTALSCROLLCARD -> {
                 var bannerViewModel = ScrollBannerViewModel(application)
                 bannerViewModel.setDatas(item.data.itemList)
                 itemBinding.set(BR.item, R.layout.item_scroll_banner).bindExtra(BR.viewModel, bannerViewModel)
+            }
+            ItemTypeConfig.ITEM_TYPE_LEFTRIGHT_TITLE -> {
+                itemBinding.set(BR.item, R.layout.item_leftright_title)
             }
             else ->
                 itemBinding.set(BR.item, R.layout.item_empty)

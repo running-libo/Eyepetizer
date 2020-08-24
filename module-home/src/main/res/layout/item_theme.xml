@@ -37,6 +37,7 @@
             app:layout_constraintTop_toTopOf="@id/ivCover"
             android:layout_marginTop="@dimen/dp_3"
             android:textSize="@dimen/font_14sp"
+            android:textStyle="bold"
             android:textColor="@color/text_black"
             android:singleLine="true"
             android:ellipsize="end"/>

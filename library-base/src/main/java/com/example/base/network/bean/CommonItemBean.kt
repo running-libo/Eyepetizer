@@ -24,7 +24,8 @@ data class Data(
         var icon: String,
         var title: String,
         var description: String,
-        var image: String
+        var image: String,
+        var rightText: String
 )
 
 data class Content(

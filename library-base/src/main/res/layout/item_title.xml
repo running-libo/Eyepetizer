@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             tools:text="今日开眼精选"
             android:text="@{item.data.text}"
+            android:textStyle="bold"
             android:textSize="@dimen/font_20sp"
             android:textColor="@color/black"
             android:paddingRight="@dimen/dp_13"

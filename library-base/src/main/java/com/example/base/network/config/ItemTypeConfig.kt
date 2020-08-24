@@ -8,7 +8,7 @@ package com.example.base.network.config
 object ItemTypeConfig {
 
     /**
-     * 视频标题类型
+     *文字频标题类型
      */
     const val ITEM_TYPE_TEXTCARD = "TextCard"
 
@@ -52,7 +52,17 @@ object ItemTypeConfig {
     /**
      * 主题item类型
      */
+    const val ITEM_TYPE_TAGBRIEFCARD = "TagBriefCard"
+
+    /**
+     * 简单卡片
+     */
     const val ITEM_TYPE_BRIEFCARD = "BriefCard"
+
+    /**
+     * 左右文字标题
+     */
+    const val ITEM_TYPE_LEFTRIGHT_TITLE = "TextCardWithRightAndLeftTitle"
 
     /**
      * banner2广告类型
@@ -63,5 +73,8 @@ object ItemTypeConfig {
 
     const val ITEM_TYPE_FOLLOWCARD_UPPER = "FollowCard"
 
+    /**
+     * 水平滑动banner
+     */
     const val ITEM_TYPE_HORIZONTALSCROLLCARD = "HorizontalScrollCard"
 }
