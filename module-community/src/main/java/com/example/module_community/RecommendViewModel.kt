@@ -32,18 +32,21 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
         }
     }
 
+    /**
+     * 根据itemtype类型对应的layout和需要的viewModel
+     */
     val onItemBind: OnItemBind<CommonItemBean> = OnItemBind { itemBinding, position, item ->
-        itemBinding.set(BR.item, getItemType(item)).bindExtra(BR.viewModel, this)
-    }
-
-    fun getItemType(item: CommonItemBean): Int {
         when(item.data.dataType) {
-            ITEM_TYPE_COLLECTION ->
-                return R.layout.item_recommend_header
+            ITEM_TYPE_COLLECTION -> {
+                var recommendHeaderViewModel = RecommendHeaderViewModel(application)
+                recommendHeaderViewModel.requestData(0)
+                itemBinding.set(BR.item, R.layout.item_recommend_scroll).bindExtra(BR.viewModel, recommendHeaderViewModel)
+            }
             ITEM_TYPE_FOLLOWCARD_UPPER ->
-                return R.layout.item_recommend
+                itemBinding.set(BR.item, R.layout.item_recommend).bindExtra(BR.viewModel, this)
+            else ->
+                itemBinding.set(BR.item, R.layout.item_empty)
         }
-        return R.layout.item_empty
     }
 
     var multiItemBinding = ItemBinding.of(onItemBind)

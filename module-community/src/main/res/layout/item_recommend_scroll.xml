@@ -6,19 +6,26 @@
         <variable
             name="item"
             type="com.example.base.network.bean.CommonItemBean" />
+        
+        <variable
+            name="viewModel"
+            type="com.example.module_community.RecommendHeaderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivCover"
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@mipmap/default_cover"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:overScrollMode="never"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            itemBinding="@{viewModel.itemBinding}"
+            items="@{viewModel.items}"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
