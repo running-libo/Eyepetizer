@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            itemBinding="@{viewModel.itemBinding}"
+            itemBinding="@{viewModel.multiItemBinding}"
             items="@{viewModel.items}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.base.network.widget.CircleImageView
+            android:id="@+id/ivDefaulHeader"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:src="@mipmap/icon_user"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/dp_50"
+            app:layout_constraintTop_toTopOf="parent"
+            app:es_shape_type="round" />
+
+        <TextView
+            android:id="@+id/tvLoginFocus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_can_focus"
+            app:layout_constraintTop_toBottomOf="@id/ivDefaulHeader"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="11sp"
+            android:textColor="@color/text_gray"
+            android:layout_marginTop="@dimen/dp_20" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_8"
+            android:background="@color/lightgray_line"
+            app:layout_constraintTop_toBottomOf="@id/tvLoginFocus"
+            android:layout_marginTop="@dimen/dp_45"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

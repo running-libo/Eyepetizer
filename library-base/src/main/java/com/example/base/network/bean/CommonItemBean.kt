@@ -7,7 +7,7 @@ package com.example.base.network.bean
  */
 data class CommonItemBean(
         var adIndex: Int,
-        var `data`: Data,
+        var data: Data,
         var id: Int,
         var tag: Any,
         var type: String
