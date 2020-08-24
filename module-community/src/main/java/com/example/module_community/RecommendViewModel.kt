@@ -3,6 +3,7 @@ package com.example.module_community
 import android.app.Application
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.base.network.base.viewmodel.BasePageViewModel
+import com.example.base.network.base.viewmodel.commonviewmodel.ScrollBannerViewModel
 import com.example.base.network.bean.CommomItemResponse
 import com.example.base.network.bean.CommonItemBean
 import com.example.base.network.config.ItemTypeConfig.ITEM_TYPE_COLLECTION
@@ -50,9 +51,9 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
             }
 
             ITEM_TYPE_HORIZONTALSCROLLCARD -> {
-                var recommendBannerViewModel = RecommendBannerViewModel(application)
+                var recommendBannerViewModel = ScrollBannerViewModel(application)
                 recommendBannerViewModel.setDatas(item.data.itemList)
-                itemBinding.set(BR.item, R.layout.item_recommend_banner).bindExtra(BR.viewModel, recommendBannerViewModel)
+                itemBinding.set(BR.item, R.layout.item_scroll_banner).bindExtra(BR.viewModel, recommendBannerViewModel)
             }
 
             else ->

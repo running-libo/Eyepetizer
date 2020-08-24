@@ -10,7 +10,7 @@ object ItemTypeConfig {
     /**
      * 视频标题类型
      */
-    const val ITEM_TYPE_TEXTCARD = "textCard"
+    const val ITEM_TYPE_TEXTCARD = "TextCard"
 
     /**
      * 视频大item类型
@@ -52,7 +52,7 @@ object ItemTypeConfig {
     /**
      * 主题item类型
      */
-    const val ITEM_TYPE_THEME = "briefCard"
+    const val ITEM_TYPE_BRIEFCARD = "BriefCard"
 
     /**
      * banner2广告类型

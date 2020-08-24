@@ -10,7 +10,7 @@
         
         <variable
             name="viewModel"
-            type="com.example.module_community.RecommendBannerViewModel" />
+            type="com.example.base.network.base.viewmodel.commonviewmodel.ScrollBannerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

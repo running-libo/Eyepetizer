@@ -2,6 +2,7 @@ package com.example.module_home.viewmodel
 
 import android.app.Application
 import com.example.base.network.base.viewmodel.BasePageViewModel
+import com.example.base.network.base.viewmodel.commonviewmodel.ScrollBannerViewModel
 import com.example.base.network.bean.CommomItemResponse
 import com.example.base.network.bean.CommonItemBean
 import com.example.base.network.config.ItemTypeConfig
@@ -22,7 +23,21 @@ import rx.schedulers.Schedulers
 class FindViewModel(application: Application) : BasePageViewModel<CommonItemBean>(application) {
 
     val onItemBind: OnItemBind<CommonItemBean> = OnItemBind { itemBinding, position, item ->
-        itemBinding.set(BR.item, getItemType(item))
+        when(item.data.dataType) {
+            ItemTypeConfig.ITEM_TYPE_TEXTCARD -> {
+                itemBinding.set(BR.item, R.layout.item_title)
+            }
+            ItemTypeConfig.ITEM_TYPE_BRIEFCARD -> {
+                itemBinding.set(BR.item, R.layout.item_theme)
+            }
+            ItemTypeConfig.ITEM_TYPE_HORIZONTALSCROLLCARD -> {
+                var bannerViewModel = ScrollBannerViewModel(application)
+                bannerViewModel.setDatas(item.data.itemList)
+                itemBinding.set(BR.item, R.layout.item_scroll_banner).bindExtra(BR.viewModel, bannerViewModel)
+            }
+            else ->
+                itemBinding.set(BR.item, R.layout.item_empty)
+        }
     }
 
     var multiItemBinding = ItemBinding.of(onItemBind)
@@ -34,28 +49,24 @@ class FindViewModel(application: Application) : BasePageViewModel<CommonItemBean
     /**
      * 根据实体类类型设置当前item布局类型
      */
-    fun getItemType(item: CommonItemBean): Int {
-
-        when(item.type) {
-            ItemTypeConfig.ITEM_TYPE_TEXTCARD ->
-                return R.layout.item_title
-            ItemTypeConfig.ITEM_TYPE_FOLLOWCARD ->
-                return R.layout.item_big_card
-            ItemTypeConfig.ITEM_TYPE_AUTOPLAY_FOLLOWCARD ->
-                return R.layout.item_big_card
-            ItemTypeConfig.ITEM_TYPE_SQUARECARD ->
-                return R.layout.item_header
-            ItemTypeConfig.ITEM_TYPE_VIDEOAD ->
-                return R.layout.item_videoad
-            ItemTypeConfig.ITEM_TYPE_THEME ->
-                return R.layout.item_theme
-            ItemTypeConfig.ITEM_TYPE_BANNER2 ->
-                return R.layout.item_banner2
-
-        }
-
-        return return R.layout.item_empty
-    }
+//    fun getItemType(item: CommonItemBean): Int {
+//
+//        when(item.data.dataType) {
+//            ItemTypeConfig.ITEM_TYPE_FOLLOWCARD ->
+//                return R.layout.item_big_card
+//            ItemTypeConfig.ITEM_TYPE_AUTOPLAY_FOLLOWCARD ->
+//                return R.layout.item_big_card
+//            ItemTypeConfig.ITEM_TYPE_SQUARECARD ->
+//                return R.layout.item_header
+//            ItemTypeConfig.ITEM_TYPE_VIDEOAD ->
+//                return R.layout.item_videoad
+//            ItemTypeConfig.ITEM_TYPE_BANNER2 ->
+//                return R.layout.item_banner2
+//
+//        }
+//
+//        return return R.layout.item_empty
+//    }
 
     override fun requestData(page: Int) {
         IHomeService.instance.getFindData()
