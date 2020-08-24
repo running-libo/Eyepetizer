@@ -4,8 +4,12 @@ import android.app.Application
 import com.example.base.network.base.viewmodel.BasePageViewModel
 import com.example.base.network.bean.CommomItemResponse
 import com.example.base.network.bean.CommonItemBean
+import com.example.base.network.config.ItemTypeConfig.ITEM_TYPE_COLLECTION
+import com.example.base.network.config.ItemTypeConfig.ITEM_TYPE_FOLLOWCARD_UPPER
 import com.example.module_community.net.ICommunityService
 import com.example.network.interceptor.service.ApiCallBack
+import me.tatarka.bindingcollectionadapter2.ItemBinding
+import me.tatarka.bindingcollectionadapter2.OnItemBind
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -19,6 +23,22 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
     init {
         refresh()
     }
+
+    val onItemBind: OnItemBind<CommonItemBean> = OnItemBind { itemBinding, position, item ->
+        itemBinding.set(BR.item, getItemType(item)).bindExtra(BR.viewModel, this)
+    }
+
+    fun getItemType(item: CommonItemBean): Int {
+        when(item.data.dataType) {
+            ITEM_TYPE_COLLECTION ->
+                return R.layout.item_recommend_header
+            ITEM_TYPE_FOLLOWCARD_UPPER ->
+                return R.layout.item_recommend
+        }
+        return R.layout.item_empty
+    }
+
+    var multiItemBinding = ItemBinding.of(onItemBind)
 
     override fun requestData(page: Int) {
 
@@ -37,9 +57,7 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
                 })
     }
 
-    override fun getItemLayoutId(): Int = R.layout.item_recommend
-
-    fun getWidthHeightArray(width: Int, height: Int): Array<Int> {
-        return arrayOf(width, height)
+    fun getWidthHeightArray(item: CommonItemBean): Array<Int> {
+        return arrayOf(item.data.content.data.width, item.data.content.data.height)
     }
 }

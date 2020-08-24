@@ -32,7 +32,6 @@ data class DataX(
         var releaseTime: Long,
         var resourceType: String,
         var selectedTime: Long,
-        var status: Int,
         var tags: List<Tag>,
         var title: String,
         var uid: Int,

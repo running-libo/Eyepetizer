@@ -23,7 +23,7 @@
             app:spanCount="2"
             android:paddingLeft="@dimen/dp_10"
             android:paddingRight="@dimen/dp_10"
-            itemBinding="@{viewModel.itemBinding}"
+            itemBinding="@{viewModel.multiItemBinding}"
             items="@{viewModel.items}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
