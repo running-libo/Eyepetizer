@@ -57,9 +57,9 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
      */
     fun switchTab(pos: Int) {
         supportFragmentManager.beginTransaction().apply {
-            hideAllFragments(this)
             when(pos) {
                 0 -> {
+                    hideAllFragments(this)
                     if (homeFragment == null) {
                         homeFragment = HomeFragment()
                         add(R.id.containerlayout, homeFragment!!)
@@ -69,6 +69,7 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                 }
 
                 1 -> {
+                    hideAllFragments(this)
                     if (communityFragment == null) {
                         communityFragment = ARouter.getInstance().build(RoutePath.Community.COMMUNICATION_FRAGMENT).navigation() as Fragment
                         add(R.id.containerlayout, communityFragment!!)
@@ -82,6 +83,7 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                 }
 
                 3 -> {
+                    hideAllFragments(this)
                     if (notificationFragment == null) {
                         notificationFragment = ARouter.getInstance().build(RoutePath.Notification.NOTIFICATION_FRAGMENT).navigation() as Fragment
                         add(R.id.containerlayout, notificationFragment!!)
@@ -91,6 +93,7 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
                 }
 
                 4 -> {
+                    hideAllFragments(this)
                     if (mineFragment == null) {
                         mineFragment = ARouter.getInstance().build(RoutePath.Mine.MINE_FRAGMENT).navigation() as Fragment
                         add(R.id.containerlayout, mineFragment!!)

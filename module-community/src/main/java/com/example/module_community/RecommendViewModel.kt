@@ -1,6 +1,7 @@
 package com.example.module_community
 
 import android.app.Application
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.base.network.base.viewmodel.BasePageViewModel
 import com.example.base.network.bean.CommomItemResponse
 import com.example.base.network.bean.CommonItemBean
@@ -19,9 +20,16 @@ import rx.schedulers.Schedulers
  * description
  */
 class RecommendViewModel(application: Application) : BasePageViewModel<CommonItemBean>(application) {
+    var layoutManager = GridLayoutManager(application, 2)
 
     init {
         refresh()
+
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return if (position <=1) 2 else 1
+            }
+        }
     }
 
     val onItemBind: OnItemBind<CommonItemBean> = OnItemBind { itemBinding, position, item ->
