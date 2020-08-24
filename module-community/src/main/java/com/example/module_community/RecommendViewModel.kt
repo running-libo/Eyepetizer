@@ -39,7 +39,7 @@ class RecommendViewModel(application: Application) : BasePageViewModel<CommonIte
         when(item.data.dataType) {
             ITEM_TYPE_COLLECTION -> {
                 var recommendHeaderViewModel = RecommendHeaderViewModel(application)
-                recommendHeaderViewModel.requestData(0)
+                recommendHeaderViewModel.setDatas(item.data.itemList)
                 itemBinding.set(BR.item, R.layout.item_recommend_scroll).bindExtra(BR.viewModel, recommendHeaderViewModel)
             }
             ITEM_TYPE_FOLLOWCARD_UPPER ->

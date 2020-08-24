@@ -18,6 +18,7 @@ data class Data(
         var content: Content,
         var dataType: String,
         var header: Header,
+        var itemList : ArrayList<ItemListItem>,
         var text: String,
         var detail: Detail,
         var icon: String,

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="item"
-            type="String" />
+            type="com.example.base.network.bean.ItemListItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="190dp"
-        android:layout_height="@dimen/dp_80"
+        android:layout_width="180dp"
+        android:layout_height="@dimen/dp_60"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
         android:layout_marginTop="@dimen/dp_10"
@@ -20,11 +21,38 @@
             android:id="@+id/ivCover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/default_cover"
+            tools:src="@mipmap/default_cover"
+            imgUrl="@{item.data.bgPicture}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="centerCrop"
             app:es_shape_type="rectangle"
             app:ease_radius="@dimen/dp_5" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="主题创作广场"
+            android:text="@{item.data.title}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_14"/>
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="发布你的作品和日常"
+            android:text="@{item.data.subTitle}"
+            android:textColor="@color/half_white"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            android:textSize="@dimen/font_12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
