@@ -7,10 +7,13 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.network.base.activity.BaseMvvmActivity
 import com.example.base.network.route.RoutePath
+import com.example.base.network.utils.ToastUtil
 import com.example.module_home.R
 import com.example.module_home.databinding.ActivityMainBinding
 import com.example.module_home.viewmodel.HomeViewModel
 import com.example.module_home.widget.HomeNavigationBarView.OnSelectListener
+import com.example.network.BuildConfig
+import com.example.network.interceptor.service.Api
 import kotlinx.android.synthetic.main.activity_main.*
 
 @Route(path = RoutePath.Home.HOME_ACTIVITY)
@@ -41,6 +44,21 @@ class MainActivity : BaseMvvmActivity<ActivityMainBinding, HomeViewModel>() {
     }
 
     override fun init() {
+
+        //这里测试一下环境是否正确
+        when (BuildConfig.CUR_ENV) {
+            BuildConfig.IS_DEV -> {
+                Toast.makeText(applicationContext, "开发环境", Toast.LENGTH_SHORT).show()
+            }
+            BuildConfig.IS_BETA -> {
+                Toast.makeText(applicationContext, "测试环境", Toast.LENGTH_SHORT).show()
+            }
+            BuildConfig.IS_RELEASE -> {
+                Toast.makeText(applicationContext, "正式环境", Toast.LENGTH_SHORT).show()
+            }
+            else -> ""
+        }
+
         viewHomeNavigation.setSelectListener(object: OnSelectListener {
             override fun onSelected(pos: Int) {
                 switchTab(pos)

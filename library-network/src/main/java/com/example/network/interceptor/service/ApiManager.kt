@@ -1,9 +1,7 @@
 package com.example.network.interceptor.service
 
-import androidx.recyclerview.widget.RecyclerView
 import com.example.base.network.config.AppConfig
 import com.example.base.network.config.DirConfig
-import com.example.network.interceptor.service.Api.Companion.SERVER_ADDRESS
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -36,7 +34,7 @@ object ApiManager {
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-                .baseUrl(SERVER_ADDRESS)
+                .baseUrl(Api.getBaseUrl())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(mOkHttpClient)

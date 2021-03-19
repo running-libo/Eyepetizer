@@ -1,6 +1,8 @@
 package com.example.network.interceptor.service
 
-import com.example.base.network.config.AppConfig
+import android.widget.Toast
+import com.example.base.network.utils.ToastUtil
+import com.example.network.BuildConfig
 
 /**
  * create by libo
@@ -11,14 +13,36 @@ interface Api {
 
     companion object {
         /** *******************************************  IP配置  ********************************************  */
-        /** 正式服务器地址  */
-        const val SERVER_ADDRESS_RELEASE = "http://baobab.kaiyanapp.com/api/"
+
+        /** 开发服务器地址  */
+        private const val SERVER_ADDRESS_DEV = "http://baobab.kaiyanapp.com/api/"
 
         /** 测试服务器地址  */
-        const val SERVER_ADDRESS_DEBUG = "http://baobab.kaiyanapp.com/api/"
+        private const val SERVER_ADDRESS_BETA = "http://baobab.kaiyanapp.com/api/"
 
-        /** 服务器域名  */
-        val SERVER_ADDRESS = if (AppConfig.isDebug) SERVER_ADDRESS_DEBUG else SERVER_ADDRESS_RELEASE
+        /** 正式服务器地址  */
+        private const val SERVER_ADDRESS_RELEASE = "http://baobab.kaiyanapp.com/api/"
+
+        /**
+         * 获取服务器域名
+         */
+        fun getBaseUrl(): String? {
+            return when (BuildConfig.CUR_ENV) {
+                BuildConfig.IS_DEV -> {
+                    ToastUtil.show("开发环境")
+                    SERVER_ADDRESS_DEV
+                }
+                BuildConfig.IS_BETA -> {
+                    ToastUtil.show("测试环境")
+                    SERVER_ADDRESS_BETA
+                }
+                BuildConfig.IS_RELEASE -> {
+                    ToastUtil.show("正式环境")
+                    SERVER_ADDRESS_RELEASE
+                }
+                else -> ""
+            }
+        }
 
         /**
          * 首页-发现

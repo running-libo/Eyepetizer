@@ -23,6 +23,7 @@ android {
         } else if (curEnv == isRelease){
             manifestPlaceholders.put('APP_NAME', "开眼-正式")
         }
+
     }
 
     buildTypes {

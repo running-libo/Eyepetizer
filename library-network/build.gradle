@@ -14,6 +14,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        //将环境变量注入到buildConfig中
+        buildConfigField 'int', 'CUR_ENV', "$curEnv"
+        buildConfigField 'int', 'IS_DEV', "0"
+        buildConfigField 'int', 'IS_BETA', "1"
+        buildConfigField 'int', 'IS_RELEASE', "2"
     }
 
     buildTypes {
