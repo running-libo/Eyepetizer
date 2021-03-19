@@ -90,6 +90,8 @@ dependencies {
     //videoplayer
     api 'com.shuyu:GSYVideoPlayer:7.1.5'
 
+    api 'com.orhanobut:logger:2.2.0'
+
 }
 repositories {
     mavenCentral()

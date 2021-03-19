@@ -26,5 +26,4 @@ class BaseLiveData {
 
     /** 切换到列表布局 */
     val switchToList by lazy { MutableLiveData<Int>() }
-
 }

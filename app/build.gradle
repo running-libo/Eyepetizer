@@ -2,18 +2,27 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+def ext = rootProject.ext.commonConfit
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.0"
 
     defaultConfig {
         applicationId "com.example.mvvmframe"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion ext.minSdkVersion
+        targetSdkVersion ext.targetSdkVersion
+        versionCode ext.versionCode
+        versionName ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        if (curEnv == isDev) {
+            manifestPlaceholders.put('APP_NAME', "开眼-开发")
+        } else if (curEnv == isBeta) {
+            manifestPlaceholders.put('APP_NAME', "开眼-测试")
+        } else if (curEnv == isRelease){
+            manifestPlaceholders.put('APP_NAME', "开眼-正式")
+        }
     }
 
     buildTypes {

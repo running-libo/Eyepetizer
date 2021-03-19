@@ -5,6 +5,8 @@ import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.BuildConfig
 import com.example.base.R
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 import com.scwang.smartrefresh.header.MaterialHeader
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshHeader
@@ -30,6 +32,8 @@ class BaseApplication : Application() {
         initARouter()
 
         initSmartRefreshLayout()
+
+        Logger.addLogAdapter(AndroidLogAdapter())
     }
 
     /**

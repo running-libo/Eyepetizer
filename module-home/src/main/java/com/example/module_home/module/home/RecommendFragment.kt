@@ -43,6 +43,7 @@ class RecommendFragment : BaseMvvmFragment<FragmentRecommendBinding, RecommendVi
         viewModel.baseLiveData.switchToList.observe(this, Observer {
             viewEmpty.visibility = View.GONE
         })
+
     }
 
 }

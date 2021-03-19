@@ -1,6 +1,7 @@
 package com.example.network.interceptor.interceptor
 
 import com.example.base.network.utils.LogUtils
+import com.orhanobut.logger.Logger
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -20,6 +21,8 @@ class LoggingInterceptor : Interceptor {
         val response = chain.proceed(request)
         LogUtils.d(String.format("发送请求  %s", request.url()))
         val responseBody = response.peekBody(byteCount.toLong())
+
+        Logger.d(responseBody.string())
         LogUtils.d(String.format("接收响应  %s", responseBody.string()))
         return response
     }

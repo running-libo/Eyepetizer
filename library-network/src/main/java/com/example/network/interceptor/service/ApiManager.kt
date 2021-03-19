@@ -1,5 +1,6 @@
 package com.example.network.interceptor.service
 
+import androidx.recyclerview.widget.RecyclerView
 import com.example.base.network.config.AppConfig
 import com.example.base.network.config.DirConfig
 import com.example.network.interceptor.service.Api.Companion.SERVER_ADDRESS
