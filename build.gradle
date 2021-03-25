@@ -37,6 +37,23 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '605c8c634639bfa6ebf357c5'
+                password '0j)7TdpkQy6B'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2088958-release-NjyZEe/'
+        }
+        maven {
+            credentials {
+                username '605c8c634639bfa6ebf357c5'
+                password '0j)7TdpkQy6B'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2088958-snapshot-Svd6Nt/'
+        }
     }
 }
 

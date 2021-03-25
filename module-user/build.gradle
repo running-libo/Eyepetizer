@@ -52,3 +52,26 @@ dependencies {
     kapt 'com.alibaba:arouter-compiler:1.1.2'
 
 }
+
+apply plugin: 'maven'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: 'https://packages.aliyun.com/maven/repository/2088958-release-NjyZEe/') {
+                authentication(
+                        userName: '605c8c634639bfa6ebf357c5',
+                        password: '0j)7TdpkQy6B'
+                )
+            }
+            snapshotRepository(url: 'https://packages.aliyun.com/maven/repository/2088958-snapshot-Svd6Nt/') {
+                authentication(
+                        userName: '605c8c634639bfa6ebf357c5',
+                        password: '0j)7TdpkQy6B'
+                )
+            }
+            pom.version = '1.0.0'
+            pom.artifactId = 'openeyes-user'
+            pom.groupId = 'com.libo'
+        }
+    }
+}
