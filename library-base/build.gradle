@@ -35,7 +35,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.libo:openeyes-res:1.1.0'
+    implementation 'com.libo:library-res:1.1.0'
 
     api 'androidx.constraintlayout:constraintlayout:1.1.3'
 
@@ -114,7 +114,7 @@ uploadArchives {
                 )
             }
             pom.version = '1.1.0'
-            pom.artifactId = 'openeyes-base'
+            pom.artifactId = 'library-base'
             pom.groupId = 'com.libo'
         }
     }

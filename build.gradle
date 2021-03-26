@@ -21,6 +21,51 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+
+    //根据是否为远程依赖设置依赖远程库还是本地库
+    ext.projectCompat = { name ->
+        def realName = name.replace(":", "")
+        if (isMaven(realName)) {
+            return "com.libo:${realName}:${mavenVersion(realName)}"
+        } else {
+            return project(name)
+        }
+    }
+
+    //判断当前组件是否为远程依赖
+    ext.isMaven = { name ->
+        Properties properties = new Properties()
+        def file = rootProject.file("${name}/maven.properties")
+        if (file.exists()) {
+            InputStream inputStream = file.newDataInputStream()
+            properties.load(inputStream)
+            def str = properties.getProperty('MAVEN')
+            if (str == null) {
+                return false
+            } else {
+                return Boolean.parseBoolean(str)
+            }
+        }
+        return false
+    }
+
+    //读取maven.property文件中库版本
+    ext.mavenVersion = { name ->
+        println("mavenVersion::${name}")
+        Properties properties = new Properties()
+        def file = rootProject.file("${name}/maven.properties")
+        if (file.exists()) {
+            InputStream inputStream = file.newDataInputStream()
+            properties.load(inputStream)
+            def str = properties.getProperty('VERSION')
+            if (str == null) {
+                throw Exception(file.path + "    VERSION == null")
+            } else {
+                return str
+            }
+        }
+        return ""
+    }
 }
 
 //设置全局SDK版本

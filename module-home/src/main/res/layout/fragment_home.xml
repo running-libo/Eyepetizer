@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".module.home.HomeFragment"
+        android:background="@color/black"
         tools:ignore="MissingDefaultResource">
 
         <androidx.constraintlayout.widget.ConstraintLayout

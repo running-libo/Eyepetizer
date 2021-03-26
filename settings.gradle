@@ -1,12 +1,35 @@
-//include ':module-play'
-//include ':module-notice'
-//include ':module-community'
-//include ':module-user'
-//include ':module-login'
-//include ':module-home'
-//include ':module-entrance'
-//include ':library-res'
-//include ':library-network'
-//include ':library-base'
-include ':app'
+includeCompat ':module-play'
+includeCompat ':module-notice'
+includeCompat ':module-community'
+includeCompat ':module-user'
+includeCompat ':module-login'
+includeCompat ':module-home'
+includeCompat ':module-entrance'
+includeCompat ':library-res'
+includeCompat ':library-network'
+includeCompat ':library-base'
+includeCompat ':app'
 rootProject.name = "MvvmFrame"
+
+def includeCompat(String name) {
+    if (!isMaven(name)) {
+        include(name)
+    }
+}
+
+def isMaven(String name) {
+    println("isMaven" + name)
+    Properties properties = new Properties()
+    def file = new File("${name.replace(":", "")}/maven.properties")
+    if (file.exists()) {
+        InputStream inputStream = file.newDataInputStream()
+        properties.load(inputStream)
+        def str = properties.getProperty('MAVEN')
+        if (str == null) {
+            return false
+        } else {
+            return Boolean.parseBoolean(str)
+        }
+    }
+    return false
+}

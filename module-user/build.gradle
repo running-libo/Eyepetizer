@@ -47,7 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.libo:openeyes-network:1.1.0'
+    implementation 'com.libo:library-network:1.1.0'
 
     kapt 'com.alibaba:arouter-compiler:1.1.2'
 
@@ -69,8 +69,8 @@ uploadArchives {
                         password: '0j)7TdpkQy6B'
                 )
             }
-            pom.version = '1.1.0'
-            pom.artifactId = 'openeyes-user'
+            pom.version = '1.2.0'
+            pom.artifactId = 'module-user'
             pom.groupId = 'com.libo'
         }
     }

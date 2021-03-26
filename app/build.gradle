@@ -46,32 +46,21 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-
     implementation "androidx.core:core-ktx:+"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-//    implementation project(":library-network")
-//    implementation project(":module-entrance")
-//    implementation project(":module-home")
-//    implementation project(":module-community")
-//    implementation project(":module-notice")
-//    implementation project(":module-user")
-//    implementation project(":module-login")
-//    implementation project(":module-play")
-//    implementation 'com.libo:openeyes-res:1.1.0'
-//    implementation 'com.libo:openeyes-network:1.1.0'
-//    implementation 'com.libo:openeyes-base:1.1.0'
+    implementation projectCompat(":library-res")
+    implementation projectCompat(":library-base")
+    implementation projectCompat(":library-network")
+    implementation projectCompat(":module-entrance")
+    implementation projectCompat(":module-home")
+    implementation projectCompat(":module-community")
+    implementation projectCompat(":module-notice")
+    implementation projectCompat(":module-user")
+    implementation projectCompat(":module-login")
+    implementation projectCompat(":module-play")
 
-
-    implementation 'com.libo:openeyes-user:1.1.0'
-    implementation 'com.libo:openeyes-play:1.1.0'
-    implementation 'com.libo:openeyes-notice:1.1.0'
-    implementation 'com.libo:openeyes-login:1.1.0'
-    implementation 'com.libo:openeyes-home:1.1.0'
-    implementation 'com.libo:openeyes-entrance:1.1.0'
-    implementation 'com.libo:openeyes-community:1.1.0'
 }
 repositories {
     mavenCentral()

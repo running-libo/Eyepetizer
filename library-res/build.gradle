@@ -52,7 +52,7 @@ uploadArchives {
                 )
             }
             pom.version = '1.1.0'
-            pom.artifactId = 'openeyes-res'
+            pom.artifactId = 'library-res'
             pom.groupId = 'com.libo'
         }
     }
