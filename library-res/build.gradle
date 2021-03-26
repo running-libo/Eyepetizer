@@ -51,7 +51,7 @@ uploadArchives {
                         password: '0j)7TdpkQy6B'
                 )
             }
-            pom.version = '1.0.0'
+            pom.version = '1.1.0'
             pom.artifactId = 'openeyes-res'
             pom.groupId = 'com.libo'
         }

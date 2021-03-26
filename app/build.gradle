@@ -52,14 +52,26 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation project(":library-network")
-    implementation project(":module-entrance")
-    implementation project(":module-home")
-    implementation project(":module-community")
-    implementation project(":module-notice")
-    implementation project(":module-user")
-    implementation project(":module-login")
-    implementation project(":module-play")
+//    implementation project(":library-network")
+//    implementation project(":module-entrance")
+//    implementation project(":module-home")
+//    implementation project(":module-community")
+//    implementation project(":module-notice")
+//    implementation project(":module-user")
+//    implementation project(":module-login")
+//    implementation project(":module-play")
+//    implementation 'com.libo:openeyes-res:1.1.0'
+//    implementation 'com.libo:openeyes-network:1.1.0'
+//    implementation 'com.libo:openeyes-base:1.1.0'
+
+
+    implementation 'com.libo:openeyes-user:1.1.0'
+    implementation 'com.libo:openeyes-play:1.1.0'
+    implementation 'com.libo:openeyes-notice:1.1.0'
+    implementation 'com.libo:openeyes-login:1.1.0'
+    implementation 'com.libo:openeyes-home:1.1.0'
+    implementation 'com.libo:openeyes-entrance:1.1.0'
+    implementation 'com.libo:openeyes-community:1.1.0'
 }
 repositories {
     mavenCentral()

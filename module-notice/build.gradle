@@ -46,7 +46,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project (':library-network')
+    implementation 'com.libo:openeyes-network:1.1.0'
 
     kapt 'com.alibaba:arouter-compiler:1.1.2'
 }
@@ -67,7 +67,7 @@ uploadArchives {
                         password: '0j)7TdpkQy6B'
                 )
             }
-            pom.version = '1.0.0'
+            pom.version = '1.1.0'
             pom.artifactId = 'openeyes-notice'
             pom.groupId = 'com.libo'
         }

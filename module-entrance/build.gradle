@@ -50,7 +50,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation project(':library-network')
+    implementation 'com.libo:openeyes-network:1.1.0'
 
 }
 
@@ -70,7 +70,7 @@ uploadArchives {
                         password: '0j)7TdpkQy6B'
                 )
             }
-            pom.version = '1.0.0'
+            pom.version = '1.1.0'
             pom.artifactId = 'openeyes-entrance'
             pom.groupId = 'com.libo'
         }
