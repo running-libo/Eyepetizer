@@ -13,8 +13,15 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/library-base" />
+            <option value="$PROJECT_DIR$/library-network" />
+            <option value="$PROJECT_DIR$/library-res" />
+            <option value="$PROJECT_DIR$/module-community" />
             <option value="$PROJECT_DIR$/module-entrance" />
             <option value="$PROJECT_DIR$/module-home" />
+            <option value="$PROJECT_DIR$/module-login" />
+            <option value="$PROJECT_DIR$/module-notice" />
+            <option value="$PROJECT_DIR$/module-play" />
+            <option value="$PROJECT_DIR$/module-user" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
